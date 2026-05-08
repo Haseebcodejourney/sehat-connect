@@ -1,0 +1,55 @@
+import { useState, useEffect } from 'react';
+import AppointmentCard from '../../features/appointments/components/AppointmentCard';
+import PageLoader from '../../components/common/PageLoader';
+import EmptyState from '../../components/common/EmptyState';
+import '../../styles/pages/_appointments.scss';
+
+export default function MyAppointments() {
+  const [appointments, setAppointments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState('upcoming'); // upcoming, completed, cancelled
+
+  useEffect(() => {
+    // TODO: Fetch appointments based on filter
+    setLoading(false);
+  }, [filter]);
+
+  if (loading) return <PageLoader />;
+
+  return (
+    <div className="my-appointments">
+      <h1>My Appointments</h1>
+
+      <div className="my-appointments__filters">
+        <button
+          className={`filter-btn ${filter === 'upcoming' ? 'active' : ''}`}
+          onClick={() => setFilter('upcoming')}
+        >
+          Upcoming
+        </button>
+        <button
+          className={`filter-btn ${filter === 'completed' ? 'active' : ''}`}
+          onClick={() => setFilter('completed')}
+        >
+          Completed
+        </button>
+        <button
+          className={`filter-btn ${filter === 'cancelled' ? 'active' : ''}`}
+          onClick={() => setFilter('cancelled')}
+        >
+          Cancelled
+        </button>
+      </div>
+
+      <div className="my-appointments__list">
+        {appointments.length === 0 ? (
+          <EmptyState title="No appointments" description={`You have no ${filter} appointments`} />
+        ) : (
+          appointments.map((appointment) => (
+            <AppointmentCard key={appointment.id} appointment={appointment} />
+          ))
+        )}
+      </div>
+    </div>
+  );
+}

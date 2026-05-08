@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "role": "patient",
+      "phone": "(555) 123-0000",
+      "dob": "1990-05-15",
+      "createdAt": "2024-01-01"
+    },
+    {
+      "id": 2,
+      "name": "Dr. Ahmed Hassan",
+      "email": "ahmed@example.com",
+      "role": "doctor",
+      "phone": "(555) 123-4567",
+      "licenseNumber": "LIC123456",
+      "createdAt": "2024-01-01"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+// Input component styles
+.input {
+  width: 100%;
+  padding: $spacing-md;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  font-family: inherit;
+  @include transition;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    @include box-shadow(0 0 0 3px rgba($primary-color, 0.1));
+  }
+
+  &:disabled {
+    background-color: $bg-light;
+    color: $text-light;
+    cursor: not-allowed;
+  }
+
+  &::placeholder {
+    color: $text-lighter;
+  }
+
+  &.error {
+    border-color: $danger-color;
+
+    &:focus {
+      @include box-shadow(0 0 0 3px rgba($danger-color, 0.1));
+    }
+  }
+}
+
+// Select component styles
+.select {
+  width: 100%;
+  padding: $spacing-md;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  font-family: inherit;
+  background-color: $bg-color;
+  cursor: pointer;
+  @include transition;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    @include box-shadow(0 0 0 3px rgba($primary-color, 0.1));
+  }
+
+  &:disabled {
+    background-color: $bg-light;
+    color: $text-light;
+    cursor: not-allowed;
+  }
+}
+
+// Textarea styles
+textarea {
+  width: 100%;
+  padding: $spacing-md;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  font-family: inherit;
+  @include transition;
+  resize: vertical;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    @include box-shadow(0 0 0 3px rgba($primary-color, 0.1));
+  }
+
+  &:disabled {
+    background-color: $bg-light;
+    color: $text-light;
+    cursor: not-allowed;
+  }
+}
+
+// Form group styles
+.form-group {
+  margin-bottom: $spacing-lg;
+
+  label {
+    display: block;
+    margin-bottom: $spacing-sm;
+    font-weight: $font-weight-medium;
+    color: $text-color;
+  }
+
+  .input,
+  .select,
+  textarea {
+    width: 100%;
+  }
+
+  .error-message {
+    color: $danger-color;
+    font-size: $font-size-sm;
+    margin-top: $spacing-sm;
+  }
+}

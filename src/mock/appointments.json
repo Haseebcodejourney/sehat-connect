@@ -1,0 +1,28 @@
+{
+  "appointments": [
+    {
+      "id": 1,
+      "doctorId": 1,
+      "doctorName": "Dr. Ahmed Hassan",
+      "patientId": 1,
+      "patientName": "John Doe",
+      "date": "2024-12-20",
+      "time": "10:00",
+      "status": "confirmed",
+      "specialty": "Cardiology",
+      "reason": "Regular checkup"
+    },
+    {
+      "id": 2,
+      "doctorId": 2,
+      "doctorName": "Dr. Fatima Khan",
+      "patientId": 1,
+      "patientName": "John Doe",
+      "date": "2024-12-25",
+      "time": "14:30",
+      "status": "pending",
+      "specialty": "Dermatology",
+      "reason": "Skin consultation"
+    }
+  ]
+}

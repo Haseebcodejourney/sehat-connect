@@ -1,0 +1,83 @@
+// Doctor detail page
+.doctor-detail {
+  &__header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: $spacing-xl;
+    margin-bottom: $spacing-2xl;
+
+    @include mobile-only {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__image {
+    width: 200px;
+    height: 200px;
+    border-radius: $border-radius-lg;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      margin-top: 0;
+    }
+  }
+
+  &__specialty {
+    color: $primary-color;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-md;
+  }
+
+  &__experience {
+    color: $text-light;
+    margin-bottom: $spacing-md;
+  }
+
+  &__rating {
+    color: $warning-color;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.doctor-detail {
+  section {
+    margin-bottom: $spacing-2xl;
+
+    h2 {
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  &__about {
+    background-color: $bg-light;
+    padding: $spacing-xl;
+    border-radius: $border-radius-lg;
+  }
+
+  &__availability {
+    background-color: $bg-light;
+    padding: $spacing-xl;
+    border-radius: $border-radius-lg;
+  }
+
+  &__reviews {
+    background-color: $bg-light;
+    padding: $spacing-xl;
+    border-radius: $border-radius-lg;
+  }
+}
+
+// Appointments page
+.my-appointments,
+.doctor-appointments {
+  h1 {
+    margin-bottom: $spacing-xl;
+  }
+}

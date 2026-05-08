@@ -1,0 +1,37 @@
+{
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Dr. Ahmed Hassan",
+      "specialty": "Cardiology",
+      "experience": 12,
+      "rating": 4.8,
+      "image": "https://via.placeholder.com/150",
+      "bio": "Experienced cardiologist with 12 years of practice in treating cardiac conditions.",
+      "phone": "(555) 123-4567",
+      "email": "ahmed@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Dr. Fatima Khan",
+      "specialty": "Dermatology",
+      "experience": 8,
+      "rating": 4.6,
+      "image": "https://via.placeholder.com/150",
+      "bio": "Specialist in skin disorders and cosmetic dermatology.",
+      "phone": "(555) 234-5678",
+      "email": "fatima@example.com"
+    },
+    {
+      "id": 3,
+      "name": "Dr. Muhammad Ali",
+      "specialty": "Neurology",
+      "experience": 15,
+      "rating": 4.9,
+      "image": "https://via.placeholder.com/150",
+      "bio": "Expert neurologist with focus on neurological disorders and headache management.",
+      "phone": "(555) 345-6789",
+      "email": "ali@example.com"
+    }
+  ]
+}

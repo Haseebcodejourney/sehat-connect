@@ -1,0 +1,163 @@
+// Booking page
+.book-appointment {
+  max-width: 800px;
+
+  h1 {
+    margin-bottom: $spacing-xl;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+
+    @include mobile-only {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__form {
+    background-color: $bg-light;
+    padding: $spacing-xl;
+    border-radius: $border-radius-lg;
+  }
+
+  &__confirmation {
+    background-color: lighten($success-color, 40%);
+    color: $success-color;
+    padding: $spacing-xl;
+    border-radius: $border-radius-lg;
+    text-align: center;
+
+    h2 {
+      color: inherit;
+    }
+  }
+}
+
+// Booking form
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  input,
+  select {
+    width: 100%;
+  }
+}
+
+// Availability page
+.availability {
+  max-width: 800px;
+
+  &__section {
+    background-color: $bg-light;
+    padding: $spacing-xl;
+    border-radius: $border-radius-lg;
+    margin-bottom: $spacing-xl;
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+  }
+}
+
+// Slot picker
+.slot-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: $spacing-lg;
+
+  &__day {
+    background-color: $bg-color;
+    border: 1px solid $border-color;
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+
+    h4 {
+      margin-top: 0;
+      margin-bottom: $spacing-md;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      margin-bottom: $spacing-md;
+
+      input[type='checkbox'] {
+        cursor: pointer;
+      }
+    }
+
+    input[type='time'] {
+      width: 100%;
+      margin-bottom: $spacing-sm;
+    }
+  }
+}
+
+// Reviews
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.review-item {
+  background-color: $bg-light;
+  padding: $spacing-lg;
+  border-radius: $border-radius-md;
+  border-left: 4px solid $primary-color;
+
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-md;
+  }
+
+  &__rating {
+    color: $warning-color;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__text {
+    color: $text-color;
+    margin-bottom: $spacing-md;
+  }
+
+  &__date {
+    color: $text-light;
+  }
+}
+
+.review-form {
+  background-color: $bg-light;
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  margin-bottom: $spacing-xl;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  &__error {
+    background-color: lighten($danger-color, 40%);
+    color: $danger-color;
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+    margin-bottom: $spacing-lg;
+    font-size: $font-size-sm;
+  }
+
+  textarea {
+    width: 100%;
+    margin-bottom: $spacing-lg;
+  }
+}
