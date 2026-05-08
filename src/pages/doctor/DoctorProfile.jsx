@@ -1,19 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Input from '../../components/ui/Input';
 import Button from '../../components/ui/Button';
-import PageLoader from '../../components/common/PageLoader';
 
 export default function DoctorProfile() {
-  const [profile, setProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [profile] = useState(null);
   const [editing, setEditing] = useState(false);
-
-  useEffect(() => {
-    // TODO: Fetch doctor profile
-    setLoading(false);
-  }, []);
-
-  if (loading) return <PageLoader />;
 
   return (
     <div className="profile">

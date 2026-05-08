@@ -1,8 +1,8 @@
-import { useState, useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
-export function usePagination(initialPage = 1, pageSize = 10) {
+export function usePagination(initialPage = 1, initialPageSize = 10) {
   const [page, setPage] = useState(initialPage);
-  const [pageSize, setPageSize] = useState(pageSize);
+  const [pageSize, setPageSize] = useState(initialPageSize);
 
   const nextPage = useCallback(() => {
     setPage((prev) => prev + 1);

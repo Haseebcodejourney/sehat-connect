@@ -1,18 +1,6 @@
-import { useEffect, useState } from 'react';
 import Button from '../../components/ui/Button';
-import PageLoader from '../../components/common/PageLoader';
 
 export default function PatientDashboard() {
-  const [stats, setStats] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // TODO: Fetch patient dashboard stats
-    setLoading(false);
-  }, []);
-
-  if (loading) return <PageLoader />;
-
   return (
     <div className="patient-dashboard">
       <h1>Welcome, Patient</h1>

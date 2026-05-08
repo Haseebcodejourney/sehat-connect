@@ -1,19 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import AppointmentCard from '../../features/appointments/components/AppointmentCard';
-import PageLoader from '../../components/common/PageLoader';
 import EmptyState from '../../components/common/EmptyState';
 
 export default function MyAppointments() {
-  const [appointments, setAppointments] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [appointments] = useState([]);
   const [filter, setFilter] = useState('upcoming'); // upcoming, completed, cancelled
-
-  useEffect(() => {
-    // TODO: Fetch appointments based on filter
-    setLoading(false);
-  }, [filter]);
-
-  if (loading) return <PageLoader />;
 
   return (
     <div className="my-appointments">

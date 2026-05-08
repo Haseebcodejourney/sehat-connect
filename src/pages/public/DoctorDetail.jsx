@@ -1,22 +1,13 @@
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import Button from '../../components/ui/Button';
-import PageLoader from '../../components/common/PageLoader';
 import ErrorState from '../../components/common/ErrorState';
 import ReviewList from '../../features/reviews/components/ReviewList';
 
 export default function DoctorDetail() {
   const { id } = useParams();
-  const [doctor, setDoctor] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const doctor = null;
+  const error = null;
 
-  useEffect(() => {
-    // TODO: Fetch doctor details from API
-    setLoading(false);
-  }, [id]);
-
-  if (loading) return <PageLoader />;
   if (error) return <ErrorState title="Error" description={error} />;
   if (!doctor) return <ErrorState title="Doctor not found" description="The doctor you're looking for doesn't exist" />;
 

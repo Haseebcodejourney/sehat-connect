@@ -1,19 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import AppointmentCard from '../../features/appointments/components/AppointmentCard';
-import PageLoader from '../../components/common/PageLoader';
 import EmptyState from '../../components/common/EmptyState';
 
 export default function DoctorAppointments() {
-  const [appointments, setAppointments] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [appointments] = useState([]);
   const [filter, setFilter] = useState('today'); // today, upcoming, completed
-
-  useEffect(() => {
-    // TODO: Fetch doctor appointments
-    setLoading(false);
-  }, [filter]);
-
-  if (loading) return <PageLoader />;
 
   return (
     <div className="doctor-appointments">

@@ -12,8 +12,8 @@ export default function Doctors() {
     rating: 0,
     availability: '',
   });
-  const [doctors, setDoctors] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [doctors] = useState([]);
+  const [loading] = useState(false);
 
   const handleSearch = useCallback((term) => {
     setSearchTerm(term);
@@ -41,7 +41,10 @@ export default function Doctors() {
 
         <div className="doctors__list">
           {doctors.length === 0 ? (
-            <EmptyState title="No doctors found" description="Try adjusting your search or filters" />
+            <EmptyState
+              title="No doctors found"
+              description={searchTerm ? `No doctors matched "${searchTerm}"` : 'Try adjusting your search or filters'}
+            />
           ) : (
             doctors.map((doctor) => <DoctorCard key={doctor.id} doctor={doctor} />)
           )}

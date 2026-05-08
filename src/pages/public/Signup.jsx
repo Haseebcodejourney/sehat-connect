@@ -37,7 +37,7 @@ export default function Signup() {
       // TODO: Implement signup API call
       console.log('Signup:', formData);
       navigate('/login');
-    } catch (err) {
+    } catch {
       setError('Signup failed. Please try again.');
     } finally {
       setLoading(false);

@@ -1,18 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import SlotPicker from '../../features/appointments/components/SlotPicker';
 import Button from '../../components/ui/Button';
-import PageLoader from '../../components/common/PageLoader';
 
 export default function Availability() {
-  const [availability, setAvailability] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // TODO: Fetch availability
-    setLoading(false);
-  }, []);
-
-  if (loading) return <PageLoader />;
+  const [, setAvailability] = useState(null);
 
   return (
     <div className="availability">

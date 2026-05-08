@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 export default function Modal({ isOpen, title, children, onClose, size = 'medium' }) {
   if (!isOpen) return null;
 
@@ -9,7 +7,7 @@ export default function Modal({ isOpen, title, children, onClose, size = 'medium
         <div className="modal__header">
           <h2>{title}</h2>
           <button className="modal__close" onClick={onClose}>
-            ✕
+            x
           </button>
         </div>
         <div className="modal__body">{children}</div>

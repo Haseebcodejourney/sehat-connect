@@ -26,7 +26,7 @@ export default function Login() {
       // TODO: Implement login API call
       console.log('Login:', formData);
       navigate('/patient');
-    } catch (err) {
+    } catch {
       setError('Login failed. Please check your credentials.');
     } finally {
       setLoading(false);

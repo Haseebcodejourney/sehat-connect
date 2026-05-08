@@ -25,7 +25,7 @@ export const logout = createAsyncThunk('auth/logout', async () => {
   try {
     await authApi.logout();
     localStorage.removeItem('authToken');
-  } catch (error) {
+  } catch {
     localStorage.removeItem('authToken');
   }
 });
