@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Input from '../../components/ui/Input';
-import Select from '../../components/ui/Select';
-import Button from '../../components/ui/Button';
+import Input from '../../../components/ui/Input';
+import Select from '../../../components/ui/Select';
+import Button from '../../../components/ui/Button';
 import reviewsApi from '../reviewsApi';
 
 export default function ReviewForm({ doctorId, onReviewSubmitted }) {

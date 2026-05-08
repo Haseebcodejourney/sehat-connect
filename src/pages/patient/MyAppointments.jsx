@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import AppointmentCard from '../../features/appointments/components/AppointmentCard';
 import PageLoader from '../../components/common/PageLoader';
 import EmptyState from '../../components/common/EmptyState';
-import '../../styles/pages/_appointments.scss';
 
 export default function MyAppointments() {
   const [appointments, setAppointments] = useState([]);

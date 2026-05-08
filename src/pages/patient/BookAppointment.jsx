@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import BookingForm from '../../features/appointments/components/BookingForm';
-import '../../styles/pages/_book-appointment.scss';
 
 export default function BookAppointment() {
   const [booking, setBooking] = useState(null);

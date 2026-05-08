@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import SlotPicker from '../../features/appointments/components/SlotPicker';
 import Button from '../../components/ui/Button';
 import PageLoader from '../../components/common/PageLoader';
-import '../../styles/pages/_availability.scss';
 
 export default function Availability() {
   const [availability, setAvailability] = useState(null);

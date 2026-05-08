@@ -1,4 +1,4 @@
-import Select from '../../components/ui/Select';
+import Select from '../../../components/ui/Select';
 
 export default function DoctorFilters({ onFilterChange, filters }) {
   const handleChange = (e) => {

@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Input from '../../components/ui/Input';
 import Button from '../../components/ui/Button';
 import PageLoader from '../../components/common/PageLoader';
-import '../../styles/pages/_profile.scss';
 
 export default function DoctorProfile() {
   const [profile, setProfile] = useState(null);

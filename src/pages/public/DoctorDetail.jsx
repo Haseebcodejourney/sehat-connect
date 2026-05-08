@@ -4,7 +4,6 @@ import Button from '../../components/ui/Button';
 import PageLoader from '../../components/common/PageLoader';
 import ErrorState from '../../components/common/ErrorState';
 import ReviewList from '../../features/reviews/components/ReviewList';
-import '../../styles/pages/_doctor-detail.scss';
 
 export default function DoctorDetail() {
   const { id } = useParams();

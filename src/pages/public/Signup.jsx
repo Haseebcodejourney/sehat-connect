@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../../components/ui/Input';
 import Select from '../../components/ui/Select';
 import Button from '../../components/ui/Button';
-import '../../styles/pages/_auth.scss';
 
 export default function Signup() {
   const navigate = useNavigate();

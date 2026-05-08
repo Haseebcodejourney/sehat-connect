@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Input from '../../components/ui/Input';
-import Select from '../../components/ui/Select';
-import Button from '../../components/ui/Button';
+import Input from '../../../components/ui/Input';
+import Select from '../../../components/ui/Select';
+import Button from '../../../components/ui/Button';
 
 export default function BookingForm({ onSubmit }) {
   const [formData, setFormData] = useState({

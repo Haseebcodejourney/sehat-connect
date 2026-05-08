@@ -1,5 +1,5 @@
-import Badge from '../../components/ui/Badge';
-import Button from '../../components/ui/Button';
+import Badge from '../../../components/ui/Badge';
+import Button from '../../../components/ui/Button';
 
 export default function AppointmentCard({ appointment }) {
   const getStatusColor = (status) => {

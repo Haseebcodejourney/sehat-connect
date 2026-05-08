@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Button from '../../components/ui/Button';
 import PageLoader from '../../components/common/PageLoader';
-import '../../styles/pages/_dashboard.scss';
 
 export default function PatientDashboard() {
   const [stats, setStats] = useState(null);

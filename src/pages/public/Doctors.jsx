@@ -4,7 +4,6 @@ import DoctorFilters from '../../features/doctors/components/DoctorFilters';
 import DoctorCard from '../../features/doctors/components/DoctorCard';
 import PageLoader from '../../components/common/PageLoader';
 import EmptyState from '../../components/common/EmptyState';
-import '../../styles/pages/_doctors.scss';
 
 export default function Doctors() {
   const [searchTerm, setSearchTerm] = useState('');
