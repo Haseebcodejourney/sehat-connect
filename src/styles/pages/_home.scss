@@ -1,10 +1,7 @@
 // Home page styles
 .home {
   &__hero {
-    text-align: center;
-    padding: $spacing-3xl $spacing-md;
-    background: linear-gradient(135deg, lighten($primary-color, 45%), lighten($info-color, 45%));
-    border-radius: $border-radius-lg;
+    padding: 0 $spacing-md $spacing-3xl;
     margin-bottom: $spacing-3xl;
   }
 

@@ -1,27 +1,15 @@
-import { useNavigate } from 'react-router-dom';
-import Button from '../../components/ui/Button';
+import Hero from '../../components/Home/Hero';
+import HowHelp from '../../components/Home/HowHelp';
 
 export default function Home() {
-  const navigate = useNavigate();
-
   return (
     <div className="home">
       <section className="home__hero">
-        <div className="home__hero-content">
-          <h1>Welcome to Sehat Connect</h1>
-          <p>Find and book appointments with experienced healthcare professionals</p>
-          <div className="home__hero-actions">
-            <Button variant="primary" onClick={() => navigate('/doctors')}>
-              Browse Doctors
-            </Button>
-            <Button variant="secondary" onClick={() => navigate('/login')}>
-              Login
-            </Button>
-          </div>
-        </div>
+          <Hero/>
+          <HowHelp/>
       </section>
 
-      <section className="home__features">
+      {/* <section className="home__features">
         <div className="home__features-grid">
           <div className="home__feature-card">
             <h3>Easy Booking</h3>
@@ -36,7 +24,7 @@ export default function Home() {
             <p>Your health data is protected and secure</p>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
