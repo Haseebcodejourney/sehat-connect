@@ -3,7 +3,7 @@ const HowHelp = () => {
     <section className="how-help">
 
       <h2 className="how_help__h2">
-        How We Can Help You
+        How can we help?
       </h2>
 
       {/* Left Box */}

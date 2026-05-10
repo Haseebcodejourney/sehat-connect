@@ -23,13 +23,22 @@
 
   &__figure {
     margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    line-height: 0;
+
     svg {
       background: url(https://healthwire.pk/assets/B2c/careers/join-us.webp);
-      background-size: 43%;
+      background-size: 66%;
       -webkit-backface-visibility: hidden;
       background-attachment: fixed;
       background-position: center;
       background-repeat: no-repeat;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      clip-path: inset(0 0 1px 0);
     }
   }
 

@@ -4,7 +4,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: $spacing-xl;
+  gap: 14px;
 
   border-radius: $border-radius-lg;
   margin-top: 68px;
@@ -37,6 +37,7 @@
     font-weight: $font-weight-bold;
     line-height: 1.2;
     text-align: left;
+    padding-bottom: 24px;
   }
 
   &__left_wrapper {
@@ -47,7 +48,8 @@
     justify-content: space-between;
 
     width: 100%;
-    min-height: 18.125rem;
+    // min-height: 18.125rem;
+    height: 290px;
     padding: 1.5rem;
 
     overflow: hidden;
