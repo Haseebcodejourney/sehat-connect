@@ -1,0 +1,69 @@
+.careers {
+  max-width: 1192px;
+  width: 100%;
+  margin: 120px auto 0px auto;
+
+  &__span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    color: #3d6093;
+    padding-bottom: 8px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+    text-transform: capitalize;
+    padding-bottom: 32px;
+  }
+
+  &__p {}
+
+  &__figure {
+    margin-bottom: 20px;
+    svg {
+      background: url(https://healthwire.pk/assets/B2c/careers/join-us.webp);
+      background-size: 43%;
+      -webkit-backface-visibility: hidden;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__bottom_text {
+    color: #3d6093;
+    letter-spacing: initial;
+    text-transform: initial;
+    padding-bottom: 24px;
+  }
+
+  &__link_wrapper {
+
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 14px;
+    max-width: 187px;
+    height: 48px;
+    background: #1e4275;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 auto;
+    &:hover {
+  background: #1e4275;
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}

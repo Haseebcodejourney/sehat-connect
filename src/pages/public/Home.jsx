@@ -1,5 +1,7 @@
+import Careers from '../../components/Home/Careers';
 import Hero from '../../components/Home/Hero';
 import HowHelp from '../../components/Home/HowHelp';
+import NewsArticles from '../../components/Home/NewsArticles';
 
 export default function Home() {
   return (
@@ -7,6 +9,8 @@ export default function Home() {
       <section className="home__hero">
           <Hero/>
           <HowHelp/>
+          <Careers/>
+          <NewsArticles/>
       </section>
 
       {/* <section className="home__features">

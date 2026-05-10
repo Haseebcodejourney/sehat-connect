@@ -1,7 +1,273 @@
-// Placeholder files for individual layout components
-// These will be combined in main.scss
-
-// Footer specific styles can be added here
 .footer {
-  // Styles defined in _header.scss
+  margin-top: 120px;
+  padding: 75px 0 39px;
+  background: #183155;
+  color: #d9e8ff;
+
+  &__container {
+    width: 100%;
+    max-width: 1192px;
+    margin: 0 auto 45px;
+
+    display: grid;
+    grid-template-columns: minmax(260px, 360px) 1fr;
+    gap: 56px;
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 64px;
+
+    width: 100%;
+    max-width: 407px;
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+
+    width: fit-content;
+
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      color: #fff;
+      opacity: 0.9;
+      text-decoration: none;
+    }
+  }
+
+  &__logo-mark {
+    flex-shrink: 0;
+    line-height: 0;
+  }
+
+  &__logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &__tagline {
+    max-width: 300px;
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #fff;
+  }
+
+  &__apps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__apps-title {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #f4f6f9;
+    text-align: left;
+  }
+
+  &__store-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  &__store-link {
+    min-width: 145px;
+    min-height: 44px;
+    padding: 8px 14px;
+
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+
+    background: #0d223d;
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      background 0.2s ease;
+
+    span {
+      margin-bottom: 3px;
+
+      font-size: 10px;
+      font-weight: 500;
+      color: #b9d1f2;
+    }
+
+    &:hover {
+      color: #fff;
+      background: #102949;
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+    gap: 40px;
+  }
+
+  &__menu {
+    h4 {
+      width: 100%;
+      max-width: 170px;
+      margin-bottom: 16px;
+
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      color: #fff;
+      text-align: left;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      list-style: none;
+      text-align: left;
+    }
+
+    a {
+      color: #d9e8ff;
+      font-size: 14px;
+      line-height: 1.5;
+      text-decoration: none;
+
+      transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
+
+      &:hover {
+        color: #fff;
+        opacity: 0.9;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__bottom {
+    width: 100%;
+    max-width: 1192px;
+    margin: 0 auto;
+
+    padding-top: 35px;
+
+    border-top: 1px solid rgba(244, 246, 249, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    ul {
+      margin: 0;
+      padding: 0;
+
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      list-style: none;
+
+      li {
+        display: inline-flex;
+        align-items: center;
+
+        margin-right: 10px;
+
+        font-size: 14px;
+        line-height: 21px;
+        color: #dce8fa;
+
+        &:nth-child(2) {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      color: #dce8fa;
+    }
+  }
+
+  &__bottom_right{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    li{
+      margin: 0px !important;
+    }
+  }
+
+  @media (max-width: 900px) {
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    &__brand {
+      max-width: 520px;
+      gap: 48px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    margin-top: 40px;
+    padding: 40px 16px 20px;
+
+    &__nav {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    &__store-links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__store-link {
+      width: 100%;
+      max-width: 220px;
+    }
+
+    &__bottom {
+      ul {
+        gap: 6px;
+      }
+    }
+  }
 }
