@@ -1,4 +1,3 @@
-import React from 'react';
 import '../../styles/layout/home/_newsarticles.scss';
 
 const NewsArticles = () => {

@@ -1,0 +1,377 @@
+.how-we-work {
+  width: 100%;
+  max-width: 1192px;
+  min-height: 520px;
+  margin: 92px auto 0;
+
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(420px, 1.1fr);
+  align-items: center;
+  gap: 64px;
+  text-align: left;
+
+  &__content {
+    max-width: 612px;
+    width: 100%;
+  }
+
+  &__eyebrow {
+    display: block;
+    margin-bottom: 0px;
+
+    color: #1e4275;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0 0 19px;
+
+    color: #202124;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: 0;
+  }
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  &__tab {
+    min-height: 32px;
+    padding: 7px 11px;
+
+    border: 1px solid #cdd8e8;
+    border-radius: 18px;
+
+    color: #121314;
+    background: #ffffff;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+
+    &--active {
+      border-color: #1e4275;
+      color: #ffffff;
+      background: #1e4275;
+    }
+  }
+
+  &__steps {
+    h3 {
+      margin: 0 0 8px;
+
+      color: #000000;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 28px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 14px;
+
+      color: #000000;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 11px;
+
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #1e4275;
+      }
+    }
+  }
+
+  &__visual {
+    position: relative;
+    min-height: 430px;
+  }
+
+  &__path {
+    position: absolute;
+    right: 98px;
+    top: 70px;
+
+    width: 360px;
+    height: 270px;
+
+    border: 2px dashed #c7cfda;
+    border-left-color: transparent;
+    border-radius: 50%;
+    transform: rotate(12deg);
+  }
+
+  &__mini-card {
+    position: absolute;
+    z-index: 1;
+  }
+
+  &__mini-card--search {
+    left: 6px;
+    top: 42px;
+  }
+
+  &__mini-card--details {
+    right: 30px;
+    top: 76px;
+  }
+
+  &__mini-card--delivery {
+    left: 172px;
+    bottom: 26px;
+  }
+
+  &__step-label {
+    width: fit-content;
+    min-height: 27px;
+    padding: 4px 12px 4px 6px;
+    margin-bottom: 8px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    border-radius: 16px;
+    background: #f5f8fc;
+    color: #5d6878;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    box-shadow: 0 1px 5px rgba(30, 66, 117, 0.04);
+
+    strong {
+      width: 20px;
+      height: 20px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid #3d6093;
+      border-radius: 50%;
+
+      color: #3d6093;
+      background: #eef4fb;
+      font-size: 12px;
+      line-height: 1;
+    }
+  }
+
+  &__medicine-card,
+  &__form-card,
+  &__done-card {
+    border: 1px solid #eff3f8;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 5px 15px rgba(30, 66, 117, 0.14);
+  }
+
+  &__medicine-card {
+    width: 220px;
+    min-height: 112px;
+    padding: 16px 12px 12px;
+
+    display: grid;
+    grid-template-columns: 58px repeat(3, 1fr);
+    gap: 10px;
+    align-items: center;
+
+    > div:not(.how-we-work__medicine-pack) {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      span {
+        display: block;
+        width: 100%;
+        height: 7px;
+        border-radius: 8px;
+        background: #eef2f7;
+
+        &:first-child {
+          height: 58px;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+
+  &__medicine-pack {
+    width: 48px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+    color: #ffffff;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent 45%),
+      #1e4275;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__form-card {
+    width: 164px;
+    min-height: 146px;
+    padding: 15px 14px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    span {
+      display: block;
+      height: 22px;
+      border: 1px solid #eef2f7;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #f6f8fb 30%, #edf2f7 30%, #edf2f7 65%, #ffffff 65%);
+    }
+
+    button {
+      width: 76px;
+      height: 20px;
+      padding: 0;
+
+      border: 0;
+      border-radius: 2px;
+
+      color: #ffffff;
+      background: #1e4275;
+      font-size: 6px;
+      font-weight: 600;
+    }
+  }
+
+  &__done-card {
+    width: 132px;
+    min-height: 148px;
+    padding: 28px 16px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    p {
+      max-width: 88px;
+      margin: 0;
+
+      color: #98a4b3;
+      font-size: 8px;
+      font-weight: 500;
+      line-height: 1.35;
+      text-align: center;
+    }
+  }
+
+  &__check {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    color: #ffffff;
+    background: #e9eef4;
+    font-size: 30px;
+    line-height: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .how-we-work {
+    padding: 0 24px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+
+    &__content {
+      max-width: 620px;
+    }
+
+    &__visual {
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .how-we-work {
+    min-height: auto;
+    margin-top: 64px;
+
+    &__title {
+      font-size: 24px;
+      line-height: 1.35;
+    }
+
+    &__steps {
+      li {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+
+    &__visual {
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    &__path {
+      display: none;
+    }
+
+    &__mini-card {
+      position: static;
+    }
+
+    &__medicine-card,
+    &__form-card,
+    &__done-card {
+      width: 100%;
+      max-width: 280px;
+    }
+
+    &__mini-card--details,
+    &__mini-card--delivery {
+      align-self: flex-end;
+    }
+  }
+}

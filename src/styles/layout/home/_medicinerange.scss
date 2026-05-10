@@ -1,0 +1,323 @@
+.medicine-range {
+  width: 100%;
+  max-width: 1192px;
+  margin: 92px auto 0;
+
+  text-align: center;
+
+  &__eyebrow {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #1e4275;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0 0 30px;
+
+    color: #202124;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 39px;
+    text-transform: capitalize;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(360px, 484px) 1fr;
+    gap: 28px;
+    text-align: left;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 27px;
+  }
+
+  &__card {
+    min-height: 240px;
+    padding: 28px 14px 13px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+
+    border-radius: 5px;
+    background: #eaf0f6;
+
+    overflow: hidden;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(30, 66, 117, 0.11);
+    }
+  }
+
+  &__card--featured {
+    min-height: 506px;
+    padding: 76px 14px 86px;
+
+    .medicine-range__image {
+      min-height: 220px;
+    }
+
+    .medicine-range__details {
+      padding: 0;
+    }
+
+    h3 {
+      font-size: 17px;
+      line-height: 26px;
+    }
+  }
+
+  &__image {
+    min-height: 95px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__details {
+    padding: 0 0 0;
+
+    h3 {
+      margin: 0 0 5px;
+
+      color: #000000;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 25px;
+    }
+
+    p {
+      margin: 0 0 10px;
+
+      color: #121314;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+
+    strong {
+      color: #000000;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    del {
+      color: #121314;
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 16px;
+    }
+  }
+
+  &__pack {
+    position: relative;
+
+    width: 112px;
+    height: 62px;
+    padding: 12px 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-radius: 2px;
+    color: #163e73;
+    background: #ffffff;
+    box-shadow:
+      0 7px 14px rgba(30, 66, 117, 0.15),
+      inset 0 -4px 0 rgba(63, 127, 224, 0.2);
+
+    overflow: hidden;
+
+    strong {
+      position: relative;
+      z-index: 1;
+
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+  }
+
+  &__pack--large {
+    width: 296px;
+    height: 150px;
+    padding: 30px 24px;
+
+    strong {
+      font-size: 52px;
+      font-style: italic;
+      font-weight: 600;
+      color: #1776db;
+    }
+
+    .medicine-range__pack-dose {
+      top: 15px;
+      right: 13px;
+      font-size: 14px;
+      color: #1776db;
+    }
+  }
+
+  &__pack-dose {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    font-size: 8px;
+    font-weight: 700;
+  }
+
+  &__pack-strip {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 6px;
+
+    height: 6px;
+    background: #f4a166;
+    border-top: 2px solid #76c1ee;
+  }
+
+  &__pack--citanew {
+    background:
+      repeating-linear-gradient(0deg, rgba(231, 196, 157, 0.26) 0 2px, transparent 2px 5px),
+      #f7f5ef;
+  }
+
+  &__pack--clomid {
+    border-top: 2px solid #fb7768;
+    border-bottom: 2px solid #3f9ee5;
+
+    strong {
+      color: #222222;
+      font-size: 16px;
+    }
+  }
+
+  &__pack--arinac {
+    background:
+      radial-gradient(circle at 82% 20%, #ffd33d 0 8px, transparent 9px),
+      radial-gradient(circle at 90% 32%, #ffd33d 0 5px, transparent 6px),
+      #ffffff;
+
+    strong {
+      color: #163e73;
+    }
+  }
+
+  &__pack--brufen {
+    background:
+      linear-gradient(90deg, #f055b7 0 42%, #ffe4f4 42% 100%);
+
+    strong {
+      color: #ffffff;
+    }
+  }
+
+  &__pack--alp {
+    background: linear-gradient(#ffffff 0 72%, #73d7db 72% 100%);
+
+    strong {
+      color: #163e73;
+    }
+  }
+
+  &__link {
+    width: 100%;
+    margin: 14px 0 0 auto;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #003f86;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-decoration: none;
+    justify-content: flex-end;
+
+    span {
+      color: #1e4275;
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    &:hover {
+      color: #003f86;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .medicine-range {
+    padding: 0 24px;
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__card--featured {
+      min-height: 420px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .medicine-range {
+    margin-top: 64px;
+
+    &__title {
+      font-size: 24px;
+      line-height: 34px;
+    }
+
+    &__list {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    &__card,
+    &__card--featured {
+      min-height: auto;
+      padding: 28px 16px 24px;
+    }
+
+    &__pack--large {
+      width: 250px;
+      height: 126px;
+
+      strong {
+        font-size: 42px;
+      }
+    }
+
+    &__link {
+      margin-right: auto;
+    }
+  }
+}

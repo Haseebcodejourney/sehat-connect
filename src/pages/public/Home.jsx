@@ -1,6 +1,9 @@
 import Careers from '../../components/Home/Careers';
 import Hero from '../../components/Home/Hero';
 import HowHelp from '../../components/Home/HowHelp';
+import HowWeWork from '../../components/Home/HowWeWork';
+import MedicineRange from '../../components/Home/MedicineRange';
+import MissionStatement from '../../components/Home/MissionStatement';
 import NewsArticles from '../../components/Home/NewsArticles';
 
 export default function Home() {
@@ -9,6 +12,9 @@ export default function Home() {
       <section className="home__hero">
           <Hero/>
           <HowHelp/>
+          <MissionStatement/>
+          <MedicineRange/>
+          <HowWeWork/>
           <Careers/>
           <NewsArticles/>
       </section>
