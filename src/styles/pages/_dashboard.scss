@@ -148,8 +148,11 @@
   padding: $spacing-3xl $spacing-lg;
 
   &__icon {
-    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: $spacing-lg;
+    color: $text-light;
   }
 
   &__title {
@@ -169,8 +172,11 @@
   padding: $spacing-3xl $spacing-lg;
 
   &__icon {
-    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: $spacing-lg;
+    color: $danger-color;
   }
 
   &__title {

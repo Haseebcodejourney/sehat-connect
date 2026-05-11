@@ -17,12 +17,10 @@ export default function Doctors() {
 
   const handleSearch = useCallback((term) => {
     setSearchTerm(term);
-    // TODO: Implement API call
   }, []);
 
   const handleFilterChange = useCallback((newFilters) => {
     setFilters(newFilters);
-    // TODO: Implement API call
   }, []);
 
   if (loading) return <PageLoader />;

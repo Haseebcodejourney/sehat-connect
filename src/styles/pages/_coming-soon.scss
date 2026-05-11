@@ -1,0 +1,47 @@
+.coming-soon {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: $spacing-2xl $spacing-lg;
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    justify-content: center;
+    margin-top: $spacing-xl;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-md $spacing-lg;
+    border-radius: $border-radius-md;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-base;
+    text-decoration: none;
+    border: 2px solid $primary-color;
+    background-color: $primary-color;
+    color: #fff;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 8%);
+      border-color: darken($primary-color, 8%);
+      color: #fff;
+    }
+
+    &--secondary {
+      background-color: transparent;
+      color: $primary-color;
+
+      &:hover {
+        background-color: lighten($primary-color, 45%);
+        color: $primary-color;
+      }
+    }
+  }
+}

@@ -71,6 +71,21 @@
     cursor: pointer;
   }
 
+  &__brand {
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__wordmark {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e4275;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
   &__img {
     width: 190px;
     height: auto;
@@ -283,6 +298,18 @@
 
     cursor: pointer;
 
+    a {
+      font-size: 14px;
+      font-weight: 400;
+      color: #121314;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
     span {
       font-size: 14px;
       font-weight: 400;
@@ -294,6 +321,11 @@
         opacity: 0.7;
       }
     }
+  }
+
+  &__signup_sep {
+    opacity: 0.55;
+    user-select: none;
   }
 
   /* =========================

@@ -44,6 +44,18 @@
     font-weight: $font-weight-semibold;
     margin-bottom: $spacing-lg;
   }
+
+  &__book {
+    margin-top: $spacing-sm;
+    text-decoration: none;
+    align-self: flex-start;
+  }
+
+  &__availability-note {
+    color: $text-light;
+    line-height: 1.5;
+    max-width: 42rem;
+  }
 }
 
 .doctor-detail {

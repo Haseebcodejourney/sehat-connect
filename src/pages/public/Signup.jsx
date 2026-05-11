@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../components/ui/Input';
 import Select from '../../components/ui/Select';
 import Button from '../../components/ui/Button';
@@ -117,7 +117,7 @@ export default function Signup() {
         </form>
 
         <p className="auth-page__footer">
-          Already have an account? <a href="/login">Login here</a>
+          Already have an account? <Link to="/login">Sign in</Link>
         </p>
       </div>
     </div>

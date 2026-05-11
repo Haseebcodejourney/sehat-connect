@@ -24,13 +24,18 @@
 
   &__confirmation {
     background-color: lighten($success-color, 40%);
-    color: $success-color;
+    color: $text-color;
     padding: $spacing-xl;
     border-radius: $border-radius-lg;
     text-align: center;
 
     h2 {
-      color: inherit;
+      color: darken($success-color, 8%);
+    }
+
+    p {
+      color: $text-color;
+      line-height: 1.5;
     }
   }
 }

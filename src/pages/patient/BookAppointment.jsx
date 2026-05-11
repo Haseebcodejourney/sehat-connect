@@ -1,33 +1,32 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import BookingForm from '../../features/appointments/components/BookingForm';
 
 export default function BookAppointment() {
+  const [searchParams] = useSearchParams();
+  const doctorId = searchParams.get('doctorId') ?? '';
   const [booking, setBooking] = useState(null);
 
-  const handleBookingSubmit = async (formData) => {
-    try {
-      // TODO: Submit booking to API
-      console.log('Booking:', formData);
-      setBooking(formData);
-    } catch (error) {
-      console.error('Booking failed:', error);
-    }
+  const handleBookingSubmit = (formData) => {
+    setBooking(formData);
   };
 
   return (
     <div className="book-appointment">
-      <h1>Book an Appointment</h1>
+      <h1>Book an appointment</h1>
 
       <div className="book-appointment__container">
         <div className="book-appointment__form">
-          <BookingForm onSubmit={handleBookingSubmit} />
+          <BookingForm key={doctorId || '_'} onSubmit={handleBookingSubmit} initialDoctorId={doctorId} />
         </div>
 
         {booking && (
           <div className="book-appointment__confirmation">
-            <h2>Booking Confirmed!</h2>
-            <p>Your appointment has been successfully booked.</p>
-            {/* Display booking details */}
+            <h2>Request received</h2>
+            <p>
+              Your appointment details have been captured. You will receive a confirmation once the clinic verifies the
+              slot.
+            </p>
           </div>
         )}
       </div>

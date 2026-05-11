@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../components/ui/Input';
 import Button from '../../components/ui/Button';
 import { useAuth } from '../../features/auth/authContext';
@@ -60,7 +60,8 @@ export default function Login() {
         </form>
 
         <p className="auth-page__footer">
-          Don&apos;t have an account? <a href="/signup">Sign up here</a>
+          Don&apos;t have an account?{' '}
+          <Link to="/signup">Create an account</Link>
         </p>
       </div>
     </div>

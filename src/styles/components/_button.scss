@@ -10,6 +10,8 @@
   justify-content: center;
   gap: $spacing-sm;
   white-space: nowrap;
+  text-decoration: none;
+  box-sizing: border-box;
 
   &:disabled {
     opacity: 0.5;

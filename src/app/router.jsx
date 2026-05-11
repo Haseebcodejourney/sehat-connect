@@ -7,6 +7,7 @@ import DoctorDetail from '../pages/public/DoctorDetail';
 import Login from '../pages/public/Login';
 import Signup from '../pages/public/Signup';
 import NotFound from '../pages/public/NotFound';
+import ComingSoon from '../pages/public/ComingSoon';
 import PatientDashboard from '../pages/patient/PatientDashboard';
 import MyAppointments from '../pages/patient/MyAppointments';
 import BookAppointment from '../pages/patient/BookAppointment';
@@ -42,6 +43,34 @@ export const router = createBrowserRouter([
       {
         path: 'signup',
         element: <Signup />,
+      },
+      {
+        path: 'lab-tests',
+        element: <ComingSoon />,
+      },
+      {
+        path: 'health-blogs',
+        element: <ComingSoon />,
+      },
+      {
+        path: 'pharmacy-franchises',
+        element: <ComingSoon />,
+      },
+      {
+        path: 'contact',
+        element: <ComingSoon />,
+      },
+      {
+        path: 'app',
+        element: <ComingSoon />,
+      },
+      {
+        path: 'privacy-policy',
+        element: <ComingSoon />,
+      },
+      {
+        path: 'terms',
+        element: <ComingSoon />,
       },
     ],
   },
