@@ -1,16 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { logout } from '../../features/auth/authStore';
+import { useAuth } from '../../features/auth/authContext';
 
 export default function Header() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const { user } = useSelector((state) => state.auth);
+  const { user, logout } = useAuth();
 
   const handleLogout = async () => {
-    await dispatch(logout());
+    await logout();
     navigate('/login');
   };
 

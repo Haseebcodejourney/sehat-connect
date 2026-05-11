@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../components/ui/Input';
 import Button from '../../components/ui/Button';
+import { useAuth } from '../../features/auth/authContext';
 
 export default function Login() {
   const navigate = useNavigate();
+  const { login, loading, error, clearError } = useAuth();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,17 +19,14 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError('');
+    clearError();
 
     try {
-      // TODO: Implement login API call
-      console.log('Login:', formData);
-      navigate('/patient');
+      const response = await login(formData.email, formData.password);
+      const role = response.user?.role || 'patient';
+      navigate(`/${role}`);
     } catch {
-      setError('Login failed. Please check your credentials.');
-    } finally {
-      setLoading(false);
+      // error shown from auth context
     }
   };
 
@@ -63,7 +60,7 @@ export default function Login() {
         </form>
 
         <p className="auth-page__footer">
-          Don't have an account? <a href="/signup">Sign up here</a>
+          Don&apos;t have an account? <a href="/signup">Sign up here</a>
         </p>
       </div>
     </div>

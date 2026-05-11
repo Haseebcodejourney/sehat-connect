@@ -1,9 +1,9 @@
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../features/auth/authContext';
 
 export default function Sidebar() {
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useAuth();
 
   const patientMenuItems = [
     { label: 'Dashboard', path: '/patient' },

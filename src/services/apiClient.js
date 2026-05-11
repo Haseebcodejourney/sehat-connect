@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { AUTH_USER_STORAGE_KEY } from '../features/auth/authStorage';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
@@ -25,6 +26,7 @@ apiClient.interceptors.response.use(
     if (error.response?.status === 401) {
       // Handle unauthorized - clear token and redirect to login
       localStorage.removeItem('authToken');
+      localStorage.removeItem(AUTH_USER_STORAGE_KEY);
       window.location.href = '/login';
     }
     return Promise.reject(error);

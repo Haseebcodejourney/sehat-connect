@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../../components/ui/Input';
 import Select from '../../components/ui/Select';
 import Button from '../../components/ui/Button';
+import { useAuth } from '../../features/auth/authContext';
 
 export default function Signup() {
   const navigate = useNavigate();
+  const { signup, loading, error, clearError } = useAuth();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -14,8 +16,7 @@ export default function Signup() {
     confirmPassword: '',
     role: 'patient',
   });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [formError, setFormError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,32 +25,41 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setFormError('');
+    clearError();
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      setFormError('Passwords do not match');
       return;
     }
 
-    setLoading(true);
-
     try {
-      // TODO: Implement signup API call
-      console.log('Signup:', formData);
-      navigate('/login');
+      const payload = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        password: formData.password,
+        role: formData.role,
+      };
+      const response = await signup(payload);
+      if (response.token && response.user?.role) {
+        navigate(`/${response.user.role}`);
+      } else {
+        navigate('/login');
+      }
     } catch {
-      setError('Signup failed. Please try again.');
-    } finally {
-      setLoading(false);
+      // API error from auth context
     }
   };
+
+  const displayError = formError || error;
 
   return (
     <div className="auth-page">
       <div className="auth-page__container">
         <h1>Sign Up</h1>
 
-        {error && <div className="auth-page__error">{error}</div>}
+        {displayError && <div className="auth-page__error">{displayError}</div>}
 
         <form onSubmit={handleSubmit} className="auth-page__form">
           <Input
