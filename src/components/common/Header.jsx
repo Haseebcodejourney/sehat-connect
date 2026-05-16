@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useId } from 'react';
 import { useAuth } from '../../features/auth/authContext';
 import SehatLogoMark from './SehatLogoMark';
+import HeaderLabDropdown from './HeaderLabDropdown';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ export default function Header() {
               <div className="header__main-search-wrapper">
                 <input
                   type="search"
-                  placeholder="Search doctors, specialties, or services"
+                  placeholder="Search for medicines and lab tests..."
                   className="header__main-search-input"
                   aria-label="Search"
                 />
@@ -126,7 +127,7 @@ export default function Header() {
                 <div className="header__bottom_left_nav">
                   <Link to="/">Home</Link>
                   <Link to="/doctors">Doctors</Link>
-                  <Link to="/lab-tests">Lab tests</Link>
+                  <HeaderLabDropdown />
                   <Link to="/health-blogs">
                     Health blogs
                     <svg

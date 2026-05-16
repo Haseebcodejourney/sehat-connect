@@ -1,22 +1,34 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ErrorState from '../../../components/common/ErrorState';
 import ReviewList from '../../../features/reviews/components/ReviewList';
 import DoctorsBreadcrumb from '../components/DoctorsBreadcrumb';
-import Badge from '../../../components/ui/Badge';
+import DoctorProfileHero from '../components/DoctorProfileHero';
+import DoctorBookingSidebar from '../components/DoctorBookingSidebar';
+import DoctorCard from '../components/DoctorCard';
 import {
   findDoctorBySlug,
   getDoctorsListPath,
   getCityLabel,
   getSpecialtyLabel,
 } from '../utils/doctorPaths';
+import {
+  getDoctorAbout,
+  getDoctorDiseases,
+  getDoctorEducation,
+  getDoctorFaqs,
+  getDoctorLocations,
+  getSimilarDoctors,
+} from '../utils/doctorProfile';
 
 export default function DoctorProfilePage() {
   const { city, specialty, slug } = useParams();
   const doctor = findDoctorBySlug({ city, specialty, slug });
+  const [showAllDiseases, setShowAllDiseases] = useState(false);
 
   if (!doctor) {
     return (
-      <div className="doctor-detail doctor-detail--not-found">
+      <div className="doctor-profile doctor-profile--not-found">
         <ErrorState
           title="Doctor not found"
           description="We could not find a doctor at this address. Browse the directory to find another specialist."
@@ -28,72 +40,121 @@ export default function DoctorProfilePage() {
     );
   }
 
-  const specialtyLine = (doctor.specialties ?? [doctor.specialty]).join(' • ');
+  const about = getDoctorAbout(doctor);
+  const education = getDoctorEducation(doctor);
+  const locations = getDoctorLocations(doctor);
+  const diseases = getDoctorDiseases(doctor);
+  const similarDoctors = getSimilarDoctors(doctor);
+  const faqs = getDoctorFaqs(doctor);
+  const visibleDiseases = showAllDiseases ? diseases : diseases.slice(0, 8);
+  const specialtyLabel = getSpecialtyLabel(specialty);
 
   return (
-    <div className="doctor-detail">
+    <div className="doctor-profile">
       <DoctorsBreadcrumb city={city} specialty={specialty} doctorName={doctor.name} />
 
-      <div className="doctor-detail__header">
-        <img src={doctor.image} alt={doctor.name} className="doctor-detail__image" />
+      <div className="doctor-profile__layout">
+        <div className="doctor-profile__main">
+          <DoctorProfileHero doctor={doctor} />
 
-        <div className="doctor-detail__info">
-          <div className="doctor-detail__badges">
-            {doctor.featured && <Badge variant="primary">Featured Doctor</Badge>}
-            {doctor.pmcVerified && <Badge variant="success">PMC Verified</Badge>}
-          </div>
+          <section className="doctor-profile-section">
+            <h2>About</h2>
+            <p>{about}</p>
+          </section>
 
-          <h1>{doctor.name}</h1>
-          <p className="doctor-detail__specialty">{specialtyLine}</p>
-          {doctor.qualifications && (
-            <p className="doctor-detail__qualifications">{doctor.qualifications}</p>
-          )}
-          <p className="doctor-detail__location">
-            {getSpecialtyLabel(specialty)} in {getCityLabel(city)}
-          </p>
-          <p className="doctor-detail__experience">{doctor.experience} years of experience</p>
-          {doctor.waitTime && (
-            <p className="doctor-detail__wait">Average wait time: {doctor.waitTime}</p>
-          )}
-          <p className="doctor-detail__rating" aria-label={`Average rating ${doctor.rating} out of 5`}>
-            {Number(doctor.rating).toFixed(1)} / 5
-            {doctor.reviewCount > 0 && ` (${doctor.reviewCount} reviews)`}
-          </p>
-
-          {doctor.hospital && (
-            <p className="doctor-detail__hospital">
-              {doctor.hospital}
-              {doctor.location ? ` — ${doctor.location}` : ''}
-              {doctor.fee ? ` · Rs ${doctor.fee.toLocaleString()}` : ''}
-            </p>
+          {education.length > 0 && (
+            <section className="doctor-profile-section">
+              <h2>Education</h2>
+              <ul className="doctor-profile-list">
+                {education.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
           )}
 
-          <Link
-            to={`/patient/book-appointment?doctorId=${doctor.id}`}
-            className="btn btn--primary btn--medium doctor-detail__book"
-          >
-            Book appointment
-          </Link>
+          {locations.length > 0 && (
+            <section className="doctor-profile-section">
+              <h2>Locations</h2>
+              <ul className="doctor-profile-locations">
+                {locations.map((location) => (
+                  <li key={`${location.name}-${location.address}`} className="doctor-profile-location">
+                    <h3>{location.name}</h3>
+                    {location.schedule && <p className="doctor-profile-location__schedule">{location.schedule}</p>}
+                    {location.address && <p className="doctor-profile-location__address">{location.address}</p>}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {diseases.length > 0 && (
+            <section className="doctor-profile-section">
+              <h2>Diseases</h2>
+              <p className="doctor-profile-section__intro">
+                {doctor.name} treats the following diseases. Tap on any disease to see its details.
+              </p>
+              <ul className="doctor-profile-tags">
+                {visibleDiseases.map((disease) => (
+                  <li key={disease}>
+                    <span className="doctor-profile-tag">{disease}</span>
+                  </li>
+                ))}
+              </ul>
+              {diseases.length > 8 && (
+                <button
+                  type="button"
+                  className="doctor-profile-section__toggle"
+                  onClick={() => setShowAllDiseases((prev) => !prev)}
+                >
+                  {showAllDiseases ? 'See Less' : 'See More'}
+                </button>
+              )}
+            </section>
+          )}
+
+          <section className="doctor-profile-section">
+            <h2>Reviews</h2>
+            <ReviewList doctorId={String(doctor.id)} />
+          </section>
+
+          {similarDoctors.length > 0 && (
+            <section className="doctor-profile-section">
+              <h2>Similar Doctors</h2>
+              <div className="doctor-profile-similar">
+                {similarDoctors.map((item) => (
+                  <DoctorCard key={item.id} doctor={item} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          <section className="doctor-profile-section doctor-profile-section--faq">
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <dl className="doctor-profile-faq">
+              {faqs.map((faq) => (
+                <div key={faq.question} className="doctor-profile-faq__item">
+                  <dt>{faq.question}</dt>
+                  <dd>{faq.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+
+          <section className="doctor-profile-section doctor-profile-section--links">
+            <h2>{specialtyLabel} Near You</h2>
+            <Link
+              to={getDoctorsListPath({ city, specialty })}
+              className="doctor-profile-section__link"
+            >
+              View all {specialtyLabel} in {getCityLabel(city)}
+            </Link>
+          </section>
         </div>
+
+        <DoctorBookingSidebar doctor={doctor} city={city} specialty={specialty} />
       </div>
-
-      <section className="doctor-detail__about">
-        <h2>About</h2>
-        <p>{doctor.bio}</p>
-      </section>
-
-      <section className="doctor-detail__availability">
-        <h2>Availability</h2>
-        <p className="doctor-detail__availability-note">
-          Clinic schedules will appear here once connected to your hospital partner. You can still
-          request an appointment using the button above.
-        </p>
-      </section>
-
-      <section className="doctor-detail__reviews">
-        <h2>Reviews</h2>
-        <ReviewList doctorId={String(doctor.id)} />
-      </section>
     </div>
   );
 }
+

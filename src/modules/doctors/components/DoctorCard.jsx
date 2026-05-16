@@ -84,3 +84,4 @@ export default function DoctorCard({ doctor }) {
     </article>
   );
 }
+

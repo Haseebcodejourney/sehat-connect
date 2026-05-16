@@ -1,0 +1,169 @@
+{
+  "tests": [
+    {
+      "id": 1,
+      "slug": "cbc-blood-test",
+      "name": "CBC blood test",
+      "shortName": "CBC",
+      "price": 680,
+      "originalPrice": 800,
+      "sampleType": "Blood",
+      "reportTime": "24 hours",
+      "priceRange": "500-1000",
+      "sections": [
+        {
+          "title": "What is the Complete Blood Count (CBC) Test?",
+          "paragraphs": [
+            "Also known as CBC, complete blood count test, blood CP, or blood complete picture, it is a group of tests that provide information about blood cells such as Red Blood Cells (RBC), White Blood Cells (WBC) and Platelets.",
+            "CBC test in Pakistan is a simple routine test that helps medical practitioners understand the overall health of an individual."
+          ],
+          "listTitle": "Doctors recommend a CBC test if you have the following symptoms:",
+          "list": [
+            "Fever, vomiting or nausea",
+            "Bruising and bleeding",
+            "Weakness, fatigue or weakness",
+            "Problem with blood pressure or heart rate",
+            "Inflammation anywhere in the body",
+            "Joint pain"
+          ]
+        },
+        {
+          "title": "CBC Test Price in Pakistan",
+          "paragraphs": [
+            "CBC test price in Pakistan ranges between (500-1000) Rupees. The cost varies depending upon the lab and city you choose. Book through Sehat Connect to get the best discounted rates in Karachi, Lahore, Islamabad, Rawalpindi, Multan, and other major cities."
+          ]
+        },
+        {
+          "title": "How Can I Book CBC Test Near Me?",
+          "paragraphs": [
+            "You can easily book a CBC test online. Select the test, choose home sampling or visit a partner lab, and pay online or at collection."
+          ],
+          "listTitle": "To book your CBC test:",
+          "list": [
+            "Click on the lab test online via our website or app",
+            "Select CBC test or upload prescription",
+            "Pay in cash or online (debit/credit card, mobile wallet)",
+            "Opt for free home sampling where available",
+            "Our representative will call you for confirmation"
+          ]
+        },
+        {
+          "title": "Why is a Complete Blood Count (CBC) Test Conducted?",
+          "listTitle": "This test is conducted to:",
+          "list": [
+            "Evaluate the overall health of a person",
+            "Rule out diseases and disorders",
+            "Detect any abnormality in the blood",
+            "Diagnose different blood infections and disorders",
+            "Monitor efficacy of treatment such as chemotherapy"
+          ]
+        },
+        {
+          "title": "What is a CBC Test Good For?",
+          "paragraphs": [
+            "The CBC test helps your medical practitioner diagnose and assess various infections, diseases and disorders such as anemia, vitamin deficiencies, bone marrow disorders, and blood cancers."
+          ]
+        }
+      ],
+      "resultTable": {
+        "title": "How to Interpret the Complete Blood Count (CBC) Test Results?",
+        "intro": "Following is the normal range of complete blood count in adults:",
+        "rows": [
+          { "test": "Red Blood Cell Count (RBCs)", "range": "Male: 4.35 – 5.65 | Female: 3.92 – 5.13 million cells/μL" },
+          { "test": "White Blood Cells (WBCs)", "range": "Neutrophils 35-85% | Lymphocytes 20-50%" },
+          { "test": "Hemoglobin", "range": "Male: 13.2 – 16.6 | Female: 11.6 – 15 grams/dL" },
+          { "test": "Platelet Count", "range": "Male: 135 – 317 | Female: 157 – 371 billion cells/L" }
+        ]
+      },
+      "faq": [
+        {
+          "question": "Do I need to fast before a CBC test?",
+          "answer": "No fasting is usually required for a routine CBC unless your doctor advises otherwise."
+        },
+        {
+          "question": "How long do CBC results take?",
+          "answer": "Most partner labs deliver CBC results within 24 hours of sample collection."
+        },
+        {
+          "question": "Can I book home sample collection?",
+          "answer": "Yes. Select home sampling at checkout where available in your city."
+        }
+      ],
+      "relatedSlugs": ["lipid-profile", "hba1c-test", "liver-function-test"]
+    },
+    {
+      "id": 2,
+      "slug": "lipid-profile",
+      "name": "Lipid Profile",
+      "shortName": "Lipid Profile",
+      "price": 1200,
+      "originalPrice": 1500,
+      "sampleType": "Blood",
+      "reportTime": "24 hours",
+      "priceRange": "1000-1800",
+      "sections": [
+        {
+          "title": "What is a Lipid Profile Test?",
+          "paragraphs": [
+            "A lipid profile measures cholesterol and triglycerides in your blood to assess heart disease risk."
+          ]
+        },
+        {
+          "title": "Lipid Profile Price in Pakistan",
+          "paragraphs": [
+            "Prices vary by city and lab. Book online with Sehat Connect for discounted rates."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Is fasting required?",
+          "answer": "Yes, 9-12 hours of fasting is typically recommended before a lipid profile."
+        }
+      ],
+      "relatedSlugs": ["cbc-blood-test", "hba1c-test"]
+    },
+    {
+      "id": 3,
+      "slug": "hba1c-test",
+      "name": "HbA1c Test",
+      "shortName": "HbA1c",
+      "price": 950,
+      "originalPrice": 1100,
+      "sampleType": "Blood",
+      "reportTime": "24 hours",
+      "priceRange": "800-1400",
+      "sections": [
+        {
+          "title": "What is an HbA1c Test?",
+          "paragraphs": [
+            "HbA1c reflects your average blood sugar levels over the past 2-3 months and is used to monitor diabetes."
+          ]
+        }
+      ],
+      "faq": [],
+      "relatedSlugs": ["cbc-blood-test", "lipid-profile"]
+    },
+    {
+      "id": 4,
+      "slug": "liver-function-test",
+      "name": "Liver Function Test (LFT)",
+      "shortName": "LFT",
+      "price": 1100,
+      "originalPrice": 1300,
+      "sampleType": "Blood",
+      "reportTime": "24 hours",
+      "priceRange": "900-1600",
+      "sections": [
+        {
+          "title": "What is a Liver Function Test?",
+          "paragraphs": [
+            "LFT measures enzymes and proteins in the blood to evaluate liver health and detect liver disease."
+          ]
+        }
+      ],
+      "faq": [],
+      "relatedSlugs": ["cbc-blood-test", "lipid-profile"]
+    }
+  ]
+}

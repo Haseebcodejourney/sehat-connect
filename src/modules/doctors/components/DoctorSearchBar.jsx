@@ -47,3 +47,4 @@ export default function DoctorSearchBar({ onSearch, sortBy, onSortChange }) {
     </div>
   );
 }
+

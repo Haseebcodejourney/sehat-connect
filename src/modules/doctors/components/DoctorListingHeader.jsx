@@ -10,3 +10,4 @@ export default function DoctorListingHeader() {
     </header>
   );
 }
+

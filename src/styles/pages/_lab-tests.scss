@@ -1,0 +1,434 @@
+$lab-navy: #1e3a5f;
+$lab-border: #e5e7eb;
+$lab-sidebar-bg: #f8f9fb;
+$lab-accent: #3f7fe0;
+$lab-cta-bg: #2d2d2d;
+
+.lab-breadcrumb {
+  max-width: 1192px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px 0 8px;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $spacing-xs;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: $font-size-sm;
+    color: $text-light;
+  }
+
+  &__link {
+    color: $lab-accent;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__current {
+    color: $text-color;
+    font-weight: $font-weight-medium;
+  }
+
+  &__sep {
+    margin: 0 $spacing-xs;
+  }
+}
+
+// Listing page
+.lab-tests-listing {
+  max-width: 1192px;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: $spacing-3xl;
+
+  &__header {
+    margin-bottom: $spacing-xl;
+
+    h1 {
+      margin: 0 0 $spacing-sm;
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+    }
+
+    p {
+      margin: 0;
+      color: $text-light;
+    }
+  }
+
+  &__search input {
+    width: 100%;
+    max-width: 480px;
+    padding: $spacing-md;
+    border: 1px solid $lab-border;
+    border-radius: $border-radius-md;
+    font-size: $font-size-sm;
+  }
+
+  &__count {
+    margin: 0 0 $spacing-lg;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: $spacing-lg;
+  }
+}
+
+.lab-test-card {
+  border: 1px solid $lab-border;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  background: $bg-color;
+
+  &__name a {
+    color: $text-color;
+    text-decoration: none;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+
+    &:hover {
+      color: $lab-accent;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    gap: $spacing-sm;
+    margin: $spacing-sm 0 $spacing-md;
+    font-size: $font-size-xs;
+    color: $text-light;
+  }
+
+  &__price strong {
+    color: $lab-navy;
+    font-size: $font-size-lg;
+  }
+
+  &__price-old {
+    margin-left: $spacing-sm;
+    text-decoration: line-through;
+    color: $text-lighter;
+    font-size: $font-size-sm;
+  }
+
+  &__link {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $lab-accent;
+    text-decoration: none;
+  }
+}
+
+// Detail page
+.lab-test-page {
+  max-width: 1192px;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: $spacing-3xl;
+
+  &--not-found {
+    text-align: center;
+    padding: $spacing-3xl $spacing-lg;
+
+    .btn {
+      margin-top: $spacing-lg;
+    }
+  }
+
+  &__title {
+    margin: 0 0 $spacing-xl;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+    text-transform: capitalize;
+    color: $text-color;
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: $spacing-xl;
+    align-items: start;
+
+    @include mobile-only {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.lab-test-content {
+  min-width: 0;
+}
+
+.lab-test-section {
+  margin-bottom: $spacing-2xl;
+
+  h2 {
+    margin: 0 0 $spacing-md;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    line-height: 1.35;
+    color: $text-color;
+  }
+
+  p {
+    margin: 0 0 $spacing-md;
+    font-size: $font-size-sm;
+    line-height: 1.75;
+    color: $text-color;
+  }
+
+  &__list-title {
+    font-weight: $font-weight-medium !important;
+  }
+
+  ul {
+    margin: 0 0 $spacing-md;
+    padding-left: $spacing-lg;
+    font-size: $font-size-sm;
+    line-height: 1.8;
+  }
+
+  &--faq {
+    border-top: 1px solid $lab-border;
+    padding-top: $spacing-xl;
+  }
+}
+
+.lab-cta-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  margin: $spacing-xl 0;
+  padding: $spacing-lg $spacing-xl;
+  background: $lab-cta-bg;
+  border-radius: $border-radius-md;
+
+  &__text {
+    margin: 0;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: #fff;
+  }
+
+  &__action {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fff;
+    color: $lab-cta-bg;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+.lab-test-table-wrap {
+  overflow-x: auto;
+  margin-bottom: $spacing-md;
+}
+
+.lab-test-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-size-sm;
+
+  th,
+  td {
+    border: 1px solid $lab-border;
+    padding: $spacing-md;
+    text-align: left;
+  }
+
+  th {
+    background: $bg-light;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.lab-test-faq {
+  &__item {
+    margin-bottom: $spacing-lg;
+  }
+
+  dt {
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-sm;
+  }
+
+  dd {
+    margin: 0;
+    color: $text-light;
+    font-size: $font-size-sm;
+    line-height: 1.6;
+  }
+}
+
+.lab-quick-booking {
+  position: sticky;
+  top: 120px;
+  padding: $spacing-lg;
+  background: $bg-color;
+  border: 1px solid $lab-border;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+
+  @include mobile-only {
+    position: static;
+    order: -1;
+  }
+
+  &__title {
+    margin: 0 0 $spacing-sm;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+  }
+
+  &__test {
+    margin: 0 0 $spacing-md;
+    font-size: $font-size-sm;
+    color: $text-light;
+    text-transform: capitalize;
+  }
+
+  &__field {
+    margin-bottom: $spacing-md;
+
+    label {
+      display: block;
+      margin-bottom: $spacing-xs;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+    }
+
+    .select {
+      width: 100%;
+      padding: $spacing-sm $spacing-md;
+      border: 1px solid $lab-border;
+      border-radius: $border-radius-md;
+      font-size: $font-size-sm;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    padding: $spacing-md;
+    border: none;
+    border-radius: $border-radius-md;
+    background: $lab-navy;
+    color: #fff;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+
+    &:hover {
+      background: darken($lab-navy, 6%);
+    }
+  }
+}
+
+.lab-order-card {
+  margin: $spacing-xl 0;
+  padding: $spacing-xl;
+  border: 1px solid $lab-border;
+  border-radius: $border-radius-lg;
+  background: $lab-sidebar-bg;
+
+  &__title {
+    margin: 0 0 $spacing-sm;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+  }
+
+  &__name {
+    margin: 0 0 $spacing-md;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    text-transform: capitalize;
+  }
+
+  &__price {
+    display: flex;
+    align-items: baseline;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+  }
+
+  &__price-current {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $lab-navy;
+  }
+
+  &__price-old {
+    text-decoration: line-through;
+    color: $text-lighter;
+    font-size: $font-size-sm;
+  }
+
+  &__btn {
+    display: block;
+    width: 100%;
+    padding: $spacing-md;
+    margin-bottom: $spacing-sm;
+    border: none;
+    border-radius: $border-radius-md;
+    background: $lab-navy;
+    color: #fff;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+
+    &--outline {
+      background: $bg-color;
+      color: $lab-navy;
+      border: 1px solid $lab-navy;
+    }
+  }
+}
+
+.lab-common-tests {
+  margin-top: $spacing-3xl;
+  padding-top: $spacing-2xl;
+  border-top: 1px solid $lab-border;
+
+  h2 {
+    margin: 0 0 $spacing-lg;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: $spacing-sm;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      font-size: $font-size-sm;
+      color: $lab-accent;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

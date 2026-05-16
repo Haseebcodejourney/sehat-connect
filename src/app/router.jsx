@@ -3,6 +3,7 @@ import PublicLayout from '../layouts/PublicLayout';
 import DashboardLayout from '../layouts/DashboardLayout';
 import Home from '../pages/public/Home';
 import { doctorPublicRoutes } from '../modules/doctors';
+import { labPublicRoutes } from '../modules/lab';
 import Login from '../pages/public/Login';
 import Signup from '../pages/public/Signup';
 import NotFound from '../pages/public/NotFound';
@@ -36,10 +37,7 @@ export const router = createBrowserRouter([
         path: 'signup',
         element: <Signup />,
       },
-      {
-        path: 'lab-tests',
-        element: <ComingSoon />,
-      },
+      ...labPublicRoutes,
       {
         path: 'health-blogs',
         element: <ComingSoon />,

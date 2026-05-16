@@ -1,31 +1,69 @@
-// Doctor detail page
-.doctor-detail {
-  &__header {
+$doctor-navy: #1e3a5f;
+$doctor-clinic-bg: #e8f4fc;
+$doctor-sidebar-bg: #f8f9fb;
+$doctor-border: #e5e7eb;
+
+// Doctor profile page (Healthwire-style)
+.doctor-profile {
+  max-width: 1192px;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: $spacing-3xl;
+
+  &--not-found {
+    text-align: center;
+    padding: $spacing-3xl $spacing-lg;
+
+    .btn {
+      margin-top: $spacing-lg;
+    }
+  }
+
+  &__layout {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 1fr 320px;
     gap: $spacing-xl;
-    margin-bottom: $spacing-2xl;
+    align-items: start;
 
     @include mobile-only {
       grid-template-columns: 1fr;
     }
   }
 
-  &__image {
-    width: 200px;
-    height: 200px;
-    border-radius: $border-radius-lg;
-    object-fit: cover;
-  }
-
-  &__info {
+  &__main {
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: $spacing-lg;
+  }
+}
 
-    h1 {
-      margin-top: 0;
-    }
+.doctor-profile-hero {
+  display: flex;
+  gap: $spacing-xl;
+  padding: $spacing-xl;
+  background: $bg-color;
+  border: 1px solid $doctor-border;
+  border-radius: $border-radius-lg;
+
+  @include mobile-only {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid $doctor-clinic-bg;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
   }
 
   &__badges {
@@ -33,47 +71,284 @@
     flex-wrap: wrap;
     gap: $spacing-sm;
     margin-bottom: $spacing-md;
-  }
 
-  &__specialty {
-    color: $primary-color;
-    font-weight: $font-weight-semibold;
-    margin-bottom: $spacing-md;
-  }
+    .badge--primary {
+      background-color: #ede7f6;
+      color: #6a1b9a;
+    }
 
-  &__qualifications,
-  &__location,
-  &__wait,
-  &__hospital {
-    color: $text-light;
-    margin-bottom: $spacing-sm;
-  }
-
-  &--not-found {
-    text-align: center;
-
-    .btn {
-      margin-top: $spacing-lg;
+    .badge--success {
+      background-color: #e8f5e9;
+      color: #2e7d32;
     }
   }
 
-  &__experience {
+  &__name {
+    margin: 0 0 $spacing-sm;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    line-height: 1.25;
+  }
+
+  &__specialty {
+    margin: 0 0 $spacing-sm;
+    font-size: $font-size-sm;
     color: $text-light;
-    margin-bottom: $spacing-md;
+    line-height: 1.5;
   }
 
-  &__rating {
+  &__qualifications {
+    margin: 0 0 $spacing-lg;
+    font-size: $font-size-sm;
+    color: $text-color;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-md;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $doctor-border;
+
+    @include mobile-only {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    strong {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-bold;
+      color: $text-color;
+    }
+
+    span {
+      font-size: $font-size-xs;
+      color: $text-light;
+    }
+  }
+
+  &__star {
     color: $warning-color;
-    font-weight: $font-weight-semibold;
-    margin-bottom: $spacing-lg;
+    margin-left: 4px;
+    font-size: $font-size-base;
+  }
+}
+
+.doctor-booking-sidebar {
+  position: sticky;
+  top: 100px;
+  background: $doctor-sidebar-bg;
+  border: 1px solid $doctor-border;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+
+  @include mobile-only {
+    position: static;
+    order: -1;
   }
 
-  &__book {
-    margin-top: $spacing-sm;
+  &__title {
+    margin: 0 0 $spacing-md;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+  }
+
+  &__text {
+    margin: 0 0 $spacing-lg;
+    font-size: $font-size-sm;
+    color: $text-light;
+    line-height: 1.6;
+  }
+
+  &__btn {
+    display: block;
+    width: 100%;
+    padding: $spacing-md;
+    text-align: center;
     text-decoration: none;
-    align-self: flex-start;
+    font-weight: $font-weight-semibold;
+    border-radius: $border-radius-md;
+    background: $doctor-navy;
+    color: #fff;
+    @include transition;
+
+    &:hover {
+      background: darken($doctor-navy, 6%);
+      color: #fff;
+    }
+
+    &--secondary {
+      background: $bg-color;
+      color: $doctor-navy;
+      border: 1px solid $doctor-navy;
+
+      &:hover {
+        background: $doctor-clinic-bg;
+      }
+    }
   }
 
+  &__fee {
+    margin: $spacing-md 0 0;
+    font-size: $font-size-sm;
+    color: $text-light;
+    text-align: center;
+
+    strong {
+      color: $text-color;
+    }
+  }
+}
+
+.doctor-profile-section {
+  background: $bg-color;
+  border: 1px solid $doctor-border;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+
+  h2 {
+    margin: 0 0 $spacing-lg;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+  }
+
+  p {
+    margin: 0;
+    color: $text-color;
+    line-height: 1.7;
+    font-size: $font-size-sm;
+  }
+
+  &__intro {
+    margin-bottom: $spacing-md !important;
+    color: $text-light !important;
+  }
+
+  &__toggle {
+    margin-top: $spacing-md;
+    padding: 0;
+    border: none;
+    background: none;
+    color: $primary-color;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+    font-size: $font-size-sm;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__link {
+    color: $primary-color;
+    font-weight: $font-weight-medium;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--faq {
+    .doctor-profile-faq__item {
+      margin-bottom: $spacing-lg;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    dt {
+      font-weight: $font-weight-semibold;
+      margin-bottom: $spacing-sm;
+      font-size: $font-size-sm;
+    }
+
+    dd {
+      margin: 0;
+      color: $text-light;
+      font-size: $font-size-sm;
+      line-height: 1.6;
+    }
+  }
+}
+
+.doctor-profile-list {
+  margin: 0;
+  padding-left: $spacing-lg;
+  color: $text-color;
+  font-size: $font-size-sm;
+  line-height: 1.8;
+}
+
+.doctor-profile-locations {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.doctor-profile-location {
+  background: $doctor-clinic-bg;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+
+  h3 {
+    margin: 0 0 $spacing-sm;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $primary-color;
+  }
+
+  &__schedule {
+    margin: 0 0 $spacing-xs;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $text-color;
+  }
+
+  &__address {
+    margin: 0;
+    font-size: $font-size-sm;
+    color: $text-light;
+    line-height: 1.5;
+  }
+}
+
+.doctor-profile-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.doctor-profile-tag {
+  display: inline-block;
+  padding: $spacing-sm $spacing-md;
+  background: $bg-light;
+  border: 1px solid $doctor-border;
+  border-radius: $border-radius-md;
+  font-size: $font-size-sm;
+  color: $text-color;
+}
+
+.doctor-profile-similar {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+// Legacy class kept for other pages
+.doctor-detail {
   &__availability-note {
     color: $text-light;
     line-height: 1.5;
@@ -81,35 +356,6 @@
   }
 }
 
-.doctor-detail {
-  section {
-    margin-bottom: $spacing-2xl;
-
-    h2 {
-      margin-bottom: $spacing-lg;
-    }
-  }
-
-  &__about {
-    background-color: $bg-light;
-    padding: $spacing-xl;
-    border-radius: $border-radius-lg;
-  }
-
-  &__availability {
-    background-color: $bg-light;
-    padding: $spacing-xl;
-    border-radius: $border-radius-lg;
-  }
-
-  &__reviews {
-    background-color: $bg-light;
-    padding: $spacing-xl;
-    border-radius: $border-radius-lg;
-  }
-}
-
-// Appointments page
 .my-appointments,
 .doctor-appointments {
   h1 {

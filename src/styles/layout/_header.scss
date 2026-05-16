@@ -334,6 +334,28 @@
 
   &__bottom {
     width: 100%;
+    position: relative;
+  }
+
+  &__nav-dropdown {
+    position: relative;
+
+    &--open .header__nav-dropdown-trigger svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__nav-dropdown-trigger {
+    text-decoration: none;
+    color: #1e4275;
+
+    svg {
+      transition: transform 0.2s ease;
+    }
+
+    &--active {
+      font-weight: 500;
+    }
   }
 
   &__nav {
@@ -394,6 +416,71 @@
       &:hover {
         opacity: 0.75;
       }
+    }
+  }
+}
+
+// Lab tests mega-menu (Healthwire-style)
+.lab-mega-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  z-index: $z-index-dropdown;
+  min-width: 720px;
+  max-width: min(920px, 95vw);
+  padding: $spacing-xl $spacing-2xl;
+  background: $bg-color;
+  border: 1px solid #e5e7eb;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-2xl;
+
+    @include mobile-only {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+  &__heading {
+    margin: 0 0 $spacing-md;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    color: #3f7fe0;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    display: block;
+    padding: 6px 0;
+    font-size: $font-size-sm;
+    color: $text-color;
+    text-decoration: none;
+    line-height: 1.45;
+
+    &:hover {
+      color: #3f7fe0;
+    }
+  }
+
+  &__all {
+    display: inline-block;
+    margin-top: $spacing-md;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: #3f7fe0;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }

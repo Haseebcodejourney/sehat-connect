@@ -46,3 +46,4 @@ export default function DoctorFilters({ filters, onFilterChange, showCityFilter 
     </div>
   );
 }
+
