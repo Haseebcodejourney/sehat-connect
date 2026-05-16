@@ -1,0 +1,1 @@
+export { pharmacyFranchiseRoutes } from './routes';

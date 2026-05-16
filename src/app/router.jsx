@@ -4,6 +4,7 @@ import DashboardLayout from '../layouts/DashboardLayout';
 import Home from '../pages/public/Home';
 import { doctorPublicRoutes } from '../modules/doctors';
 import { labPublicRoutes } from '../modules/lab';
+import { pharmacyFranchiseRoutes } from '../modules/pharmacy';
 import Login from '../pages/public/Login';
 import Signup from '../pages/public/Signup';
 import NotFound from '../pages/public/NotFound';
@@ -42,10 +43,7 @@ export const router = createBrowserRouter([
         path: 'health-blogs',
         element: <ComingSoon />,
       },
-      {
-        path: 'pharmacy-franchises',
-        element: <ComingSoon />,
-      },
+      ...pharmacyFranchiseRoutes,
       {
         path: 'contact',
         element: <ComingSoon />,
