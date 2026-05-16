@@ -2,8 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import PublicLayout from '../layouts/PublicLayout';
 import DashboardLayout from '../layouts/DashboardLayout';
 import Home from '../pages/public/Home';
-import Doctors from '../pages/public/Doctors';
-import DoctorDetail from '../pages/public/DoctorDetail';
+import { doctorPublicRoutes } from '../modules/doctors';
 import Login from '../pages/public/Login';
 import Signup from '../pages/public/Signup';
 import NotFound from '../pages/public/NotFound';
@@ -28,14 +27,7 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      {
-        path: 'doctors',
-        element: <Doctors />,
-      },
-      {
-        path: 'doctors/:id',
-        element: <DoctorDetail />,
-      },
+      ...doctorPublicRoutes,
       {
         path: 'login',
         element: <Login />,

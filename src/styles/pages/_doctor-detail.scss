@@ -28,10 +28,33 @@
     }
   }
 
+  &__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+  }
+
   &__specialty {
     color: $primary-color;
     font-weight: $font-weight-semibold;
     margin-bottom: $spacing-md;
+  }
+
+  &__qualifications,
+  &__location,
+  &__wait,
+  &__hospital {
+    color: $text-light;
+    margin-bottom: $spacing-sm;
+  }
+
+  &--not-found {
+    text-align: center;
+
+    .btn {
+      margin-top: $spacing-lg;
+    }
   }
 
   &__experience {
