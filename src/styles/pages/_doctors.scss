@@ -152,7 +152,7 @@ $doctor-promo-green: #28a745;
   background: $bg-color;
   padding: $spacing-lg;
   @include box-shadow($shadow-sm);
-
+  
   &__layout {
     display: flex;
     gap: $spacing-lg;
@@ -323,7 +323,7 @@ $doctor-promo-green: #28a745;
   border: 1px solid $border-color;
   padding: $spacing-lg;
   border-radius: $border-radius-lg;
-
+  
   h3 {
     margin: 0 0 $spacing-lg;
     font-size: $font-size-base;
