@@ -235,7 +235,7 @@ $doctor-border: #e5e7eb;
     margin: 0 0 $spacing-lg;
     font-size: $font-size-xl;
     font-weight: $font-weight-bold;
-    font-size: 14px;
+    font-size: 20px;
     font-family: 'Poppins', sans-serif;
   }
 
@@ -244,7 +244,7 @@ $doctor-border: #e5e7eb;
     color: $text-color;
     line-height: 1.7;
     font-size: $font-size-sm;
-    font-size: 12px;
+    font-size: 14px;
     font-family: 'Poppins', sans-serif;
   }
 
@@ -384,6 +384,7 @@ $doctor-border: #e5e7eb;
 .doctor-detail {
   &__availability-note {
     font-weight: 600;
+    
     font-size: 20px;
     line-height: 31px;
     margin: 0;
