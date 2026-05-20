@@ -1,42 +1,170 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import LabBreadcrumb from '../components/LabBreadcrumb';
-import LabTestCard from '../components/LabTestCard';
-import { filterLabTests } from '../utils/labPaths';
+import { filterLabTests, getAllLabTests, getLabTestPath } from '../utils/labPaths';
+
+function formatRs(price) {
+  const n = Number(price);
+  return `Rs. ${Number.isInteger(n) ? `${n}.0` : n.toFixed(1)}`;
+}
 
 export default function LabTestsListingPage() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [sort, setSort] = useState('az');
+  const [cartIds, setCartIds] = useState([]);
 
-  const tests = useMemo(() => filterLabTests(searchTerm), [searchTerm]);
+  const allTestsCatalog = useMemo(() => getAllLabTests(), []);
+  const allCount = allTestsCatalog.length;
+
+  const tests = useMemo(() => {
+    const filtered = filterLabTests(searchTerm);
+    const next = [...filtered];
+    next.sort((a, b) => {
+      const cmp = a.name.localeCompare(b.name, undefined, { sensitivity: 'base' });
+      return sort === 'az' ? cmp : -cmp;
+    });
+    return next;
+  }, [searchTerm, sort]);
+
+  const cartTests = useMemo(() => {
+    const byId = new Map(allTestsCatalog.map((t) => [t.id, t]));
+    return cartIds.map((id) => byId.get(id)).filter(Boolean);
+  }, [cartIds, allTestsCatalog]);
+
+  const grandTotal = useMemo(() => {
+    if (cartTests.length === 0) return null;
+    return cartTests.reduce((sum, t) => sum + Number(t.price), 0);
+  }, [cartTests]);
+
+  const toggleCart = useCallback((test) => {
+    setCartIds((prev) => {
+      if (prev.includes(test.id)) {
+        return prev.filter((id) => id !== test.id);
+      }
+      return [...prev, test.id];
+    });
+  }, []);
+
+  const handleCheckout = useCallback(() => {
+    if (cartTests.length === 0) return;
+    window.alert(`Checkout for ${cartTests.length} test(s) will be available soon.`);
+  }, [cartTests.length]);
 
   return (
     <div className="lab-tests-listing">
-      <LabBreadcrumb />
+      <div className="lab-tests-listing__shell">
+        <div className="lab-tests-listing__main">
+          <header className="lab-tests-listing__header">
+            <h1 className="lab-tests-listing__title">Lab Tests In Pakistan</h1>
+            <LabBreadcrumb />
+          </header>
 
-      <header className="lab-tests-listing__header">
-        <h1>Lab Tests</h1>
-        <p>Book reliable lab tests from trusted labs with home sampling available.</p>
-      </header>
+          <div className="lab-tests-listing__search">
+            <span className="lab-tests-listing__search-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                />
+                <path d="M16 16 21 21" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+              </svg>
+            </span>
+            <input
+              type="search"
+              className="lab-tests-listing__search-input"
+              placeholder="Search Tests by name here"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              aria-label="Search lab tests by name"
+            />
+          </div>
 
-      <div className="lab-tests-listing__search">
-        <input
-          type="search"
-          placeholder="Search lab tests by name"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          aria-label="Search lab tests"
-        />
-      </div>
+          <div className="lab-tests-listing__toolbar">
+            <p className="lab-tests-listing__count">
+              {searchTerm.trim() ? `Showing ${tests.length} of ${allCount}` : `All Tests (${allCount})`}
+            </p>
+            <label className="lab-tests-listing__sort">
+              <span className="lab-tests-listing__sort-label">Sort By:</span>
+              <select
+                className="lab-tests-listing__sort-select"
+                value={sort}
+                onChange={(e) => setSort(e.target.value)}
+                aria-label="Sort tests"
+              >
+                <option value="az">A-Z</option>
+                <option value="za">Z-A</option>
+              </select>
+            </label>
+          </div>
 
-      <p className="lab-tests-listing__count">
-        <strong>{tests.length}</strong> test{tests.length === 1 ? '' : 's'} available
-      </p>
+          <ul className="lab-tests-listing__list" aria-label="Lab tests">
+            {tests.map((test) => {
+              const inCart = cartIds.includes(test.id);
+              return (
+                <li key={test.id} className="lab-tests-row">
+                  <div className="lab-tests-row__left">
+                    <span
+                      className={`lab-tests-row__radio ${inCart ? 'lab-tests-row__radio--on' : ''}`}
+                      aria-hidden="true"
+                    />
+                    <div className="lab-tests-row__info">
+                      <h2 className="lab-tests-row__name">
+                        <Link to={getLabTestPath(test)}>{test.name}</Link>
+                      </h2>
+                      <Link to={getLabTestPath(test)} className="lab-tests-row__details">
+                        View Test Details{' '}
+                        <span className="lab-tests-row__chevron" aria-hidden="true">
+                          &gt;
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="lab-tests-row__right">
+                    <div className="lab-tests-row__prices">
+                      <span className="lab-tests-row__price-current">{formatRs(test.price)}</span>
+                      {test.originalPrice > test.price && (
+                        <span className="lab-tests-row__price-old">{formatRs(test.originalPrice)}</span>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      className={`lab-tests-row__add${inCart ? ' lab-tests-row__add--added' : ''}`}
+                      onClick={() => toggleCart(test)}
+                    >
+                      {inCart ? 'Added' : 'Add'}
+                    </button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
-      <div className="lab-tests-listing__grid">
-        {tests.map((test) => (
-          <LabTestCard key={test.id} test={test} />
-        ))}
+        <div className="lab-tests-listing__sidebar">
+          <aside className="lab-tests-summary" aria-label="Booking summary">
+            <h2 className="lab-tests-summary__title">Summary</h2>
+            <p className="lab-tests-summary__hint">
+              Please add the tests that you want to book from the list
+            </p>
+            <div className="lab-tests-summary__rule" role="presentation" />
+            <div className="lab-tests-summary__total">
+              <span className="lab-tests-summary__total-label">Grand Total</span>
+              <span className="lab-tests-summary__total-value">
+                {grandTotal == null ? 'N/A' : formatRs(grandTotal)}
+              </span>
+            </div>
+            <button
+              type="button"
+              className="lab-tests-summary__checkout"
+              disabled={cartTests.length === 0}
+              onClick={handleCheckout}
+            >
+              Proceed to Checkout
+            </button>
+          </aside>
+        </div>
       </div>
     </div>
   );
 }
-

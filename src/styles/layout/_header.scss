@@ -423,7 +423,7 @@
 // Lab tests mega-menu (Healthwire-style)
 .lab-mega-menu {
   position: absolute;
-  top: calc(100% + 12px);
+  // top: calc(100% + 10px);
   left: 0;
   z-index: $z-index-dropdown;
   min-width: 720px;
@@ -433,6 +433,7 @@
   border: 1px solid #e5e7eb;
   border-radius: $border-radius-lg;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  transition: 0.3s ease all;
 
   &__inner {
     display: grid;
@@ -450,12 +451,14 @@
     font-size: $font-size-base;
     font-weight: $font-weight-bold;
     color: #3f7fe0;
+    text-align: left;
   }
 
   &__list {
     list-style: none;
     margin: 0;
     padding: 0;
+    text-align: left;
   }
 
   &__link {

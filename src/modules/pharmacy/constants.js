@@ -1,20 +1,24 @@
+const CDN = 'https://d3313lwq5y3sh2.cloudfront.net/assets/images/pharmacy_images';
+
+export const FRANCHISE_HERO_IMAGE_SRC = `${CDN}/Banner-Image.webp`;
+
 export const FRANCHISE_BENEFITS = {
   left: [
-    'Brand Awareness',
-    'Marketing & Sales Support',
-    'Initial Stock Fulfillment',
-    'Partnership with Local Pharmacist (If Applicable)',
+    'Location Consultancy',
+    'Staff Training & Development',
+    'Initial Stock Fulfilment',
+    'Partnership With Labs / Pharmacies (If Applicable)',
     'Inventory Management',
-    'Dedicated Customer Support',
+    'Constant Software Support',
     'Lowest Royalty / Franchising Fee',
   ],
   right: [
-    'Medicine Store Operations',
-    'Category & Merchandising',
-    'In-house Software FREE',
-    'Training & Operations Management',
-    'Access to Target Online Customers',
-    'Retail Margin per Unit',
+    'Site Evaluation Assistance',
+    'Category & Licensing Consultancy',
+    'H-Cloud® Software: FREE',
+    'Training & Operation Management',
+    'Access & Target Online Customers',
+    'Retail Management',
   ],
 };
 
@@ -24,16 +28,15 @@ export const FRANCHISE_CITIES = [
   { value: 'karachi', label: 'Karachi' },
   { value: 'islamabad', label: 'Islamabad' },
   { value: 'rawalpindi', label: 'Rawalpindi' },
+  { value: 'peshawar', label: 'Peshawar' },
   { value: 'multan', label: 'Multan' },
   { value: 'faisalabad', label: 'Faisalabad' },
-  { value: 'peshawar', label: 'Peshawar' },
   { value: 'sialkot', label: 'Sialkot' },
   { value: 'gujranwala', label: 'Gujranwala' },
   { value: 'bahawalpur', label: 'Bahawalpur' },
   { value: 'sargodha', label: 'Sargodha' },
-  { value: 'larkana', label: 'Larkana' },
-  { value: 'gujrat', label: 'Gujrat' },
   { value: 'lodhran', label: 'Lodhran' },
+  { value: 'gujrat', label: 'Gujrat' },
 ];
 
 export const INVESTMENT_RANGES = [
@@ -43,38 +46,23 @@ export const INVESTMENT_RANGES = [
 ];
 
 export const PRESENCE_CITIES = [
-  { name: 'Lahore', slug: 'lahore' },
-  { name: 'Sargodha', slug: 'sargodha' },
-  { name: 'Islamabad', slug: 'islamabad' },
-  { name: 'Multan', slug: 'multan' },
-  { name: 'Bahawalpur', slug: 'bahawalpur' },
-  { name: 'Lodhran', slug: 'lodhran' },
-  { name: 'Sialkot', slug: 'sialkot' },
-  { name: 'Larkana', slug: 'larkana' },
-  { name: 'Faisalabad', slug: 'faisalabad' },
-  { name: 'Gujrat', slug: 'gujrat' },
-  { name: 'Peshawar', slug: 'peshawar' },
-  { name: 'Gujranwala', slug: 'gujranwala' },
+  { name: 'Lahore', slug: 'lahore', image: `${CDN}/Lahore.webp` },
+  { name: 'Sargodha', slug: 'sargodha', image: `${CDN}/Sarrgodha.webp` },
+  { name: 'Islamabad', slug: 'islamabad', image: `${CDN}/Islamabad.webp` },
+  { name: 'Multan', slug: 'multan', image: `${CDN}/Multan.webp` },
+  { name: 'Bahawalpur', slug: 'bahawalpur', image: `${CDN}/Bahawalpur.webp` },
+  { name: 'Lodhran', slug: 'lodhran', image: `${CDN}/Lodhran.webp` },
+  { name: 'Sialkot', slug: 'sialkot', image: `${CDN}/Sialkot.webp` },
+  { name: 'Nankana Sahib', slug: 'nankana-sahib', image: `${CDN}/NankanaSahib.webp` },
+  { name: 'Faisalabad', slug: 'faisalabad', image: `${CDN}/Faisalabad.webp` },
+  { name: 'Gujrat', slug: 'gujrat', image: `${CDN}/Gujrat.webp` },
+  { name: 'Peshawar', slug: 'peshawar', image: `${CDN}/Peshawar.webp` },
+  { name: 'Gujranwala', slug: 'gujranwala', image: `${CDN}/Gujranwala.webp` },
 ];
 
-export const GALLERY_IMAGES = [
-  {
-    src: 'https://healthwire.pk/assets/b2c_design/landing/pharmacy.webp',
-    alt: 'Healthwire pharmacy interior',
-  },
-  {
-    src: 'https://healthwire.pk/assets/b2c_design/landing/pharmacy-banner-desktop.webp',
-    alt: 'Healthwire pharmacy storefront',
-  },
-  {
-    src: 'https://healthwire.pk/assets/b2c_design/landing/pharmacy.webp',
-    alt: 'Pharmacy shelves and medicines',
-  },
-  {
-    src: 'https://healthwire.pk/assets/b2c_design/landing/pharmacy-banner-desktop.webp',
-    alt: 'Pharmacy counter service',
-  },
+export const GALLERY_ITEMS = [
+  { key: 'image1', src: `${CDN}/Image1.webp`, alt: 'Sehat Connect pharmacy glimpse 1' },
+  { key: 'image5a', src: `${CDN}/Image5.webp`, alt: 'Sehat Connect pharmacy glimpse 2' },
+  { key: 'image5b', src: `${CDN}/Image5.webp`, alt: 'Sehat Connect pharmacy glimpse 3' },
+  { key: 'image6', src: `${CDN}/image6.png`, alt: 'Sehat Connect pharmacy glimpse 4' },
 ];
-
-export const HERO_IMAGE =
-  'https://healthwire.pk/assets/b2c_design/landing/pharmacy-banner-desktop.webp';

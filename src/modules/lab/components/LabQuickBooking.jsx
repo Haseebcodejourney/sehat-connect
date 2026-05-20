@@ -1,48 +1,38 @@
-import { useState } from 'react';
-import { LAB_CITIES, LAB_PARTNERS } from '../constants';
-import Select from '../../../components/ui/Select';
+import { Link } from 'react-router-dom';
 
-export default function LabQuickBooking({ testName, onBook }) {
-  const [city, setCity] = useState('');
-  const [lab, setLab] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onBook?.({ city, lab });
-  };
+export default function LabQuickBooking({ test, onAddToCart, onCheckout }) {
+  if (!test) return null;
 
   return (
     <aside className="lab-quick-booking">
-      <h2 className="lab-quick-booking__title">Quick Booking</h2>
-      {testName && <p className="lab-quick-booking__test">{testName}</p>}
+      <div className="lab-quick-booking__card">
+        <h3 className="lab-quick-booking__heading">Book this lab test?</h3>
 
-      <form className="lab-quick-booking__form" onSubmit={handleSubmit}>
-        <div className="lab-quick-booking__field">
-          <label htmlFor="lab-booking-city">Select City</label>
-          <Select
-            id="lab-booking-city"
-            name="city"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            options={[{ value: '', label: 'Select City' }, ...LAB_CITIES]}
-          />
+        <div className="lab-quick-booking__row">
+          <p className="lab-quick-booking__test">{test.name}</p>
+          <div className="lab-quick-booking__price-wrap">
+            <span className="lab-quick-booking__price-current">Rs. {test.price?.toLocaleString()}</span>
+            {test.originalPrice > test.price && (
+              <span className="lab-quick-booking__price-old">Rs. {test.originalPrice.toLocaleString()}</span>
+            )}
+          </div>
         </div>
 
-        <div className="lab-quick-booking__field">
-          <label htmlFor="lab-booking-lab">Select Lab</label>
-          <Select
-            id="lab-booking-lab"
-            name="lab"
-            value={lab}
-            onChange={(e) => setLab(e.target.value)}
-            options={[{ value: '', label: 'Select Lab' }, ...LAB_PARTNERS]}
-          />
+        <div className="lab-quick-booking__action">
+          <button type="button" className="lab-quick-booking__btn lab-quick-booking__btn--add" onClick={onAddToCart}>
+            Add to cart
+          </button>
         </div>
 
-        <button type="submit" className="lab-quick-booking__btn">
-          Book Now
-        </button>
-      </form>
+        <div className="lab-quick-booking__footer">
+          <Link to="/lab-tests" className="lab-quick-booking__btn lab-quick-booking__btn--back">
+            Back to Tests
+          </Link>
+          <button type="button" className="lab-quick-booking__btn lab-quick-booking__btn--checkout" onClick={onCheckout}>
+            Checkout
+          </button>
+        </div>
+      </div>
     </aside>
   );
 }

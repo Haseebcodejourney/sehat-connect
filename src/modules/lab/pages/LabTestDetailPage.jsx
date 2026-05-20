@@ -41,7 +41,7 @@ export default function LabTestDetailPage() {
 
       <div className="lab-test-page__layout">
         <LabTestContent test={test} onAddToCart={handleAddToCart} />
-        <LabQuickBooking testName={test.name} onBook={handleQuickBook} />
+        <LabQuickBooking test={test} onAddToCart={handleAddToCart} onCheckout={handleQuickBook} />
       </div>
 
       <LabCommonTests />

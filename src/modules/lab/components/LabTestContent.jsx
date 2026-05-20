@@ -53,17 +53,7 @@ export default function LabTestContent({ test, onAddToCart }) {
       <LabOrderCard test={test} onAddToCart={onAddToCart} />
 
       {test.faq?.length > 0 && (
-        <section className="lab-test-section lab-test-section--faq">
-          <h2>Frequently Asked Questions (FAQs)</h2>
-          <dl className="lab-test-faq">
-            {test.faq.map((item) => (
-              <div key={item.question} className="lab-test-faq__item">
-                <dt>{item.question}</dt>
-                <dd>{item.answer}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
+        <></>
       )}
     </article>
   );

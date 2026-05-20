@@ -14,8 +14,13 @@ export default function LabBreadcrumb({ testName }) {
     <nav className="lab-breadcrumb" aria-label="Breadcrumb">
       <ol className="lab-breadcrumb__list">
         {items.map((item, index) => (
-          <li key={item.label} className="lab-breadcrumb__item">
-            {index > 0 && <span className="lab-breadcrumb__sep" aria-hidden="true">/</span>}
+          <li key={`${item.label}-${index}`}>
+            {index > 0 && (
+              <span className="lab-breadcrumb__sep" aria-hidden="true">
+                {' '}
+                &gt;{' '}
+              </span>
+            )}
             {item.to ? (
               <Link to={item.to} className="lab-breadcrumb__link">
                 {item.label}
