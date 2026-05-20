@@ -76,11 +76,12 @@ export default function DoctorCard({ doctor }) {
             </div>
           )}
 
-          <Link to={profilePath} className="doctor-card__cta">
-            View Profile
-          </Link>
+       
         </div>
       </div>
+         <Link to={profilePath} className="doctor-card__cta">
+            View Profile
+          </Link>
     </article>
   );
 }

@@ -102,10 +102,11 @@ $doctor-promo-green: #28a745;
     max-width: 1192px;
     width: 100%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: $spacing-xl;
-    align-items: start;
+    display: flex;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    gap: 10px;
 
     @include mobile-only {
       grid-template-columns: 1fr;
@@ -113,24 +114,39 @@ $doctor-promo-green: #28a745;
   }
 
   &__sidebar {
-    position: sticky;
-    top: 100px;
+
+    width: 100%;
+    max-width: 352px;
+    text-align: left;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    padding: 24px;
+    background: #f4f6f9;
+    height: 206px;
+    border-radius: 8px;
 
     @include mobile-only {
       display: none;
     }
+
   }
 
   &__content {
     display: flex;
+    max-width: 786px;
+
     flex-direction: column;
     gap: $spacing-md;
     min-width: 0;
+    text-align: left;
   }
 
   &__count {
+    display: flex;
     margin: 0;
-    font-size: $font-size-lg;
+    font-size: 16px;
+    padding: 0px 0px 7px;
+    font-weight: 700;
     color: $text-color;
 
     strong {
@@ -140,6 +156,7 @@ $doctor-promo-green: #28a745;
 
   &__list {
     display: flex;
+    width: 786px;
     flex-direction: column;
     gap: $spacing-lg;
   }
@@ -147,16 +164,17 @@ $doctor-promo-green: #28a745;
 
 // Doctor card — Healthwire horizontal layout
 .doctor-card {
-  border: 1px solid $border-color;
-  border-radius: $border-radius-lg;
-  background: $bg-color;
-  padding: $spacing-lg;
-  @include box-shadow($shadow-sm);
-  
+
+  border-bottom: 4px solid #edf1f5;
+  padding-bottom: 16px;
+  background: #fff;
+  margin-bottom: 16px;
+
   &__layout {
     display: flex;
     gap: $spacing-lg;
     align-items: flex-start;
+    max-width: 783px;
 
     @include mobile-only {
       flex-direction: column;
@@ -186,21 +204,27 @@ $doctor-promo-green: #28a745;
     flex-wrap: wrap;
     gap: $spacing-sm;
     margin-bottom: $spacing-xs;
+    
 
     .badge--primary {
       background-color: #ede7f6;
       color: #6a1b9a;
+      font-size: 12px;
+
+
     }
 
     .badge--success {
       background-color: #e8f5e9;
       color: #2e7d32;
+      font-size: 12px;
+      max-width: 78px;
     }
   }
 
   &__name {
     margin: 0;
-    font-size: $font-size-xl;
+    font-size: 20px;
     font-weight: $font-weight-bold;
     color: $text-color;
     line-height: 1.3;
@@ -208,14 +232,14 @@ $doctor-promo-green: #28a745;
 
   &__specialty {
     margin: 0;
-    font-size: $font-size-sm;
+    font-size: 14px;
     color: $text-light;
     line-height: 1.5;
   }
 
   &__qualifications {
     margin: 0;
-    font-size: $font-size-sm;
+    font-size: 14px;
     color: $text-light;
   }
 
@@ -238,14 +262,15 @@ $doctor-promo-green: #28a745;
     flex-direction: column;
     gap: 2px;
 
+
     strong {
-      font-size: $font-size-base;
+      font-size: 14px;
       font-weight: $font-weight-bold;
       color: $text-color;
     }
 
     span {
-      font-size: $font-size-xs;
+      font-size: 12px;
       color: $text-light;
     }
   }
@@ -257,10 +282,20 @@ $doctor-promo-green: #28a745;
   }
 
   &__clinic {
-    background: $doctor-clinic-bg;
-    border-radius: $border-radius-md;
-    padding: $spacing-md $spacing-lg;
-    margin-top: $spacing-xs;
+    max-width: 270px;
+    background: #EDF3FC;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 12px 12px 12px 12px;
+    box-sizing: border-box;
+    text-align: left;
+    height: auto;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+
+    @include mobile-only {
+      width: 100%;
+    }
   }
 
   &__clinic-row {
@@ -268,7 +303,7 @@ $doctor-promo-green: #28a745;
     justify-content: space-between;
     align-items: flex-start;
     gap: $spacing-md;
-    font-size: $font-size-sm;
+    font-size: 12px;
     color: $text-color;
   }
 
@@ -277,6 +312,7 @@ $doctor-promo-green: #28a745;
     align-items: flex-start;
     gap: $spacing-sm;
     flex: 1;
+
   }
 
   &__clinic-icon {
@@ -292,16 +328,18 @@ $doctor-promo-green: #28a745;
 
   &__promo {
     margin: $spacing-sm 0 0;
-    font-size: $font-size-sm;
+    font-size: 10px;
     font-weight: $font-weight-semibold;
     color: $doctor-promo-green;
   }
 
   &__cta {
     display: block;
-    width: 100%;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
     margin-top: $spacing-md;
-    padding: $spacing-md $spacing-lg;
+    padding: 11px 0;
     background: $doctor-navy;
     color: #fff;
     text-align: center;
@@ -319,11 +357,14 @@ $doctor-promo-green: #28a745;
 
 // Sidebar filters
 .doctor-filters {
-  background: $doctor-sidebar-bg;
-  border: 1px solid $border-color;
-  padding: $spacing-lg;
-  border-radius: $border-radius-lg;
-  
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+
+
+
   h3 {
     margin: 0 0 $spacing-lg;
     font-size: $font-size-base;
@@ -334,20 +375,19 @@ $doctor-promo-green: #28a745;
     margin-bottom: $spacing-lg;
 
     label {
-      display: block;
-      margin-bottom: $spacing-sm;
-      font-size: $font-size-sm;
-      font-weight: $font-weight-medium;
-      color: $text-color;
+      font-size: 12px;
+      line-height: 18px;
+      margin: 0 0 8px;
     }
 
     .select {
+      padding: 6px 16px;
+      border: 1px solid #c8cbd0;
+      border-radius: 6px;
       width: 100%;
-      padding: $spacing-sm $spacing-md;
-      border: 1px solid $border-color;
-      border-radius: $border-radius-md;
-      background: $bg-color;
-      font-size: $font-size-sm;
+      background: #f4f6f9;
+      font-size: 12px;
+
     }
 
     &:last-child {
@@ -364,8 +404,8 @@ $doctor-promo-green: #28a745;
   flex-wrap: wrap;
 
   &__search {
-    flex: 1;
-    min-width: 200px;
+    flex: -1;
+    max-width: 390px;
     display: flex;
     align-items: center;
     gap: $spacing-sm;
@@ -402,18 +442,19 @@ $doctor-promo-green: #28a745;
     flex-shrink: 0;
 
     label {
-      font-size: $font-size-sm;
-      color: $text-color;
-      white-space: nowrap;
+      font-size: 12px;
+      line-height: 18px;
+      margin: 0 0 8px;
     }
 
     .select {
-      padding: $spacing-sm $spacing-md;
-      border: 1px solid $border-color;
-      border-radius: $border-radius-md;
-      background: $bg-color;
-      font-size: $font-size-sm;
-      min-width: 120px;
+      padding: 6px 16px;
+      border: 1px solid #c8cbd0;
+      border-radius: 6px;
+      width: 100%;
+      margin-bottom: 24px;
+      background: #f4f6f9;
+      font-size: 12px;
     }
   }
 }

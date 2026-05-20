@@ -12,7 +12,7 @@ export default function DoctorFilters({ filters, onFilterChange, showCityFilter 
 
   return (
     <div className="doctor-filters">
-      <h3>Filter by</h3>
+     
 
       {showCityFilter && (
         <div className="doctor-filters__group">
