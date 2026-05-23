@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
+import AuthModal from '../features/auth/components/AuthModal';
 
 export default function PublicLayout() {
   return (
@@ -10,6 +11,7 @@ export default function PublicLayout() {
         <Outlet />
       </main>
       <Footer />
+      <AuthModal />
     </div>
   );
 }

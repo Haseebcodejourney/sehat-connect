@@ -1,125 +1,15 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Input from '../../components/ui/Input';
-import Select from '../../components/ui/Select';
-import Button from '../../components/ui/Button';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../features/auth/authContext';
 
 export default function Signup() {
   const navigate = useNavigate();
-  const { signup, loading, error, clearError } = useAuth();
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    role: 'patient',
-  });
-  const [formError, setFormError] = useState('');
+  const { openAuthModal } = useAuth();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  useEffect(() => {
+    openAuthModal();
+    navigate('/', { replace: true });
+  }, [openAuthModal, navigate]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setFormError('');
-    clearError();
-
-    if (formData.password !== formData.confirmPassword) {
-      setFormError('Passwords do not match');
-      return;
-    }
-
-    try {
-      const payload = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        password: formData.password,
-        role: formData.role,
-      };
-      const response = await signup(payload);
-      if (response.token && response.user?.role) {
-        navigate(`/${response.user.role}`);
-      } else {
-        navigate('/login');
-      }
-    } catch {
-      // API error from auth context
-    }
-  };
-
-  const displayError = formError || error;
-
-  return (
-    <div className="auth-page">
-      <div className="auth-page__container">
-        <h1>Sign Up</h1>
-
-        {displayError && <div className="auth-page__error">{displayError}</div>}
-
-        <form onSubmit={handleSubmit} className="auth-page__form">
-          <Input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-          />
-          <Input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-          />
-          <Input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <Select
-            name="role"
-            value={formData.role}
-            onChange={handleChange}
-            options={[
-              { value: 'patient', label: 'Patient' },
-              { value: 'doctor', label: 'Doctor' },
-            ]}
-          />
-          <Input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-          <Input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-          <Button type="submit" variant="primary" disabled={loading}>
-            {loading ? 'Creating account...' : 'Sign Up'}
-          </Button>
-        </form>
-
-        <p className="auth-page__footer">
-          Already have an account? <Link to="/login">Sign in</Link>
-        </p>
-      </div>
-    </div>
-  );
+  return null;
 }

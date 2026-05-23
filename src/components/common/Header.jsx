@@ -2,7 +2,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useId } from 'react';
 import { useAuth } from '../../features/auth/authContext';
 import SehatLogoMark from './SehatLogoMark';
-import HeaderLabDropdown from './HeaderLabDropdown';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -57,7 +56,7 @@ export default function Header() {
               <div className="header__main-search-wrapper">
                 <input
                   type="search"
-                  placeholder="Search for medicines and lab tests..."
+                  placeholder="Search doctors, specialties, or services"
                   className="header__main-search-input"
                   aria-label="Search"
                 />
@@ -88,7 +87,7 @@ export default function Header() {
 
           <div className="header__top-right">
             <div className="header__btn-wrapper">
-              <span className="header__cart_icon" aria-label="Basket (coming soon)" title="Coming soon">
+              <Link to="/pharmacy/cart" className="header__cart_icon" aria-label="Shopping cart">
                 <svg
                   fill="#1e4275"
                   height="24px"
@@ -105,7 +104,7 @@ export default function Header() {
                     <path d="M221.17,257h-202c-8.284,0-15,6.716-15,15s6.716,15,15,15h8.781c-2.128,4.416-3.321,9.364-3.321,14.585c0,18.591,15.125,33.717,33.718,33.717c18.591,0,33.717-15.125,33.717-33.717c0-5.221-1.193-10.169-3.321-14.585h66.737c-2.128,4.416-3.321,9.364-3.321,14.585c0,18.591,15.125,33.717,33.717,33.717s33.718-15.125,33.718-33.717c0-5.221-1.193-10.169-3.321-14.585h4.898c8.284,0,15-6.716,15-15S229.454,257,221.17,257z" />
                   </g>
                 </svg>
-              </span>
+              </Link>
 
               {!user && (
                 <div className="header__signup_wrapper">
@@ -127,7 +126,7 @@ export default function Header() {
                 <div className="header__bottom_left_nav">
                   <Link to="/">Home</Link>
                   <Link to="/doctors">Doctors</Link>
-                  <HeaderLabDropdown />
+                  <Link to="/lab-tests">Lab tests</Link>
                   <Link to="/health-blogs">
                     Health blogs
                     <svg

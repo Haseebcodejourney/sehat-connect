@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../../styles/layout/home/_missionstatement.scss';
 
 const MissionStatement = () => {
@@ -18,9 +19,9 @@ const MissionStatement = () => {
           enabling them to make better healthcare decisions.
         </p>
 
-        <a className="mission-statement__link" href="/about">
+        <Link className="mission-statement__link" to="/about">
           Read More
-        </a>
+        </Link>
       </div>
     </section>
   );

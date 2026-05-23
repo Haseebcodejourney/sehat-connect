@@ -1,30 +1,6 @@
 import { Link } from 'react-router-dom';
+import { footerMenus } from '../../config/footerLinks';
 import SehatLogoMark from './SehatLogoMark';
-
-const footerMenus = [
-  {
-    title: 'Company',
-    links: [
-      { label: 'Home', to: '/' },
-      { label: 'Contact', to: '/contact' },
-    ],
-  },
-  {
-    title: 'Services',
-    links: [
-      { label: 'Find doctors', to: '/doctors' },
-      { label: 'Lab tests', to: '/lab-tests' },
-      { label: 'Health blogs', to: '/health-blogs' },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      { label: 'Privacy policy', to: '/privacy-policy' },
-      { label: 'Terms of use', to: '/terms' },
-    ],
-  },
-];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -62,7 +38,7 @@ export default function Footer() {
               <h4>{menu.title}</h4>
               <ul>
                 {menu.links.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.to}>
                     <Link to={link.to}>{link.label}</Link>
                   </li>
                 ))}

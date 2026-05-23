@@ -4,9 +4,11 @@ import DashboardLayout from '../layouts/DashboardLayout';
 import Home from '../pages/public/Home';
 import { doctorPublicRoutes } from '../modules/doctors';
 import { labPublicRoutes } from '../modules/lab';
-import { pharmacyFranchiseRoutes } from '../modules/pharmacy';
+import { pharmacyRoutes } from '../modules/pharmacy';
+import { aboutRoutes } from '../modules/about';
 import Login from '../pages/public/Login';
 import Signup from '../pages/public/Signup';
+import VerifyOtp from '../pages/public/VerifyOtp';
 import NotFound from '../pages/public/NotFound';
 import ComingSoon from '../pages/public/ComingSoon';
 import PatientDashboard from '../pages/patient/PatientDashboard';
@@ -38,28 +40,26 @@ export const router = createBrowserRouter([
         path: 'signup',
         element: <Signup />,
       },
+      {
+        path: 'verify-otp',
+        element: <VerifyOtp />,
+      },
       ...labPublicRoutes,
       {
         path: 'health-blogs',
         element: <ComingSoon />,
       },
-      ...pharmacyFranchiseRoutes,
-      {
-        path: 'contact',
-        element: <ComingSoon />,
-      },
-      {
-        path: 'app',
-        element: <ComingSoon />,
-      },
-      {
-        path: 'privacy-policy',
-        element: <ComingSoon />,
-      },
-      {
-        path: 'terms',
-        element: <ComingSoon />,
-      },
+      ...pharmacyRoutes,
+      ...aboutRoutes,
+      { path: 'news', element: <ComingSoon /> },
+      { path: 'careers', element: <ComingSoon /> },
+      { path: 'editorial-policy', element: <ComingSoon /> },
+      { path: 'upload-prescription', element: <ComingSoon /> },
+      { path: 'pharmacy', element: <ComingSoon /> },
+      { path: 'contact', element: <ComingSoon /> },
+      { path: 'app', element: <ComingSoon /> },
+      { path: 'privacy-policy', element: <ComingSoon /> },
+      { path: 'terms', element: <ComingSoon /> },
     ],
   },
   {

@@ -130,8 +130,8 @@
 
   &__nav {
     display: grid;
-    grid-template-columns: repeat(3, minmax(140px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(4, minmax(120px, 1fr));
+    gap: 32px 40px;
   }
 
   &__menu {
@@ -243,6 +243,10 @@
     &__brand {
       max-width: 520px;
       gap: 48px;
+    }
+
+    &__nav {
+      grid-template-columns: repeat(2, minmax(140px, 1fr));
     }
   }
 

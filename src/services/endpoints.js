@@ -7,6 +7,9 @@ export const ENDPOINTS = {
     LOGOUT: '/auth/logout',
     REFRESH: '/auth/refresh',
     PROFILE: '/auth/profile',
+    SEND_OTP: '/auth/phone/send-otp',
+    VERIFY_OTP: '/auth/phone/verify-otp',
+    GOOGLE: '/auth/google',
   },
 
   // Doctors

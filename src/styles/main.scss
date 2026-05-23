@@ -22,6 +22,7 @@
 @import 'components/input';
 @import 'components/card';
 @import 'components/modal';
+@import 'components/auth-modal';
 
 // Import page styles
 @import 'pages/home';
@@ -32,9 +33,14 @@
 @import 'pages/doctor-header';
 @import 'pages/appointments';
 @import 'pages/auth';
+@import 'pages/verify-otp';
 @import 'pages/profile';
 @import 'pages/availability';
 @import 'pages/not-found';
 @import 'pages/coming-soon';
 @import 'pages/lab-tests';
 @import 'pages/pharmacy-franchise';
+@import 'pages/pharmacy-cart';
+@import 'pages/medicines';
+@import 'pages/pharmacy-checkout';
+@import 'pages/about';

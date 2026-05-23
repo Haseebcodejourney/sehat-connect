@@ -1,1 +1,1 @@
-export { pharmacyFranchiseRoutes } from './routes';
+export { pharmacyCartRoutes, pharmacyFranchiseRoutes, pharmacyRoutes } from './routes';
