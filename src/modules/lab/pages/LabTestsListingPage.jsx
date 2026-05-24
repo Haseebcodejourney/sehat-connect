@@ -61,7 +61,7 @@ export default function LabTestsListingPage() {
 
           <div className="lab-tests-listing__search">
             <span className="lab-tests-listing__search-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="https://d2cyip4t2cqq7y.cloudfront.net/assets/images/search-ico.svg">
                 <path
                   d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
                   stroke="currentColor"
