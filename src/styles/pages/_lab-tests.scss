@@ -67,7 +67,7 @@ $lab-cta-bg: #2d2d2d;
 
   &__title {
     margin: 0 0 4px;
-    font-size: clamp(22px, 3vw, 28px);
+    font-size: 32px;
     font-weight: $font-weight-bold;
     color: $lab-navy;
     line-height: 1.25;
@@ -96,8 +96,9 @@ $lab-cta-bg: #2d2d2d;
   }
 
   &__search {
+    max-width: 390px;
+    width: 100%;
     position: relative;
-    margin-bottom: 16px;
   }
 
   &__search-icon {
@@ -116,6 +117,7 @@ $lab-cta-bg: #2d2d2d;
     border: 1px solid $lab-border;
     border-radius: 8px;
     font-size: 14px;
+    height: 37px;
     color: #1f2937;
     background: #fff;
 
@@ -241,7 +243,7 @@ $lab-cta-bg: #2d2d2d;
 
   &__name {
     margin: 0 0 6px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: $font-weight-bold;
     line-height: 1.35;
 
@@ -259,13 +261,14 @@ $lab-cta-bg: #2d2d2d;
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: $font-weight-medium;
     color: #64748b;
-    text-decoration: none;
+    
 
     &:hover {
-      color: $lab-accent;
+      
+      text-decoration: none;
     }
   }
 
@@ -291,9 +294,11 @@ $lab-cta-bg: #2d2d2d;
   }
 
   &__price-current {
-    font-size: 15px;
-    font-weight: $font-weight-bold;
-    color: $lab-navy;
+         font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        color: #121314;
+        padding-bottom: 12px;
   }
 
   &__price-old {
@@ -303,19 +308,22 @@ $lab-cta-bg: #2d2d2d;
   }
 
   &__add {
-    min-width: 72px;
-    padding: 6px 16px;
-    font-size: 13px;
+    max-width: 40.72px;
+    max-height: 32px;
+    padding: 5px 5px;
+    font-size: 14px;
     font-weight: $font-weight-semibold;
     color: $lab-navy;
     background: #fff;
     border: 1px solid $lab-navy;
     border-radius: 6px;
     cursor: pointer;
+    text-align: center;
     transition: background 0.15s ease, color 0.15s ease;
 
     &:hover {
-      background: #f1f5f9;
+      background: #1e4275;
+      color: #fff;
     }
 
     &--added {
@@ -351,14 +359,14 @@ $lab-cta-bg: #2d2d2d;
 
   &__title {
     margin: 0 0 12px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: $font-weight-bold;
     color: $lab-navy;
   }
 
   &__hint {
     margin: 0 0 16px;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.5;
     color: $lab-navy;
   }
@@ -380,20 +388,21 @@ $lab-cta-bg: #2d2d2d;
 
   &__total-label,
   &__total-value {
-    font-size: 15px;
-    font-weight: $font-weight-bold;
-    color: $lab-navy;
+    font-size: 14px;
+    font-weight: 500;
+    color: #121314;
   }
 
   &__checkout {
     width: 100%;
-    padding: 14px 16px;
-    font-size: 15px;
-    font-weight: $font-weight-semibold;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: bold;
     color: #fff;
-    background: #94a3b8;
+    background: #1e4275;
     border: none;
     border-radius: 8px;
+    line-height: 21px;
     cursor: not-allowed;
 
     &:not(:disabled) {
@@ -420,7 +429,7 @@ $lab-cta-bg: #2d2d2d;
   &__name a {
     color: $text-color;
     text-decoration: none;
-    font-size: $font-size-lg;
+    font-size: 14px;
     font-weight: $font-weight-semibold;
 
     &:hover {
@@ -474,8 +483,9 @@ $lab-cta-bg: #2d2d2d;
   }
 
   &__title {
-    margin: 0 0 48px;
+   margin: 0 0 8px;
     font-size: 32px;
+    max-width: 647px;
     font-weight: $font-weight-bold;
     line-height: 1.2;
     text-transform: capitalize;
@@ -646,7 +656,7 @@ $lab-cta-bg: #2d2d2d;
     font-size: 16px;
     line-height: 1.22;
     color: #1e4275;
-    font-weight: 700;
+    
     letter-spacing: -0.2px;
     padding: 0px 0px 17px;
   }
@@ -676,7 +686,7 @@ $lab-cta-bg: #2d2d2d;
   }
 
   &__price-current {
-    font-weight: 700;
+    
     font-size: 14px;
     color: #111317;
     line-height: 1;
@@ -710,7 +720,7 @@ $lab-cta-bg: #2d2d2d;
     font-weight: 500;
 
     text-decoration: none;
- 
+
     // height: 32px;
     cursor: pointer;
     transition: background 0.2s ease, color 0.2s ease;
@@ -724,7 +734,7 @@ $lab-cta-bg: #2d2d2d;
   &__btn--add {
     max-width: 94px;
     width: 100%;
-      padding: 6px 12px;
+    padding: 6px 12px;
   }
 
   &__btn--back {
@@ -739,7 +749,7 @@ $lab-cta-bg: #2d2d2d;
     background: #244a80;
     color: #fff;
     border-color: #244a80;
-        padding: 8px 32px;
+    padding: 8px 32px;
 
     &:hover {
       background: #1e3f6d;
@@ -810,9 +820,13 @@ $lab-cta-bg: #2d2d2d;
   }
 
   &__price-current {
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    color: $lab-navy;
+          
+        font-size: 14px;
+        line-height: 21px;
+        color: #121314;
+        padding-bottom: 12px;
+        font-weight: 700px
+    ;
   }
 
   &__price-old {
