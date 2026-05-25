@@ -6,6 +6,9 @@ import { doctorPublicRoutes } from '../modules/doctors';
 import { labPublicRoutes } from '../modules/lab';
 import { pharmacyRoutes } from '../modules/pharmacy';
 import { aboutRoutes } from '../modules/about';
+import { contactRoutes } from '../modules/contact';
+import { editorialRoutes } from '../modules/editorial';
+import { careersRoutes } from '../modules/careers';
 import Login from '../pages/public/Login';
 import Signup from '../pages/public/Signup';
 import VerifyOtp from '../pages/public/VerifyOtp';
@@ -51,12 +54,12 @@ export const router = createBrowserRouter([
       },
       ...pharmacyRoutes,
       ...aboutRoutes,
+      ...contactRoutes,
+      ...editorialRoutes,
+      ...careersRoutes,
       { path: 'news', element: <ComingSoon /> },
-      { path: 'careers', element: <ComingSoon /> },
-      { path: 'editorial-policy', element: <ComingSoon /> },
       { path: 'upload-prescription', element: <ComingSoon /> },
       { path: 'pharmacy', element: <ComingSoon /> },
-      { path: 'contact', element: <ComingSoon /> },
       { path: 'app', element: <ComingSoon /> },
       { path: 'privacy-policy', element: <ComingSoon /> },
       { path: 'terms', element: <ComingSoon /> },

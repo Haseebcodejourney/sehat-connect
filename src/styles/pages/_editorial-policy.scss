@@ -1,0 +1,701 @@
+$editorial-text: #161616;
+$editorial-muted: #3d3d3d;
+$editorial-accent: #2ac4f4;
+$editorial-wrap: 1140px;
+
+.editorial-page {
+  background: #fff;
+  color: $editorial-text;
+  text-align: left;
+
+  &__banner-wrap {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  &__container {
+    max-width: $editorial-wrap;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px 60px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  &__values {
+    text-align: left;
+  }
+
+  &__block {
+    margin-bottom: 0;
+    text-align: left;
+
+    &--product {
+      padding-top: 0;
+    }
+  }
+
+  &__block-title {
+    margin: 0;
+    padding: 30px 0 20px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    color: $editorial-text;
+    text-align: left;
+  }
+
+  &__values &__block:first-child &__block-title {
+    padding-top: 0;
+  }
+
+  p {
+    margin: 0 0 30px;
+    font-size: 16px;
+    line-height: 30px;
+    color: $editorial-text;
+    text-align: left;
+  }
+
+  &__intro-text {
+    padding-bottom: 0;
+  }
+
+  &__bullet-list {
+    margin: 0 0 20px;
+    padding: 0 0 0 18px;
+    list-style: none;
+    text-align: left;
+
+    li {
+      position: relative;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      font-size: 16px;
+      line-height: 30px;
+      color: $editorial-text;
+      text-align: left;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: -18px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $editorial-accent;
+      }
+
+      &:last-child {
+        padding-bottom: 20px;
+      }
+    }
+
+    &--spaced li:last-child {
+      padding-bottom: 10px;
+    }
+  }
+
+  &__bold-list {
+    margin: 0;
+    padding: 0 0 0 17px;
+    list-style: none;
+    text-align: left;
+
+    li {
+      position: relative;
+      margin-bottom: 0;
+      padding-bottom: 30px;
+      font-size: 16px;
+      line-height: 30px;
+      color: $editorial-text;
+      text-align: left;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: -17px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $editorial-accent;
+      }
+
+      strong {
+        font-weight: 600;
+      }
+    }
+
+    &--compact {
+      padding-bottom: 10px;
+    }
+  }
+
+  &__ordered-list {
+    margin: 0 0 20px;
+    padding-left: 24px;
+    text-align: left;
+
+    li {
+      font-size: 16px;
+      line-height: 30px;
+      padding-bottom: 10px;
+      text-align: left;
+    }
+  }
+
+  &__workflow {
+    text-align: left;
+  }
+
+  &__workflow-title {
+    margin: 0;
+    padding: 30px 0;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    text-align: left;
+  }
+
+  &__team {
+    background: #fbfbfb;
+    padding-bottom: 30px;
+    text-align: left;
+  }
+
+  &__team-title,
+  &__writers-title {
+    margin: 0;
+    padding: 30px 0 20px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    text-align: left;
+  }
+
+  &__team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  &__writers {
+    padding-bottom: 60px;
+    text-align: left;
+  }
+
+  &__writers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 32px;
+  }
+}
+
+.editorial-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 314px;
+  background-image: url('/assets/B2c/background-img.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+
+  &__heading {
+    margin: 0;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 56px;
+    color: #fff;
+    text-align: center;
+  }
+}
+
+.editorial-timeline {
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+  padding-bottom: 24px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 11px;
+    height: 93%;
+    background: url('/assets/B2c/straight-line.png') center top repeat-y;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    position: relative;
+    width: 50%;
+    margin-left: auto;
+    margin-right: 0;
+    padding-bottom: 0;
+    text-align: left;
+
+    &--last {
+      margin-bottom: 0;
+    }
+
+    &:nth-child(1) {
+      margin-top: 0;
+    }
+
+    &:nth-child(2) {
+      margin-top: 11px;
+    }
+
+    &:nth-child(3) {
+      margin-top: 37px;
+    }
+
+    &:nth-child(4) {
+      margin-top: 48px;
+    }
+
+    &:nth-child(5) {
+      margin-top: 36px;
+    }
+
+    &:nth-child(6) {
+      margin-top: 47px;
+    }
+
+    &:nth-child(7) {
+      margin-top: 17px;
+    }
+
+    &:nth-child(even) {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  &__point {
+    position: absolute;
+    top: -22px;
+    width: 76px;
+    height: 76px;
+    background: url('/assets/B2c/circle.png') center / contain no-repeat;
+
+    &--right {
+      right: -17px;
+    }
+
+    &--left {
+      left: -56px;
+      margin-top: 64px;
+    }
+  }
+
+  &__number {
+    position: absolute;
+    top: 23px;
+    left: 33px;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #fff;
+  }
+
+  &__bubble {
+    width: 64.4%;
+    padding: 22px 32px 25px 3px;
+    margin-top: 13px;
+    text-align: left;
+
+    &--right {
+      float: right;
+    }
+
+    &--left {
+      float: left;
+      margin: 24px 0 0 30px;
+      padding-right: 0;
+    }
+  }
+
+  &__bubble-title {
+    margin: 0 0 5px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    color: $editorial-text;
+    text-align: left;
+  }
+
+  &__bubble-text {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: $editorial-text;
+    text-align: left;
+  }
+
+  &__item:nth-child(even) .editorial-timeline__bubble-title,
+  &__item:nth-child(even) .editorial-timeline__bubble-text {
+    text-align: left;
+  }
+}
+
+.editorial-team-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  min-height: 157px;
+  padding: 0;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  text-align: left;
+
+  &__photo {
+    flex-shrink: 0;
+    width: 117px;
+    height: 117px;
+    margin: 20px 15px 20px 20px;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 13px 1px #f6f6f6;
+    background-repeat: no-repeat;
+
+    &--one {
+      background-image: url('/assets/B2c/DrJawadKhan.jpeg');
+      background-size: 121px;
+      background-position: -9px -4px;
+    }
+
+    &--two {
+      background-image: url('/assets/B2c/DrShifaShah.jpeg');
+      background-size: 148px;
+      background-position: -32px -1px;
+    }
+
+    &--three {
+      background-image: url('/assets/B2c/DrHarisBinSohail.jpeg');
+      background-size: 121px;
+      background-position: -15px -7px;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 16px 12px 0;
+    text-align: left;
+  }
+
+  &__name {
+    margin: 0 0 3px;
+    padding-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    color: $editorial-accent;
+    text-align: left;
+  }
+
+  &__role {
+    margin: 0 0 4px;
+    font-size: 16px;
+    line-height: 22px;
+    color: $editorial-muted;
+    text-align: left;
+  }
+
+  &__role-label,
+  &__experience {
+    font-weight: 600;
+  }
+
+  &__qualification {
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+    color: $editorial-muted;
+    text-align: left;
+  }
+}
+
+.editorial-writer-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  max-width: 466px;
+  padding-bottom: 30px;
+  text-align: left;
+
+  &__photo {
+    flex-shrink: 0;
+    width: 117px;
+    height: 117px;
+    margin-right: 25px;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 13px 1px #f6f6f6;
+    background-repeat: no-repeat;
+
+    &--one {
+      background-image: url('/assets/B2c/AimanTahirLaghari.jpg');
+      background-size: 207px;
+      background-position: -61px -3px;
+    }
+
+    &--two {
+      background-image: url('/assets/B2c/MariaAmir.jpg');
+      background-size: 202px;
+      background-position: -48px -18px;
+    }
+
+    &--third {
+      background-image: url('/assets/B2c/IqraZafar.jpg');
+      background-size: 141px;
+      background-position: -15px -43px;
+    }
+
+    &--fourth {
+      background-image: url('/assets/B2c/SeemabLatif.jpg');
+      background-size: 281px;
+      background-position: -94px -19px;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+  }
+
+  &__name {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    color: $editorial-accent;
+    text-align: left;
+  }
+
+  &__social {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+
+  &__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    background: #3ec1f5;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__bio {
+    margin: 0;
+    padding-top: 8px;
+    font-size: 14px;
+    line-height: 19px;
+    color: $editorial-muted;
+    text-align: left;
+  }
+}
+
+@include mobile-only {
+  .editorial-banner {
+    height: 124px;
+    margin-top: 0;
+
+    &__heading {
+      font-size: 25px;
+      line-height: 30px;
+      padding: 30px 47px 0;
+    }
+  }
+
+  .editorial-page {
+    &__container {
+      padding: 0 10px 40px;
+    }
+
+    &__block-title,
+    &__workflow-title,
+    &__team-title,
+    &__writers-title {
+      font-size: 16px;
+      line-height: 22px;
+      padding-bottom: 20px;
+    }
+
+    p,
+    &__bullet-list li,
+    &__bold-list li,
+    &__ordered-list li {
+      font-size: 14px;
+      line-height: 25px;
+    }
+
+    &__team-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    &__writers-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .editorial-timeline {
+    margin: 0 10px;
+
+    &::before {
+      left: 22px;
+      transform: none;
+      height: 92%;
+    }
+
+    &__item {
+      width: 100%;
+      margin-left: 0 !important;
+      margin-right: 0;
+      padding-bottom: 18px;
+    }
+
+    &__point {
+      width: 46px;
+      height: 46px;
+      top: -13px;
+      left: -20px !important;
+      right: auto !important;
+      margin-top: 0 !important;
+      background-size: 46px 46px;
+    }
+
+    &__number {
+      top: 11px;
+      left: 17px;
+      font-size: 18px;
+    }
+
+    &__bubble {
+      float: left !important;
+      width: calc(100% - 56px);
+      margin: 0 0 0 54px !important;
+      padding: 0 10px 0 0;
+    }
+
+    &__bubble-title {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    &__bubble-text {
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+
+  .editorial-team-card {
+    &__photo {
+      width: 86px;
+      height: 86px;
+      margin: 15px;
+
+      &--one {
+        background-size: 78px;
+        background-position: -5px -1px;
+      }
+
+      &--two {
+        background-size: 95px;
+        background-position: -21px -1px;
+      }
+
+      &--three {
+        background-size: 74px;
+        background-position: -9px -5px;
+      }
+    }
+
+    &__name {
+      font-size: 14px;
+      line-height: 19px;
+    }
+
+    &__role,
+    &__qualification {
+      font-size: 12px;
+      line-height: 17px;
+    }
+  }
+
+  .editorial-writer-card {
+    &__photo {
+      width: 96px;
+      height: 96px;
+      margin-right: 0;
+
+      &--one {
+        background-size: 171px;
+        background-position: -53px -3px;
+      }
+
+      &--two {
+        background-size: 147px;
+        background-position: -34px -12px;
+      }
+
+      &--third {
+        background-size: 99px;
+        background-position: -107px -29px;
+      }
+
+      &--fourth {
+        background-size: 197px;
+        background-position: -62px -10px;
+      }
+    }
+
+    &__info {
+      padding-left: 15px;
+      max-width: 240px;
+    }
+
+    &__name {
+      font-size: 14px;
+    }
+
+    &__bio {
+      font-size: 12px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .editorial-page__team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .editorial-page__writers-grid {
+    grid-template-columns: 1fr;
+  }
+}

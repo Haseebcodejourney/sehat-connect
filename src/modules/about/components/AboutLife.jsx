@@ -26,7 +26,7 @@ export default function AboutLife() {
           ))}
         </ul>
 
-        <Link to="/contact" className="about-life__cta">
+        <Link to="/careers" className="about-life__cta">
           View Job Openings
         </Link>
       </div>

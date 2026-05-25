@@ -16,11 +16,6 @@ const COPY = {
     description:
       'Partnership information will be published here. For urgent inquiries, please reach out through the contact options in the footer.',
   },
-  '/contact': {
-    title: 'Contact us',
-    description:
-      'For clinical emergencies, call your local emergency number. For product questions, please use the support channels listed on your account dashboard once you are signed in.',
-  },
   '/app': {
     title: 'Mobile app',
     description: 'The Sehat Connect app for iOS and Android will be available from this page when released.',

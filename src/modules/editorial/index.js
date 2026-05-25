@@ -1,0 +1,1 @@
+export { editorialRoutes } from './routes';

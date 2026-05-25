@@ -8,7 +8,7 @@ export const footerMenus = [
       { label: 'News', to: '/news' },
       { label: 'Careers', to: '/careers' },
       { label: 'Editorial Policy', to: '/editorial-policy' },
-      { label: 'Contact', to: '/contact' },
+      { label: 'Contact Us', to: '/contact-us' },
     ],
   },
   {
