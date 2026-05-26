@@ -132,7 +132,7 @@ export default function LabTestsListingPage() {
                       className={`lab-tests-row__add${inCart ? ' lab-tests-row__add--added' : ''}`}
                       onClick={() => toggleCart(test)}
                     >
-                      {inCart ? 'Added' : 'Add'}
+                      {inCart ? 'Add' : 'Add'}
                     </button>
                   </div>
                 </li>
