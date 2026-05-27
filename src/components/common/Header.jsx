@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useId } from 'react';
+import { useId, useState } from 'react';
 import { useAuth } from '../../features/auth/authContext';
 import SehatLogoMark from './SehatLogoMark';
 
@@ -7,6 +7,7 @@ export default function Header() {
   const navigate = useNavigate();
   const blogsClipId = useId();
   const { user, logout } = useAuth();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     await logout();
@@ -56,7 +57,7 @@ export default function Header() {
               <div className="header__main-search-wrapper">
                 <input
                   type="search"
-                  placeholder="Search doctors, specialties, or services"
+                  placeholder="Search for medicines and lab tests ..."
                   className="header__main-search-input"
                   aria-label="Search"
                 />
@@ -115,6 +116,34 @@ export default function Header() {
                   <Link to="/login">Sign in</Link>
                 </div>
               )}
+
+              <button
+                type="button"
+                className="header__menu-toggle"
+                aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={mobileMenuOpen}
+                onClick={() => setMobileMenuOpen((prev) => !prev)}
+              >
+                {mobileMenuOpen ? (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M6 6L18 18M18 6L6 18"
+                      stroke="#A7ADB6"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                ) : (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M4 6.5H20M4 12H20M4 17.5H20"
+                      stroke="#1E4275"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                )}
+              </button>
             </div>
           </div>
         </div>
@@ -172,6 +201,134 @@ export default function Header() {
           </nav>
         </div>
       </div>
+
+      <div
+        className={`header__mobile-overlay ${mobileMenuOpen ? 'header__mobile-overlay--visible' : ''}`}
+        onClick={() => setMobileMenuOpen(false)}
+        aria-hidden={!mobileMenuOpen}
+      />
+      <aside className={`header__mobile-menu ${mobileMenuOpen ? 'header__mobile-menu--open' : ''}`}>
+        <div className="header__mobile-menu-head">
+          <h2>Menu</h2>
+          <div className="header__mobile-menu-head-actions">
+            <Link to="/" aria-label="Go to home" onClick={() => setMobileMenuOpen(false)}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M4.5 10.7L12 4.5L19.5 10.7V19.5H14.5V14.5H9.5V19.5H4.5V10.7Z"
+                  stroke="#1E4275"
+                  strokeWidth="1.8"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </Link>
+            <button type="button" aria-label="Close menu" onClick={() => setMobileMenuOpen(false)}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M6 6L18 18M18 6L6 18"
+                  stroke="#A7ADB6"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {!user && (
+          <section className="header__mobile-guest">
+            <h3>Guest user</h3>
+            <p>
+              You are using the account as a guest user. You can also place your order directly without
+              signing in or signing up.
+            </p>
+            <button type="button" onClick={() => setMobileMenuOpen(false)}>
+              Continue as a Guest
+            </button>
+            <div className="header__mobile-auth-actions">
+              <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
+                Sign In
+              </Link>
+              <Link to="/signup" onClick={() => setMobileMenuOpen(false)}>
+                Sign Up
+              </Link>
+            </div>
+          </section>
+        )}
+
+        <nav className="header__mobile-nav" aria-label="Mobile menu">
+          <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+            <span className="header__mobile-nav-item">
+              <svg width="22" height="21" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3.6 9.5L11.5 3L19.4 9.5V18H14.2V12.9H8.8V18H3.6V9.5Z"
+                  stroke="#A7ADB6"
+                  strokeWidth="1.8"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>Home</span>
+            </span>
+            <span aria-hidden="true">›</span>
+          </Link>
+          <Link to="/pharmacy/cart" onClick={() => setMobileMenuOpen(false)}>
+            <span className="header__mobile-nav-item">
+              <svg width="20" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.2 13.9L14.9 4.2C16.2 2.9 18.2 2.9 19.5 4.2C20.8 5.5 20.8 7.5 19.5 8.8L9.8 18.5C8.5 19.8 6.5 19.8 5.2 18.5C3.9 17.2 3.9 15.2 5.2 13.9Z"
+                  stroke="#A7ADB6"
+                  strokeWidth="1.8"
+                />
+                <path d="M7.6 16.1L17.2 6.5" stroke="#A7ADB6" strokeWidth="1.8" strokeLinecap="round" />
+              </svg>
+              <span>Pharmacy</span>
+            </span>
+            <span aria-hidden="true">›</span>
+          </Link>
+          <Link to="/pharmacy-franchises" onClick={() => setMobileMenuOpen(false)}>
+            <span className="header__mobile-nav-item">
+              <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="6" cy="7" r="3" fill="#A7ADB6" />
+                <circle cx="18" cy="7" r="3" fill="#A7ADB6" />
+                <circle cx="12" cy="20" r="3" fill="#A7ADB6" />
+                <path d="M8.6 9.2L10.3 16.8M15.4 9.2L13.7 16.8M9.1 20H14.9" stroke="#A7ADB6" strokeWidth="1.8" />
+              </svg>
+              <span>Pharmacy Franchise</span>
+            </span>
+            <span aria-hidden="true">›</span>
+          </Link>
+          <Link to="/lab-tests" onClick={() => setMobileMenuOpen(false)}>
+            <span className="header__mobile-nav-item">
+              <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M7 2.8H12M8.4 2.8V7.2L4.2 14.3C3.2 16 4.4 18 6.4 18H12.6C14.6 18 15.8 16 14.8 14.3L10.6 7.2V2.8"
+                  stroke="#A7ADB6"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path d="M6.4 13.3H12.6" stroke="#A7ADB6" strokeWidth="1.8" strokeLinecap="round" />
+              </svg>
+              <span>Lab Tests</span>
+            </span>
+            <span aria-hidden="true">›</span>
+          </Link>
+          <Link to="/health-blogs" onClick={() => setMobileMenuOpen(false)}>
+            <span className="header__mobile-nav-item">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4 2.5H13.5L16 5V17.5H4V2.5Z"
+                  stroke="#A7ADB6"
+                  strokeWidth="1.8"
+                  strokeLinejoin="round"
+                />
+                <path d="M13.5 2.5V5H16M6.5 8H13M6.5 11H13M6.5 14H11.5" stroke="#A7ADB6" strokeWidth="1.8" />
+              </svg>
+              <span>Health Blogs</span>
+            </span>
+            <span aria-hidden="true">›</span>
+          </Link>
+        </nav>
+      </aside>
     </header>
   );
 }

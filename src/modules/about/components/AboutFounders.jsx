@@ -53,7 +53,7 @@ export default function AboutFounders() {
           {ABOUT_FOUNDERS.map((founder) => (
             <article key={founder.name} className="about-founders__card">
               <div className="about-founders__media">
-                <FounderPhotoBg />
+                {/* <FounderPhotoBg /> */}
                 <AboutImage
                   assetKey={founder.imageKey}
                   alt={founder.name}

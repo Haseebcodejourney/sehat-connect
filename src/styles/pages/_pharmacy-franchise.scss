@@ -23,7 +23,7 @@ $pf-green: #22c55e;
 
 .pharmacy-franchise-hero {
   width: 100%;
-  margin: 0;
+  margin: 0px 0px 72px;
   border-radius: 0;
   overflow: hidden;
   //background: linear-gradient(145deg, #dbeafe 0%, #e2e8f0 45%, #cbd5e1 100%);
@@ -87,8 +87,9 @@ $pf-green: #22c55e;
 }
 
 .pharmacy-franchise-page__container {
-  width: 100%;
-  padding: 0 0 $spacing-2xl;
+    max-width: 785px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .pharmacy-franchise-headline {
@@ -96,14 +97,13 @@ $pf-green: #22c55e;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  padding: 40px 0 48px;
-  margin: 0;
+  padding:0;
+  margin-bottom: 72px;
   border: 0;
 
   &__line {
     display: block;
-    margin: 0 0 6px;
-    font-size: clamp(1.375rem, 2.8vw, 2rem);
+    font-size: 24px;
     font-weight: $font-weight-semibold;
     line-height: 1.3;
     color: $pf-navy-deep;
@@ -112,7 +112,7 @@ $pf-green: #22c55e;
   &__accent {
     display: block;
     margin: 0;
-    font-size: clamp(1.375rem, 2.8vw, 2rem);
+    font-size: 40px;
     font-weight: $font-weight-bold;
     line-height: 1.3;
     color: $pf-navy;
@@ -121,32 +121,33 @@ $pf-green: #22c55e;
 
 .pharmacy-franchise-why {
   text-align: left;
-  padding: 0 0 56px;
+  margin: 0 0 72px;
   max-width: 760px;
 
   &__title {
-    margin: 0 0 16px;
-    font-size: 1.375rem;
+    margin-bottom: 0px;
+    font-size: 20px;
     font-weight: $font-weight-bold;
     color: $pf-navy;
     line-height: 1.35;
   }
 
   &__text {
-    margin: 0 0 28px;
-    font-size: 0.9375rem;
+    margin: 0px;
+    padding: 12px 0px 24px;
+    font-size: 14px;
     line-height: 1.75;
     color: $pf-muted;
   }
 
   &__cta {
     display: inline-block;
-    padding: 14px 32px;
+    padding: 18px 20px;
     border: none;
     border-radius: 8px;
     background: $pf-primary;
     color: #fff;
-    font-size: $font-size-base;
+    font-size: 15px;
     font-weight: $font-weight-semibold;
     cursor: pointer;
     @include transition;
@@ -158,12 +159,11 @@ $pf-green: #22c55e;
 }
 
 .pharmacy-franchise-benefits {
-  padding: 56px 0 64px;
-  border-top: 1px solid $pf-border;
+  margin-bottom: 72px;
 
   &__title {
     margin: 0 0 16px;
-    font-size: 1.375rem;
+    font-size: 20px;
     font-weight: $font-weight-bold;
     color: $pf-navy;
     text-align: left;
@@ -219,9 +219,10 @@ $pf-green: #22c55e;
   }
 }
 
+
 .pharmacy-franchise-form {
-  max-width: 640px;
-  margin: 0 0 64px;
+  // max-width: 640px;
+  margin: 0 0 72px;
   padding: 40px 44px 44px;
   background: $pf-form-bg;
   border-radius: 12px;
@@ -306,12 +307,11 @@ $pf-green: #22c55e;
 }
 
 .pharmacy-franchise-gallery {
-  padding: 56px 0 64px;
-  border-top: 1px solid $pf-border;
+  margin: 0 0 72px;
 
   &__title {
     margin: 0 0 36px;
-    font-size: 1.375rem;
+    font-size: 20px;
     font-weight: $font-weight-bold;
     color: $pf-navy;
     text-align: center;
@@ -344,8 +344,7 @@ $pf-green: #22c55e;
 }
 
 .pharmacy-franchise-presence {
-  padding: 56px 0 24px;
-  border-top: 1px solid $pf-border;
+    margin-bottom: 72px;
 
   &__title {
     margin: 0 0 16px;
