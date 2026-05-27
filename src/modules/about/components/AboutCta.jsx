@@ -9,7 +9,7 @@ export default function AboutCta() {
         <p className="about-cta__subtitle">
           And that&apos;s what we&apos;re working on, every day.
         </p>
-        <p className="about-cta__join">Join The Fast Growing Sehat Connect Team.</p>
+        
       </div>
     </section>
   );

@@ -31,18 +31,19 @@ $about-wrap: 1192px;
   }
 
   &__title {
-    margin: 0 0 16px;
-    font-size: clamp(28px, 4vw, 42px);
+    margin: 0px;
+    font-size: 40px;
     font-weight: 700;
     line-height: 1.2;
-    color: $about-navy;
+    color: #2f3135;
     text-transform: capitalize;
+    padding-bottom: 24px;
   }
 
   &__subtitle {
     margin: 0;
     max-width: 480px;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.6;
     color: $about-blue;
   }
@@ -117,7 +118,7 @@ $about-wrap: 1192px;
   &__value {
     display: block;
     margin-bottom: 6px;
-    font-size: clamp(20px, 2.5vw, 28px);
+    font-size: 32px;
     font-weight: 700;
     color: $about-navy;
     line-height: 1.2;
@@ -125,7 +126,7 @@ $about-wrap: 1192px;
 
   &__label {
     display: block;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.35;
     color: $about-blue;
   }
@@ -151,14 +152,14 @@ $about-wrap: 1192px;
 
   &__eyebrow {
     margin-bottom: 8px;
-    font-size: 16px;
-    line-height: 32px;
+    font-size: 14px;
+    line-height: 28px;
     color: $about-blue;
   }
 
   &__title {
     margin: 0;
-    font-size: clamp(24px, 3vw, 32px);
+    font-size: 28px;
     font-weight: 600;
     line-height: 1.3;
     color: $about-navy;
@@ -170,6 +171,7 @@ $about-wrap: 1192px;
     font-size: 16px;
     line-height: 1.75;
     color: #4b5563;
+    padding-left: 17px;
   }
 }
 
@@ -204,15 +206,15 @@ $about-wrap: 1192px;
   &__eyebrow {
     display: block;
     margin-bottom: 8px;
-    font-size: 16px;
-    color: $about-blue;
+    font-size: 14px;
+    color: #3d6093;
   }
 
   &__title {
     margin: 0 0 16px;
-    font-size: clamp(24px, 3vw, 32px);
+    font-size: 28px;
     font-weight: 600;
-    color: $about-navy;
+    color: #1e4275;
     text-transform: capitalize;
   }
 
@@ -226,16 +228,17 @@ $about-wrap: 1192px;
 
 // Timeline
 .about-timeline {
-  padding: 48px 0 72px;
+  
   background: #fafbfc;
 
   &__title {
-    margin: 0 0 40px;
+    
     text-align: center;
     font-size: clamp(24px, 3vw, 32px);
     font-weight: 700;
     color: $about-navy;
     text-transform: capitalize;
+    padding-bottom: 32px;
   }
 
   &__track {
@@ -366,13 +369,14 @@ $about-wrap: 1192px;
   background: #fff;
 
   &__title {
-    margin: 0 0 48px;
+    margin: 0px;
     text-align: center;
     font-size: clamp(26px, 3vw, 36px);
     font-weight: 700;
     line-height: 1.25;
     color: $about-navy;
     text-transform: capitalize;
+    padding-bottom: 32px;
   }
 
   &__grid {
@@ -461,14 +465,14 @@ $about-wrap: 1192px;
     gap: 4px;
 
     strong {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       color: $about-navy;
       line-height: 1.3;
     }
 
     span {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 400;
       color: $about-blue;
       line-height: 1.4;
@@ -479,25 +483,28 @@ $about-wrap: 1192px;
 // CTA banner
 .about-cta {
   background: $about-peach;
-  padding: 56px 0;
-
+  padding: 88px 15px 120px;
+height: 298px;
   &__inner {
     text-align: center;
   }
 
   &__title {
+    
     margin: 0 auto 12px;
     max-width: 900px;
-    font-size: clamp(22px, 3vw, 32px);
+    font-size: 28px;
     font-weight: 700;
     line-height: 1.35;
     color: $about-navy;
     text-transform: capitalize;
+    
+      
   }
 
   &__subtitle {
     margin: 0 0 8px;
-    font-size: 16px;
+    font-size: 18px;
     color: $about-blue;
   }
 
@@ -525,9 +532,9 @@ $about-wrap: 1192px;
 
   &__title {
     margin: 0 0 8px;
-    font-size: clamp(28px, 3.5vw, 36px);
+    font-size: 28px;
     font-weight: 700;
-    color: $about-navy;
+    color: #1e4275;
     text-transform: capitalize;
   }
 
