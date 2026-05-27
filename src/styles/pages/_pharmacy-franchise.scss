@@ -24,6 +24,7 @@ $pf-green: #22c55e;
 .pharmacy-franchise-hero {
   width: 100%;
   margin: 0px 0px 72px;
+  padding: 0;
   border-radius: 0;
   overflow: hidden;
   //background: linear-gradient(145deg, #dbeafe 0%, #e2e8f0 45%, #cbd5e1 100%);
@@ -75,6 +76,8 @@ $pf-green: #22c55e;
   }
 
   @include mobile-only {
+    padding: 0px 15px;
+
     &__placeholder {
       aspect-ratio: 16 / 10;
       min-height: 200px;
@@ -87,9 +90,14 @@ $pf-green: #22c55e;
 }
 
 .pharmacy-franchise-page__container {
-    max-width: 785px;
-    width: 100%;
-    margin: 0 auto;
+  max-width: 785px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include mobile-only {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .pharmacy-franchise-headline {
