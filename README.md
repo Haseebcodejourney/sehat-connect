@@ -1,16 +1,140 @@
-# React + Vite
+# Sehat Connect Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend web application for Sehat Connect built with React and Vite.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- Vite
+- React Router
+- SCSS (modular page/layout styles)
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js 18+ (recommended)
+- npm
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Install
+
+```bash
+npm install
+```
+
+### Run in Development
+
+```bash
+npm run dev
+```
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Routing Overview
+
+Main router file: `src/app/router.jsx`
+
+Public routes include:
+
+- `/` home
+- `/doctors` doctors listing
+- `/doctors/:city/:specialty/:slug` doctor profile
+- `/lab-tests`
+- `/pharmacy/*`
+- `/about`
+- `/contact-us`
+- `/editorial-policy`
+- `/careers`
+- `/terms` (new Terms of Use page)
+
+## Major UI Updates Included
+
+This project includes recent UI updates for responsive behavior and navigation:
+
+- Responsive header + mobile menu drawer
+- Mobile menu icons and guest actions
+- Improved responsive handling for:
+  - Home page sections and slider
+  - About page
+  - Doctors listing page
+  - Doctor detail/profile page
+- New Terms of Use page
+
+## Terms of Use Page
+
+- Component: `src/pages/public/TermsOfUse.jsx`
+- Styles: `src/styles/pages/_terms.scss`
+- Route: `/terms` in `src/app/router.jsx`
+- Styles import: added in `src/styles/main.scss`
+
+## Header Search (Mock Dynamic for Testing)
+
+Header component: `src/components/common/Header.jsx`
+
+### Current Behavior
+
+Two separate search inputs are implemented:
+
+1. City search
+   - Cyprus city suggestions (mock)
+2. Main search
+   - Mock results for:
+     - Doctor
+     - Medicine
+     - Lab test
+     - Pharmacy
+
+### Notes
+
+- Current search is mock-data based for UI testing.
+- It is intentionally structured so backend APIs can replace mock constants later.
+
+### Replace Mock Data with APIs (Suggested)
+
+In `Header.jsx`, replace:
+
+- `CYPRUS_CITIES`
+- `MOCK_SEARCH_DATA`
+
+with API-driven state:
+
+- Call city suggestions endpoint on city input change
+- Call universal search endpoint on main search input change
+- Map API response shape into current render fields (`title`, `subtitle`, `type`, `city`)
+
+## Styling Conventions
+
+- Global style entry: `src/styles/main.scss`
+- Layout styles: `src/styles/layout/*`
+- Page styles: `src/styles/pages/*`
+- Home section styles: `src/styles/layout/home/*`
+
+## Folder Highlights
+
+- `src/app` - app router and app-level setup
+- `src/components` - shared and section-level UI components
+- `src/modules` - domain modules (doctors, lab, pharmacy, about, careers, etc.)
+- `src/pages` - page-level route components
+- `src/styles` - SCSS styles
+
+## Development Notes
+
+- Prefer adding responsive changes at component/page-specific SCSS files.
+- Keep mobile behavior explicit (`max-width` breakpoints) for predictable QA.
+- For production integration, replace mock search with APIs without changing UI contract.
