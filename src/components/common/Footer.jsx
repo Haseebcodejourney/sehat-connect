@@ -52,10 +52,10 @@ export default function Footer() {
         <ul className="footer__bottom_left">
           <li>© {currentYear} Sehat Connect. All rights reserved.</li>
           <li>
-            <Link to="/terms">Terms</Link>
+            <Link to="/terms">Terms of Use</Link>
           </li>
           <li>
-            <Link to="/privacy-policy">Privacy</Link>
+            <Link to="/privacy-policy">Privacy Policy</Link>
           </li>
         </ul>
         <p className="footer__bottom_note">Social channels will be listed here when available.</p>

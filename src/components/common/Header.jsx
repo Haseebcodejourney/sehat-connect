@@ -238,7 +238,8 @@ export default function Header() {
 
           <div className="header__top-right">
             <div className="header__btn-wrapper">
-              <Link to="/pharmacy/cart" className="header__cart_icon" aria-label="Shopping cart">
+              <Link to="/pharmacy/cart" className="header__cart_icon">
+                <span className="sr-only">View shopping cart</span>
                 <svg
                   fill="#1e4275"
                   height="24px"
@@ -361,7 +362,8 @@ export default function Header() {
         <div className="header__mobile-menu-head">
           <h2>Menu</h2>
           <div className="header__mobile-menu-head-actions">
-            <Link to="/" aria-label="Go to home" onClick={() => setMobileMenuOpen(false)}>
+            <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+              <span className="sr-only">Go to home</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path
                   d="M4.5 10.7L12 4.5L19.5 10.7V19.5H14.5V14.5H9.5V19.5H4.5V10.7Z"

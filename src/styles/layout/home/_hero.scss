@@ -1,3 +1,5 @@
+// Home hero carousel — responsive height; images via <picture> in Hero.jsx
+
 .hero {
   position: relative;
   aspect-ratio: auto;
@@ -26,6 +28,12 @@
       opacity: 1;
       pointer-events: auto;
     }
+  }
+
+  picture {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   &__image {
@@ -93,6 +101,7 @@
   }
 }
 
+// Tablet: side gutters align with header
 @media (max-width: 1199px) {
   .hero {
     width: calc(100% - 30px);
@@ -100,6 +109,7 @@
   }
 }
 
+// Small tablet: shorter hero, hide arrows if added later
 @media (max-width: 900px) {
   .hero {
     height: clamp(190px, 34vw, 280px);
@@ -110,20 +120,33 @@
   }
 }
 
+// Mobile: smaller height, left-weighted crop for banner artwork
 @media (max-width: 600px) {
   .hero {
-    height: clamp(170px, 46vw, 230px);
+    height: clamp(160px, 42vw, 210px);
     width: calc(100% - 30px);
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
     margin-top: 16px;
+    box-shadow: $shadow-md;
 
     &__dots {
-      bottom: 10px;
+      bottom: 8px;
+      gap: 6px;
+    }
+
+    &__dot {
+      width: 6px;
+      height: 6px;
+
+      &--active {
+        width: 1.25rem;
+      }
     }
 
     &__image {
+      object-fit: cover;
       object-position: left center;
     }
   }

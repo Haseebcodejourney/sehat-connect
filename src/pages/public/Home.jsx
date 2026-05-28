@@ -1,3 +1,7 @@
+/**
+ * Public home page — composes landing sections in display order.
+ * Visible H1 is sr-only; section headings provide structure for accessibility.
+ */
 import Careers from '../../components/Home/Careers';
 import Hero from '../../components/Home/Hero';
 import HowHelp from '../../components/Home/HowHelp';
@@ -9,32 +13,17 @@ import NewsArticles from '../../components/Home/NewsArticles';
 export default function Home() {
   return (
     <div className="home">
-      <section className="home__hero">
-          <Hero/>
-          <HowHelp/>
-          <MissionStatement/>
-          <MedicineRange/>
-          <HowWeWork/>
-          <Careers/>
-          <NewsArticles/>
-      </section>
+      <h1 className="sr-only">Sehat Connect Home</h1>
 
-      {/* <section className="home__features">
-        <div className="home__features-grid">
-          <div className="home__feature-card">
-            <h3>Easy Booking</h3>
-            <p>Schedule appointments with just a few clicks</p>
-          </div>
-          <div className="home__feature-card">
-            <h3>Expert Doctors</h3>
-            <p>Access to qualified healthcare professionals</p>
-          </div>
-          <div className="home__feature-card">
-            <h3>Secure & Safe</h3>
-            <p>Your health data is protected and secure</p>
-          </div>
-        </div>
-      </section> */}
+      <section className="home__hero" aria-label="Home page sections">
+        <Hero />
+        <HowHelp />
+        <MissionStatement />
+        <MedicineRange />
+        <HowWeWork />
+        <Careers />
+        <NewsArticles />
+      </section>
     </div>
   );
 }

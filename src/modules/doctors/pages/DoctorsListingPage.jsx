@@ -78,7 +78,7 @@ export default function DoctorsListingPage() {
     <div className="doctors">
       <DoctorListingHeader />
 
-      <div className="doctors__container">
+      <section className="doctors__container">
         <aside className="doctors__sidebar">
           <DoctorFilters
             filters={filters}
@@ -113,9 +113,9 @@ export default function DoctorsListingPage() {
             )}
           </div>
         </div>
-      </div>
+      </section>
 
-      <DoctorCityLinks />
+      {/* <DoctorCityLinks /> */}
     </div>
   );
 }

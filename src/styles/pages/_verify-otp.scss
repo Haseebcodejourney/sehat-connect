@@ -263,7 +263,7 @@ $verify-brand-navy: #1e4275;
       max-width: 100%;
       height: auto;
       min-height: 426px;
-      flex-direction: column;
+      flex-direction: row;
     }
 
     &__verify-content {
@@ -281,8 +281,9 @@ $verify-brand-navy: #1e4275;
       max-width: 100%;
       height: auto;
       min-height: 222px;
-      flex-direction: column;
-      text-align: center;
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
       margin-bottom:48px;
     }
 
@@ -295,6 +296,104 @@ $verify-brand-navy: #1e4275;
     &__help-content {
       padding: 16px 20px 24px;
 
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .verify-otp-page {
+    padding: 20px 15px 32px;
+
+    &__flow {
+      max-width: 100%;
+    }
+
+    &__verify-panel {
+      max-width: 100%;
+      height: auto;
+      min-height: 320px;
+      margin-bottom: 24px;
+    }
+
+    &__verify-content {
+      padding: 24px 16px 20px 18px;
+    }
+
+    &__verify-title {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    &__verify-subtitle {
+      margin-bottom: 16px;
+      font-size: 0.875rem;
+      line-height: 1.45;
+    }
+
+    &__verify-visual {
+      width: 36%;
+      max-width: 220px;
+      height: auto;
+      align-self: flex-end;
+    }
+
+    &__verify-image {
+      height: auto;
+      object-fit: contain;
+      object-position: bottom right;
+    }
+
+    &__help-panel {
+      max-width: 100%;
+      height: auto;
+      min-height: 190px;
+    }
+
+    &__help-visual {
+      width: 160px;
+      height: 190px;
+    }
+
+    &__help-content {
+      padding: 18px 16px 18px 8px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .verify-otp-page {
+    &__otp-inputs {
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    &__otp-input {
+      width: 42px;
+      height: 42px;
+      font-size: 1.1rem;
+    }
+
+    &__resend-row {
+      flex-wrap: wrap;
+      gap: 6px 10px;
+    }
+
+    &__help-panel {
+      flex-direction: row;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+
+    &__help-visual {
+      width: 100%;
+      max-width: 220px;
+      height: 150px;
+      margin: 0 auto;
+    }
+
+    &__help-content {
+      width: 100%;
+      padding: 14px 16px 18px;
     }
   }
 }

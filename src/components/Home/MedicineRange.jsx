@@ -1,5 +1,9 @@
+/**
+ * Home pharmacy showcase — mock product cards (styling-only packs, no real images yet).
+ */
 import '../../styles/layout/home/_medicinerange.scss';
 
+/** Sample products for the landing grid; replace with API data later */
 const medicines = [
   {
     name: 'Citanew (10Mg) 14 Tablets',
@@ -45,6 +49,7 @@ const medicines = [
   },
 ];
 
+/** CSS-themed blister pack visual per product */
 const MedicinePack = ({ medicine, size = 'small' }) => (
   <div className={`medicine-range__pack medicine-range__pack--${medicine.theme} medicine-range__pack--${size}`}>
     <span className="medicine-range__pack-dose">{medicine.dose}</span>
@@ -72,7 +77,7 @@ const MedicineCard = ({ medicine }) => (
   </article>
 );
 
-const MedicineRange = () => {
+export default function MedicineRange() {
   const [featuredMedicine, ...regularMedicines] = medicines;
 
   return (
@@ -98,6 +103,4 @@ const MedicineRange = () => {
       </a>
     </section>
   );
-};
-
-export default MedicineRange;
+}

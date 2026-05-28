@@ -1,6 +1,10 @@
+/**
+ * Home “How we work” — tabbed pharmacy vs lab test flow with illustrative UI mockups.
+ */
 import { useState } from 'react';
 import '../../styles/layout/home/_howwework.scss';
 
+/** Copy and labels per service tab (key matches activeTab state) */
 const workFlows = {
   pharmacy: {
     tabLabel: 'Pharmacy',
@@ -40,7 +44,7 @@ const workFlows = {
   },
 };
 
-const HowWeWork = () => {
+export default function HowWeWork() {
   const [activeTab, setActiveTab] = useState('pharmacy');
   const activeFlow = workFlows[activeTab];
 
@@ -132,6 +136,4 @@ const HowWeWork = () => {
       </div>
     </section>
   );
-};
-
-export default HowWeWork;
+}

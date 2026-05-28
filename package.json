@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync-assets": "node scripts/sync-assets.mjs"
   },
   "dependencies": {
+    "@fontsource/poppins": "^5.2.7",
     "@react-oauth/google": "^0.13.5",
     "axios": "^1.16.0",
     "react": "^19.2.5",
@@ -27,6 +29,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.5.0",
+    "sharp": "^0.34.5",
     "vite": "^8.0.10"
   }
 }

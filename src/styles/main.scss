@@ -4,6 +4,9 @@
 @import 'abstracts/mixins';
 @import 'abstracts/breakpoints';
 
+// Self-hosted Poppins (@fontsource) — no Google Fonts CDN
+@import 'base/fonts';
+
 // Import base styles (reset, typography, global)
 @import 'base/reset';
 @import 'base/typography';

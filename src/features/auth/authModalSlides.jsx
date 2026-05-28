@@ -1,7 +1,7 @@
 export const AUTH_MODAL_SLIDES = [
   {
     id: 'medicines',
-    image: 'https://healthwire.pk/assets/b2c_design/landing/pharmacy-banner-desktop.webp',
+    image: '/assets/b2c_design/landing/pharmacy-banner-desktop.webp',
     imageAlt: 'Order medicines with up to 10% off',
     title: 'Order Medicines',
     description: (
@@ -13,7 +13,7 @@ export const AUTH_MODAL_SLIDES = [
   },
   {
     id: 'lab-tests',
-    image: 'https://healthwire.pk/assets/b2c_design/landing/book-labtests-desktop.webp',
+    image: '/assets/b2c_design/landing/book-labtests-desktop.webp',
     imageAlt: 'Book lab tests at home',
     title: 'Book Lab Tests',
     description: (
@@ -24,7 +24,7 @@ export const AUTH_MODAL_SLIDES = [
   },
   {
     id: 'doctors',
-    image: 'https://healthwire.pk/assets/b2c_design/landing/pharmacy-banner-desktop.webp',
+    image: '/assets/b2c_design/landing/pharmacy-banner-desktop.webp',
     imageAlt: 'Consult doctors online',
     title: 'Consult Doctors',
     description: (

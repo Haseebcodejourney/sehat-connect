@@ -199,7 +199,7 @@ $editorial-wrap: 1140px;
   justify-content: center;
   width: 100%;
   height: 314px;
-  background-image: url('/assets/B2c/background-img.png');
+  background-image: url('/assets/B2c/background-img.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -229,7 +229,7 @@ $editorial-wrap: 1140px;
     transform: translateX(-50%);
     width: 11px;
     height: 93%;
-    background: url('/assets/B2c/straight-line.png') center top repeat-y;
+    background: url('/assets/B2c/straight-line.webp') center top repeat-y;
   }
 
   &__list {
@@ -289,7 +289,7 @@ $editorial-wrap: 1140px;
     top: -22px;
     width: 76px;
     height: 76px;
-    background: url('/assets/B2c/circle.png') center / contain no-repeat;
+    background: url('/assets/B2c/circle.webp') center / contain no-repeat;
 
     &--right {
       right: -17px;
@@ -374,19 +374,19 @@ $editorial-wrap: 1140px;
     background-repeat: no-repeat;
 
     &--one {
-      background-image: url('/assets/B2c/DrJawadKhan.jpeg');
+      background-image: url('/assets/B2c/DrJawadKhan.webp');
       background-size: 121px;
       background-position: -9px -4px;
     }
 
     &--two {
-      background-image: url('/assets/B2c/DrShifaShah.jpeg');
+      background-image: url('/assets/B2c/DrShifaShah.webp');
       background-size: 148px;
       background-position: -32px -1px;
     }
 
     &--three {
-      background-image: url('/assets/B2c/DrHarisBinSohail.jpeg');
+      background-image: url('/assets/B2c/DrHarisBinSohail.webp');
       background-size: 121px;
       background-position: -15px -7px;
     }
@@ -450,25 +450,25 @@ $editorial-wrap: 1140px;
     background-repeat: no-repeat;
 
     &--one {
-      background-image: url('/assets/B2c/AimanTahirLaghari.jpg');
+      background-image: url('/assets/B2c/AimanTahirLaghari.webp');
       background-size: 207px;
       background-position: -61px -3px;
     }
 
     &--two {
-      background-image: url('/assets/B2c/MariaAmir.jpg');
+      background-image: url('/assets/B2c/MariaAmir.webp');
       background-size: 202px;
       background-position: -48px -18px;
     }
 
     &--third {
-      background-image: url('/assets/B2c/IqraZafar.jpg');
+      background-image: url('/assets/B2c/IqraZafar.webp');
       background-size: 141px;
       background-position: -15px -43px;
     }
 
     &--fourth {
-      background-image: url('/assets/B2c/SeemabLatif.jpg');
+      background-image: url('/assets/B2c/SeemabLatif.webp');
       background-size: 281px;
       background-position: -94px -19px;
     }

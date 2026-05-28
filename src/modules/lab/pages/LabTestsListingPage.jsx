@@ -1,5 +1,6 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import LabBreadcrumb from '../components/LabBreadcrumb';
 import { filterLabTests, getAllLabTests, getLabTestPath } from '../utils/labPaths';
 
@@ -9,9 +10,13 @@ function formatRs(price) {
 }
 
 export default function LabTestsListingPage() {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [sort, setSort] = useState('az');
   const [cartIds, setCartIds] = useState([]);
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastVisible, setToastVisible] = useState(false);
+  const toastTimerRef = useRef(null);
 
   const allTestsCatalog = useMemo(() => getAllLabTests(), []);
   const allCount = allTestsCatalog.length;
@@ -37,13 +42,34 @@ export default function LabTestsListingPage() {
   }, [cartTests]);
 
   const toggleCart = useCallback((test) => {
+    let added = false;
     setCartIds((prev) => {
       if (prev.includes(test.id)) {
         return prev.filter((id) => id !== test.id);
       }
+      added = true;
       return [...prev, test.id];
     });
+    if (added) {
+      setToastMessage(`${test.name} added in cart successfully`);
+      setToastVisible(true);
+    }
   }, []);
+
+  useEffect(() => {
+    if (!toastVisible) return undefined;
+    if (toastTimerRef.current) {
+      window.clearTimeout(toastTimerRef.current);
+    }
+    toastTimerRef.current = window.setTimeout(() => {
+      setToastVisible(false);
+    }, 2600);
+    return () => {
+      if (toastTimerRef.current) {
+        window.clearTimeout(toastTimerRef.current);
+      }
+    };
+  }, [toastVisible]);
 
   const handleCheckout = useCallback(() => {
     if (cartTests.length === 0) return;
@@ -61,7 +87,7 @@ export default function LabTestsListingPage() {
 
           <div className="lab-tests-listing__search">
             <span className="lab-tests-listing__search-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="https://d2cyip4t2cqq7y.cloudfront.net/assets/images/search-ico.svg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
                   stroke="currentColor"
@@ -164,6 +190,27 @@ export default function LabTestsListingPage() {
             </button>
           </aside>
         </div>
+      </div>
+
+      <div
+        className={`lab-toast ${toastVisible ? 'lab-toast--visible' : ''}`}
+        role="status"
+        aria-live="polite"
+      >
+        <div className="lab-toast__icon" aria-hidden="true">
+          ✓
+        </div>
+        <p className="lab-toast__message">{toastMessage || 'Test added in cart successfully'}</p>
+        <button
+          type="button"
+          className="lab-toast__action"
+          onClick={() => {
+            setToastVisible(false);
+            navigate('/pharmacy/cart');
+          }}
+        >
+          View Cart
+        </button>
       </div>
     </div>
   );

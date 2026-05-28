@@ -1,7 +1,14 @@
-const CDN = 'https://d3313lwq5y3sh2.cloudfront.net/assets/images/pharmacy_images';
+/**
+ * Pharmacy franchise page — static copy and local image paths.
+ * Images live under public/assets/pharmacy/franchise/ (see npm run sync-assets).
+ */
 
-export const FRANCHISE_HERO_IMAGE_SRC = `${CDN}/Banner-Image.webp`;
+const FRANCHISE_ASSETS = '/assets/pharmacy/franchise';
 
+/** Hero banner on /pharmacy-franchises */
+export const FRANCHISE_HERO_IMAGE_SRC = `${FRANCHISE_ASSETS}/Banner-Image.webp`;
+
+/** Two-column benefit lists in the franchise form section */
 export const FRANCHISE_BENEFITS = {
   left: [
     'Location Consultancy',
@@ -22,6 +29,7 @@ export const FRANCHISE_BENEFITS = {
   ],
 };
 
+/** Franchise inquiry form — city dropdown */
 export const FRANCHISE_CITIES = [
   { value: '', label: 'Select City' },
   { value: 'lahore', label: 'Lahore' },
@@ -45,24 +53,25 @@ export const INVESTMENT_RANGES = [
   { value: '7+', label: 'Over 7 Million' },
 ];
 
+/** City cards in “Our presence” — image filename matches CDN export (e.g. Sarrgodha typo preserved) */
 export const PRESENCE_CITIES = [
-  { name: 'Lahore', slug: 'lahore', image: `${CDN}/Lahore.webp` },
-  { name: 'Sargodha', slug: 'sargodha', image: `${CDN}/Sarrgodha.webp` },
-  { name: 'Islamabad', slug: 'islamabad', image: `${CDN}/Islamabad.webp` },
-  { name: 'Multan', slug: 'multan', image: `${CDN}/Multan.webp` },
-  { name: 'Bahawalpur', slug: 'bahawalpur', image: `${CDN}/Bahawalpur.webp` },
-  { name: 'Lodhran', slug: 'lodhran', image: `${CDN}/Lodhran.webp` },
-  { name: 'Sialkot', slug: 'sialkot', image: `${CDN}/Sialkot.webp` },
-  { name: 'Nankana Sahib', slug: 'nankana-sahib', image: `${CDN}/NankanaSahib.webp` },
-  { name: 'Faisalabad', slug: 'faisalabad', image: `${CDN}/Faisalabad.webp` },
-  { name: 'Gujrat', slug: 'gujrat', image: `${CDN}/Gujrat.webp` },
-  { name: 'Peshawar', slug: 'peshawar', image: `${CDN}/Peshawar.webp` },
-  { name: 'Gujranwala', slug: 'gujranwala', image: `${CDN}/Gujranwala.webp` },
+  { name: 'Lahore', slug: 'lahore', image: `${FRANCHISE_ASSETS}/Lahore.webp` },
+  { name: 'Sargodha', slug: 'sargodha', image: `${FRANCHISE_ASSETS}/Sarrgodha.webp` },
+  { name: 'Islamabad', slug: 'islamabad', image: `${FRANCHISE_ASSETS}/Islamabad.webp` },
+  { name: 'Multan', slug: 'multan', image: `${FRANCHISE_ASSETS}/Multan.webp` },
+  { name: 'Bahawalpur', slug: 'bahawalpur', image: `${FRANCHISE_ASSETS}/Bahawalpur.webp` },
+  { name: 'Lodhran', slug: 'lodhran', image: `${FRANCHISE_ASSETS}/Lodhran.webp` },
+  { name: 'Sialkot', slug: 'sialkot', image: `${FRANCHISE_ASSETS}/Sialkot.webp` },
+  { name: 'Nankana Sahib', slug: 'nankana-sahib', image: `${FRANCHISE_ASSETS}/NankanaSahib.webp` },
+  { name: 'Faisalabad', slug: 'faisalabad', image: `${FRANCHISE_ASSETS}/Faisalabad.webp` },
+  { name: 'Gujrat', slug: 'gujrat', image: `${FRANCHISE_ASSETS}/Gujrat.webp` },
+  { name: 'Peshawar', slug: 'peshawar', image: `${FRANCHISE_ASSETS}/Peshawar.webp` },
+  { name: 'Gujranwala', slug: 'gujranwala', image: `${FRANCHISE_ASSETS}/Gujranwala.webp` },
 ];
 
 export const GALLERY_ITEMS = [
-  { key: 'image1', src: `${CDN}/Image1.webp`, alt: 'Sehat Connect pharmacy glimpse 1' },
-  { key: 'image5a', src: `${CDN}/Image5.webp`, alt: 'Sehat Connect pharmacy glimpse 2' },
-  { key: 'image5b', src: `${CDN}/Image5.webp`, alt: 'Sehat Connect pharmacy glimpse 3' },
-  { key: 'image6', src: `${CDN}/image6.png`, alt: 'Sehat Connect pharmacy glimpse 4' },
+  { key: 'image1', src: `${FRANCHISE_ASSETS}/Image1.webp`, alt: 'Sehat Connect pharmacy glimpse 1' },
+  { key: 'image5a', src: `${FRANCHISE_ASSETS}/Image5.webp`, alt: 'Sehat Connect pharmacy glimpse 2' },
+  { key: 'image5b', src: `${FRANCHISE_ASSETS}/Image5.webp`, alt: 'Sehat Connect pharmacy glimpse 3' },
+  { key: 'image6', src: `${FRANCHISE_ASSETS}/image6.webp`, alt: 'Sehat Connect pharmacy glimpse 4' },
 ];

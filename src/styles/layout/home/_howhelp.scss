@@ -1,3 +1,5 @@
+// Home “How can we help?” — pharmacy + lab test promo cards
+
 .how-help {
   max-width: 1192px;
   width: 100%;
@@ -129,6 +131,10 @@
     right: 0;
     bottom: 0;
 
+    &--lab {
+      bottom: 10px;
+    }
+
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
@@ -175,16 +181,18 @@
   }
 }
 
+// Mobile: stack content, center illustrations, smaller type
 @media (max-width: 700px) {
   .how-help {
     padding: 0 15px;
     margin-top: 48px;
+    gap: 12px;
   }
 
   .how_help {
     &__h2 {
-      font-size: 24px;
-      padding-bottom: 16px;
+      font-size: 22px;
+      padding-bottom: 12px;
     }
 
     &__left_wrapper {
@@ -192,13 +200,22 @@
       align-items: flex-start;
       height: auto;
       min-height: 0;
-      gap: 1.5rem;
-      padding: 1rem;
+      gap: 1rem;
+      padding: 1rem 1rem 1.25rem;
     }
 
     &__left_content {
       width: 100%;
-      padding-bottom: 4rem;
+      padding-bottom: 0;
+    }
+
+    &__left_content_h3 {
+      font-size: 1.125rem;
+    }
+
+    &__left_content_p {
+      font-size: 0.875rem;
+      line-height: 1.45;
     }
 
     &__left_content_right_content {
@@ -207,20 +224,37 @@
       bottom: auto;
       width: 100%;
       justify-content: center;
+      height: auto;
 
       figure {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
         img {
-          max-height: 14rem;
+          width: auto;
+          max-width: min(200px, 70vw);
+          max-height: 12rem;
         }
       }
     }
 
     &__left_content_svg_wrapper {
-      bottom: 0;
+      position: static;
+      margin-top: 0.75rem;
     }
 
     &__right_wrapper {
       justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .how_help {
+    &__left_content_right_content figure img {
+      max-width: min(180px, 65vw);
+      max-height: 10rem;
     }
   }
 }
