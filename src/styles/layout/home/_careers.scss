@@ -76,3 +76,25 @@
     }
   }
 }
+
+@media (max-width: 1199px) {
+  .careers {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .careers {
+    margin-top: 72px;
+
+    &__title {
+      font-size: 24px;
+      line-height: 1.4;
+      padding-bottom: 20px;
+    }
+
+    &__figure {
+      margin-bottom: 16px;
+    }
+  }
+}

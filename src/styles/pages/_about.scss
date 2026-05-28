@@ -16,12 +16,19 @@ $about-wrap: 1192px;
   }
 }
 
+@media (max-width: 1199px) {
+  .about-page__container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
 // Hero
 .about-hero {
-        height: auto;
-        background: #ebf3ff;
-        margin-bottom: 120px;
-        text-align: left;
+  height: auto;
+  background: #ebf3ff;
+  margin-bottom: 120px;
+  text-align: left;
 
   &__inner {
     display: grid;
@@ -32,7 +39,7 @@ $about-wrap: 1192px;
 
   &__title {
     margin: 0px;
-    font-size: 40px;
+    font-size: clamp(30px, 4vw, 40px);
     font-weight: 700;
     line-height: 1.2;
     color: #2f3135;
@@ -43,7 +50,7 @@ $about-wrap: 1192px;
   &__subtitle {
     margin: 0;
     max-width: 480px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
     color: $about-blue;
   }
@@ -118,7 +125,7 @@ $about-wrap: 1192px;
   &__value {
     display: block;
     margin-bottom: 6px;
-    font-size: 32px;
+    font-size: clamp(26px, 3.3vw, 32px);
     font-weight: 700;
     color: $about-navy;
     line-height: 1.2;
@@ -228,17 +235,25 @@ $about-wrap: 1192px;
 
 // Timeline
 .about-timeline {
-  
   background: #fafbfc;
 
   &__title {
-    
     text-align: center;
     font-size: clamp(24px, 3vw, 32px);
     font-weight: 700;
     color: $about-navy;
     text-transform: capitalize;
     padding-bottom: 32px;
+  }
+
+  &__figure {
+    margin: 0;
+  }
+
+  &__line {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   &__track {
@@ -484,13 +499,12 @@ $about-wrap: 1192px;
 .about-cta {
   background: $about-peach;
   padding: 88px 15px 120px;
-height: 298px;
+  min-height: 298px;
   &__inner {
     text-align: center;
   }
 
   &__title {
-    
     margin: 0 auto 12px;
     max-width: 900px;
     font-size: 28px;
@@ -498,8 +512,6 @@ height: 298px;
     line-height: 1.35;
     color: $about-navy;
     text-transform: capitalize;
-    
-      
   }
 
   &__subtitle {
@@ -589,11 +601,18 @@ height: 298px;
 }
 
 @include mobile-only {
+  .about-page__container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .about-hero {
-    padding-top: 32px;
+    margin-bottom: 72px;
+    padding-top: 28px;
 
     &__inner {
       grid-template-columns: 1fr;
+      gap: 16px;
     }
 
     &__visual {
@@ -603,11 +622,30 @@ height: 298px;
     &__figure {
       max-width: 100%;
     }
+
+    &__title {
+      padding-bottom: 14px;
+      font-size: 30px;
+      line-height: 1.25;
+    }
+
+    &__subtitle {
+      font-size: 15px;
+      line-height: 1.6;
+    }
   }
 
-  .about-stats__list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px 0;
+  .about-stats {
+    margin-bottom: 72px;
+
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px 0;
+    }
+
+    &__value {
+      font-size: 26px;
+    }
   }
 
   .about-stats__item {
@@ -625,8 +663,26 @@ height: 298px;
     grid-template-columns: 1fr;
   }
 
+  .about-mission {
+    margin-bottom: 72px;
+
+    &__body p {
+      padding-left: 0;
+    }
+  }
+
+  .about-intro {
+    margin-bottom: 72px;
+  }
+
   .about-intro__media {
     order: -1;
+  }
+
+  .about-timeline {
+    &__title {
+      padding-bottom: 20px;
+    }
   }
 
   .about-timeline__list.list-view {
@@ -669,7 +725,7 @@ height: 298px;
     }
 
     &__grid {
-      gap: 48px;
+      gap: 36px;
     }
 
     &__card {
@@ -684,12 +740,33 @@ height: 298px;
     }
   }
 
+  .about-cta {
+    padding: 56px 20px 72px;
+    min-height: 0;
+
+    &__title {
+      font-size: 24px;
+      line-height: 1.35;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+    }
+  }
+
   .about-life__gallery {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+  .about-hero,
+  .about-stats,
+  .about-mission,
+  .about-intro {
+    margin-bottom: 88px;
+  }
+
   .about-stats__list {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -715,5 +792,13 @@ height: 298px;
 
   .about-life__gallery {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-founders {
+    &__card {
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+    }
   }
 }

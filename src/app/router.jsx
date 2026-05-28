@@ -14,6 +14,7 @@ import Signup from '../pages/public/Signup';
 import VerifyOtp from '../pages/public/VerifyOtp';
 import NotFound from '../pages/public/NotFound';
 import ComingSoon from '../pages/public/ComingSoon';
+import TermsOfUse from '../pages/public/TermsOfUse';
 import PatientDashboard from '../pages/patient/PatientDashboard';
 import MyAppointments from '../pages/patient/MyAppointments';
 import BookAppointment from '../pages/patient/BookAppointment';
@@ -62,7 +63,7 @@ export const router = createBrowserRouter([
       { path: 'pharmacy', element: <ComingSoon /> },
       { path: 'app', element: <ComingSoon /> },
       { path: 'privacy-policy', element: <ComingSoon /> },
-      { path: 'terms', element: <ComingSoon /> },
+      { path: 'terms', element: <TermsOfUse /> },
     ],
   },
   {

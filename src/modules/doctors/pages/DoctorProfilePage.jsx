@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ErrorState from '../../../components/common/ErrorState';
 import ReviewList from '../../../features/reviews/components/ReviewList';
-import DoctorsBreadcrumb from '../components/DoctorsBreadcrumb';
 import DoctorProfileHero from '../components/DoctorProfileHero';
 import DoctorBookingSidebar from '../components/DoctorBookingSidebar';
 import DoctorCard from '../components/DoctorCard';
@@ -51,8 +50,6 @@ export default function DoctorProfilePage() {
 
   return (
     <div className="doctor-profile">
-      <DoctorsBreadcrumb city={city} specialty={specialty} doctorName={doctor.name} />
-
       <div className="doctor-profile__layout">
         <div className="doctor-profile__main">
           <DoctorProfileHero doctor={doctor} />

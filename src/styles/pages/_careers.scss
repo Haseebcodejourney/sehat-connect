@@ -470,6 +470,10 @@ $careers-wrap: 1192px;
   }
 
   .careers-testimonials__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 24px 48px 48px;
     min-height: auto;
   }

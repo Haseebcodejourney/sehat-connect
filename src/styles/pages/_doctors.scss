@@ -42,6 +42,17 @@ $doctor-promo-green: #28a745;
   }
 }
 
+@media (max-width: 1199px) {
+  .doctors-breadcrumb,
+  .doctors-listing-header,
+  .doctor-city-links,
+  .doctors__container {
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+}
+
 .doctors-listing-header {
   max-width: 1192px;
   width: 100%;
@@ -109,8 +120,9 @@ $doctor-promo-green: #28a745;
     font-size: 15px;
     gap: 10px;
 
-    @include mobile-only {
-      grid-template-columns: 1fr;
+    @media (max-width: 991px) {
+      flex-direction: column;
+      gap: 16px;
     }
   }
 
@@ -123,10 +135,17 @@ $doctor-promo-green: #28a745;
     font-family: 'Poppins', sans-serif;
     padding: 24px;
     background: #f4f6f9;
-    height: 206px;
+    height: auto;
+    min-height: 206px;
     border-radius: 8px;
 
-    @include mobile-only {
+    @media (max-width: 991px) {
+      max-width: 100%;
+      min-height: 0;
+      padding: 16px;
+    }
+
+    @media (max-width: 640px) {
       display: none;
     }
 
@@ -134,6 +153,7 @@ $doctor-promo-green: #28a745;
 
   &__content {
     display: flex;
+    width: 100%;
     max-width: 786px;
 
     flex-direction: column;
@@ -157,7 +177,7 @@ $doctor-promo-green: #28a745;
 
   &__list {
     display: flex;
-    width: 786px;
+    width: 100%;
     flex-direction: column;
     gap: $spacing-lg;
   }
@@ -176,8 +196,9 @@ $doctor-promo-green: #28a745;
     gap: $spacing-lg;
     align-items: flex-start;
     max-width: 783px;
+    width: 100%;
 
-    @include mobile-only {
+    @media (max-width: 640px) {
       flex-direction: column;
       align-items: center;
     }
@@ -256,7 +277,7 @@ $doctor-promo-green: #28a745;
     border-top: 1px solid $border-light;
     border-bottom: 1px solid $border-light;
 
-    @include mobile-only {
+    @media (max-width: 640px) {
       grid-template-columns: 1fr;
     }
   }
@@ -299,8 +320,9 @@ $doctor-promo-green: #28a745;
     font-family: "Poppins", sans-serif;
     font-size: 15px;
 
-    @include mobile-only {
+    @media (max-width: 640px) {
       width: 100%;
+      max-width: 100%;
     }
   }
 
@@ -362,6 +384,37 @@ $doctor-promo-green: #28a745;
   }
 }
 
+@media (max-width: 640px) {
+  .doctor-card {
+    &__body {
+      width: 100%;
+    }
+
+    &__layout {
+      gap: 12px;
+    }
+
+    &__name {
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    &__specialty,
+    &__qualifications {
+      font-size: 13px;
+    }
+
+    &__stats {
+      grid-auto-flow: column;
+    }
+
+    &__clinic-row {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+}
+
 // Sidebar filters
 .doctor-filters {
   box-sizing: border-box;
@@ -412,7 +465,7 @@ $doctor-promo-green: #28a745;
   justify-content: space-between;
 
   &__search {
-    flex: -1;
+    flex: 1;
     width: 100%;
     max-width: 390px;
     display: flex;
@@ -464,6 +517,32 @@ $doctor-promo-green: #28a745;
       
       background: #f4f6f9;
       font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .doctor-toolbar {
+    gap: 12px;
+
+    &__search {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .doctor-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+
+    &__sort {
+      width: 100%;
+      justify-content: space-between;
+
+      .select {
+        max-width: 220px;
+      }
     }
   }
 }

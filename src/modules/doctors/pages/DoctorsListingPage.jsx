@@ -2,7 +2,6 @@ import { useCallback, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import PageLoader from '../../../components/common/PageLoader';
 import EmptyState from '../../../components/common/EmptyState';
-import DoctorsBreadcrumb from '../components/DoctorsBreadcrumb';
 import DoctorListingHeader from '../components/DoctorListingHeader';
 import DoctorSearchBar from '../components/DoctorSearchBar';
 import DoctorFilters from '../components/DoctorFilters';
@@ -77,8 +76,6 @@ export default function DoctorsListingPage() {
 
   return (
     <div className="doctors">
-      <DoctorsBreadcrumb city={routeCity} specialty={routeSpecialty} />
-
       <DoctorListingHeader />
 
       <div className="doctors__container">

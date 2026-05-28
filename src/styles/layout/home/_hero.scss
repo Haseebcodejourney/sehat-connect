@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  aspect-ratio: 1440 / 320;
+  aspect-ratio: auto;
   overflow: hidden;
   border-radius: $border-radius-lg;
   background: $bg-light;
@@ -9,7 +9,7 @@
   width: 100%;
   margin: 0 auto;
   margin-top: 36px;
-  height: 323px;
+  height: clamp(220px, 28vw, 323px);
   &__track {
     position: relative;
     height: 100%;
@@ -33,6 +33,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
   }
 
   &__arrow {
@@ -92,9 +93,16 @@
   }
 }
 
+@media (max-width: 1199px) {
+  .hero {
+    width: calc(100% - 30px);
+    margin-top: 24px;
+  }
+}
+
 @media (max-width: 900px) {
   .hero {
-    aspect-ratio: 16 / 5;
+    height: clamp(190px, 34vw, 280px);
 
     &__arrow {
       display: none;
@@ -104,7 +112,19 @@
 
 @media (max-width: 600px) {
   .hero {
-    aspect-ratio: 16 / 7;
-    border-radius: 0;
+    height: clamp(170px, 46vw, 230px);
+    width: calc(100% - 30px);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    margin-top: 16px;
+
+    &__dots {
+      bottom: 10px;
+    }
+
+    &__image {
+      object-position: left center;
+    }
   }
 }
