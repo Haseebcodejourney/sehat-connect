@@ -109,12 +109,19 @@
 
     overflow: hidden;
 
-    margin: 0 54px;
+    margin: 0;
 
     border: 1px solid #3f7fe0;
     border-radius: 6px;
 
     background: #fff;
+  }
+
+  &__search-area {
+    width: 100%;
+    max-width: 660px;
+    position: relative;
+    margin: 0 54px;
   }
 
   /* LOCATION */
@@ -186,6 +193,98 @@
     align-items: center;
 
     background: #fff;
+  }
+
+  &__search-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);
+    z-index: 70;
+    display: none;
+    padding: 12px;
+    border: 1px solid #d8e3f5;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  &__search-panel--open {
+    display: block;
+  }
+
+  &__search-panel-section + &__search-panel-section {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #eef2f7;
+  }
+
+  &__search-panel-title {
+    margin: 0 0 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #3d6093;
+    text-transform: uppercase;
+  }
+
+  &__search-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__search-chip {
+    border: 1px solid #d0d9ea;
+    border-radius: 999px;
+    background: #fff;
+    color: #1e4275;
+    font-size: 12px;
+    padding: 6px 10px;
+    cursor: pointer;
+  }
+
+  &__search-chip--active {
+    border-color: #1e4275;
+    background: #eef4ff;
+  }
+
+  &__search-results {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      background: #f8fbff;
+      border-radius: 8px;
+      text-align: left;
+      padding: 8px 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      span {
+        font-size: 13px;
+        color: #1f2937;
+      }
+
+      small {
+        font-size: 11px;
+        color: #6b7280;
+      }
+    }
+  }
+
+  &__search-empty {
+    margin: 0;
+    font-size: 12px;
+    color: #6b7280;
   }
 
   &__main-search-input {
@@ -450,6 +549,12 @@
       border-radius: 8px;
     }
 
+    &__search-area {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+    }
+
     &__location-wrapper {
       display: none;
     }
@@ -460,10 +565,10 @@
 
     &__main-search-input {
       padding: 12px 14px 12px 42px;
-      font-size: 18px;
+      font-size: 16px;
 
       &::placeholder {
-        font-size: 18px;
+        font-size: 16px;
         color: #64748b;
       }
     }

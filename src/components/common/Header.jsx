@@ -1,17 +1,99 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useId, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useAuth } from '../../features/auth/authContext';
 import SehatLogoMark from './SehatLogoMark';
+
+const CYPRUS_CITIES = [
+  'Nicosia',
+  'Limassol',
+  'Larnaca',
+  'Paphos',
+  'Famagusta',
+  'Kyrenia',
+  'Protaras',
+  'Paralimni',
+  'Ayia Napa',
+  'Polis',
+];
+
+const MOCK_SEARCH_DATA = [
+  { id: 'd1', type: 'doctor', title: 'Dr. Andreas Petrou', subtitle: 'Cardiologist', city: 'Nicosia' },
+  { id: 'd2', type: 'doctor', title: 'Dr. Elena Nicolaou', subtitle: 'Dermatologist', city: 'Limassol' },
+  { id: 'd3', type: 'doctor', title: 'Dr. Maria Ioannou', subtitle: 'General Physician', city: 'Larnaca' },
+  { id: 'm1', type: 'medicine', title: 'Paracetamol 500mg', subtitle: 'Pain and fever relief', city: 'Nicosia' },
+  { id: 'm2', type: 'medicine', title: 'Augmentin 625mg', subtitle: 'Antibiotic', city: 'Paphos' },
+  { id: 'm3', type: 'medicine', title: 'Panadol Cold & Flu', subtitle: 'Cold symptom relief', city: 'Limassol' },
+  { id: 'l1', type: 'lab', title: 'Complete Blood Count (CBC)', subtitle: 'Lab test', city: 'Larnaca' },
+  { id: 'l2', type: 'lab', title: 'Liver Function Test (LFT)', subtitle: 'Lab test', city: 'Nicosia' },
+  { id: 'l3', type: 'lab', title: 'HbA1c', subtitle: 'Diabetes monitoring', city: 'Famagusta' },
+  { id: 'p1', type: 'pharmacy', title: 'Healthwire Pharmacy - Nicosia', subtitle: 'Order medicines online', city: 'Nicosia' },
+  { id: 'p2', type: 'pharmacy', title: 'Healthwire Pharmacy - Limassol', subtitle: 'Fast home delivery', city: 'Limassol' },
+];
+
+const TYPE_LABELS = {
+  doctor: 'Doctor',
+  medicine: 'Medicine',
+  lab: 'Lab Test',
+  pharmacy: 'Pharmacy',
+};
 
 export default function Header() {
   const navigate = useNavigate();
   const blogsClipId = useId();
   const { user, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [selectedCity, setSelectedCity] = useState('');
+  const [locationQuery, setLocationQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showCityPanel, setShowCityPanel] = useState(false);
+  const [showMainSearchPanel, setShowMainSearchPanel] = useState(false);
+  const searchAreaRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (!searchAreaRef.current?.contains(event.target)) {
+        setShowCityPanel(false);
+        setShowMainSearchPanel(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
 
   const handleLogout = async () => {
     await logout();
     navigate('/login');
+  };
+
+  const filteredCities = useMemo(() => {
+    const cityKeyword = locationQuery.trim().toLowerCase();
+    if (!cityKeyword) return CYPRUS_CITIES.slice(0, 6);
+    return CYPRUS_CITIES.filter((city) => city.toLowerCase().includes(cityKeyword)).slice(0, 6);
+  }, [locationQuery]);
+
+  const filteredSearchResults = useMemo(() => {
+    const keyword = searchQuery.trim().toLowerCase();
+    return MOCK_SEARCH_DATA.filter((item) => {
+      const matchesKeyword =
+        keyword.length === 0 ||
+        item.title.toLowerCase().includes(keyword) ||
+        item.subtitle.toLowerCase().includes(keyword);
+      return matchesKeyword;
+    }).slice(0, 8);
+  }, [searchQuery]);
+
+  const handleSelectCity = (city) => {
+    setSelectedCity(city);
+    setLocationQuery(city);
+    setShowCityPanel(false);
+  };
+
+  const handleResultClick = (item) => {
+    if (item.type === 'doctor') navigate('/doctors');
+    if (item.type === 'medicine') navigate('/medicines');
+    if (item.type === 'lab') navigate('/lab-tests');
+    if (item.type === 'pharmacy') navigate('/pharmacy/cart');
+    setShowMainSearchPanel(false);
   };
 
   return (
@@ -24,65 +106,133 @@ export default function Header() {
               <span className="header__wordmark">Sehat Connect</span>
             </Link>
 
-            <div className="header__search-wrapper">
-              <div className="header__location-wrapper">
-                <span className="header__location-dot" aria-hidden="true">
+            <div className="header__search-area" ref={searchAreaRef}>
+              <div className="header__search-wrapper">
+                <div className="header__location-wrapper">
+                  <span className="header__location-dot" aria-hidden="true">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="21"
+                      viewBox="0 0 20 21"
+                      fill="none"
+                    >
+                      <path
+                        d="M9.99935 13.8346C11.8403 13.8346 13.3327 12.3423 13.3327 10.5013C13.3327 8.66035 11.8403 7.16797 9.99935 7.16797C8.1584 7.16797 6.66602 8.66035 6.66602 10.5013C6.66602 12.3423 8.1584 13.8346 9.99935 13.8346Z"
+                        fill="#255FB8"
+                      />
+                      <path
+                        d="M10.8327 3.89214V2.16797H9.16602V3.89214C7.6996 4.07937 6.33682 4.74811 5.29149 5.79344C4.24616 6.83878 3.57742 8.20155 3.39018 9.66797H1.66602V11.3346H3.39018C3.57714 12.8012 4.2458 14.1641 5.29118 15.2095C6.33656 16.2549 7.69949 16.9235 9.16602 17.1105V18.8346H10.8327V17.1105C12.2993 16.9236 13.6623 16.255 14.7077 15.2096C15.7531 14.1642 16.4217 12.8012 16.6085 11.3346H18.3327V9.66797H16.6085C16.4216 8.20144 15.7529 6.83852 14.7075 5.79313C13.6621 4.74775 12.2992 4.0791 10.8327 3.89214ZM9.99935 15.5013C7.24185 15.5013 4.99935 13.2588 4.99935 10.5013C4.99935 7.7438 7.24185 5.5013 9.99935 5.5013C12.7569 5.5013 14.9994 7.7438 14.9994 10.5013C14.9994 13.2588 12.7569 15.5013 9.99935 15.5013Z"
+                        fill="#255FB8"
+                      />
+                    </svg>
+                  </span>
+                  <div className="header__location-input-wrapper">
+                    <input
+                      type="text"
+                      placeholder="City or area"
+                      className="header__location-input"
+                      aria-label="Location"
+                      value={locationQuery}
+                      onFocus={() => {
+                        setShowCityPanel(true);
+                        setShowMainSearchPanel(false);
+                      }}
+                      onChange={(event) => {
+                        setLocationQuery(event.target.value);
+                        setSelectedCity('');
+                        setShowCityPanel(true);
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div className="header__main-search-wrapper">
+                  <input
+                    type="search"
+                    placeholder="Search doctors, medicines, lab tests..."
+                    className="header__main-search-input"
+                    aria-label="Search"
+                    value={searchQuery}
+                    onFocus={() => {
+                      setShowMainSearchPanel(true);
+                      setShowCityPanel(false);
+                    }}
+                    onChange={(event) => {
+                      setSearchQuery(event.target.value);
+                      setShowMainSearchPanel(true);
+                    }}
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  className="header__search-button"
+                  aria-label="Search"
+                  onClick={() => setShowMainSearchPanel((prev) => !prev)}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="21"
-                    viewBox="0 0 20 21"
+                    className="buttons"
+                    width="52"
+                    height="45"
+                    viewBox="0 0 52 45"
                     fill="none"
+                    aria-hidden="true"
                   >
                     <path
-                      d="M9.99935 13.8346C11.8403 13.8346 13.3327 12.3423 13.3327 10.5013C13.3327 8.66035 11.8403 7.16797 9.99935 7.16797C8.1584 7.16797 6.66602 8.66035 6.66602 10.5013C6.66602 12.3423 8.1584 13.8346 9.99935 13.8346Z"
-                      fill="#255FB8"
+                      d="M0 0H46C49.3137 0 52 2.68629 52 6V39C52 42.3137 49.3137 45 46 45H0V0Z"
+                      fill="#3F7FE0"
                     />
                     <path
-                      d="M10.8327 3.89214V2.16797H9.16602V3.89214C7.6996 4.07937 6.33682 4.74811 5.29149 5.79344C4.24616 6.83878 3.57742 8.20155 3.39018 9.66797H1.66602V11.3346H3.39018C3.57714 12.8012 4.2458 14.1641 5.29118 15.2095C6.33656 16.2549 7.69949 16.9235 9.16602 17.1105V18.8346H10.8327V17.1105C12.2993 16.9236 13.6623 16.255 14.7077 15.2096C15.7531 14.1642 16.4217 12.8012 16.6085 11.3346H18.3327V9.66797H16.6085C16.4216 8.20144 15.7529 6.83852 14.7075 5.79313C13.6621 4.74775 12.2992 4.0791 10.8327 3.89214ZM9.99935 15.5013C7.24185 15.5013 4.99935 13.2588 4.99935 10.5013C4.99935 7.7438 7.24185 5.5013 9.99935 5.5013C12.7569 5.5013 14.9994 7.7438 14.9994 10.5013C14.9994 13.2588 12.7569 15.5013 9.99935 15.5013Z"
-                      fill="#255FB8"
+                      d="M35.5123 29.6585L31.6439 25.79C32.8217 24.0268 33.3017 21.8885 32.9903 19.7911C32.6789 17.6936 31.5985 15.787 29.9592 14.442C28.3199 13.097 26.2389 12.4099 24.121 12.5143C22.0031 12.6186 19.9998 13.5071 18.5007 15.0067C17.0016 16.5064 16.1138 18.51 16.0102 20.6279C15.9066 22.7458 16.5944 24.8266 17.94 26.4654C19.2855 28.1042 21.1926 29.184 23.2902 29.4946C25.3877 29.8053 27.5258 29.3246 29.2886 28.1461L33.1571 32.0137C33.4721 32.321 33.8947 32.493 34.3347 32.493C34.7747 32.493 35.1973 32.321 35.5123 32.0137C35.8246 31.7014 36 31.2778 36 30.8361C36 30.3944 35.8246 29.9708 35.5123 29.6585ZM24.549 15.0125C25.7432 15.0125 26.9106 15.3666 27.9036 16.03C28.8965 16.6935 29.6704 17.6365 30.1274 18.7398C30.5844 19.8431 30.704 21.0571 30.471 22.2284C30.238 23.3996 29.6629 24.4755 28.8185 25.3199C27.9741 26.1643 26.8982 26.7394 25.727 26.9724C24.5557 27.2054 23.3417 27.0858 22.2384 26.6288C21.1351 26.1718 20.1921 25.3979 19.5286 24.4049C18.8652 23.412 18.5111 22.2446 18.5111 21.0504C18.5128 19.4496 19.1495 17.9148 20.2815 16.7829C21.4134 15.6509 22.9482 15.0142 24.549 15.0125Z"
+                      fill="white"
                     />
                   </svg>
-                </span>
-                <div className="header__location-input-wrapper">
-                  <input
-                    type="text"
-                    placeholder="City or area"
-                    className="header__location-input"
-                    aria-label="Location"
-                  />
+                </button>
+              </div>
+
+              <div className={`header__search-panel ${showCityPanel ? 'header__search-panel--open' : ''}`}>
+                <div className="header__search-panel-section">
+                  <p className="header__search-panel-title">Cyprus cities</p>
+                  <div className="header__search-chip-list">
+                    {filteredCities.map((city) => (
+                      <button
+                        key={city}
+                        type="button"
+                        className={`header__search-chip ${selectedCity === city ? 'header__search-chip--active' : ''}`}
+                        onClick={() => handleSelectCity(city)}
+                      >
+                        {city}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div className="header__main-search-wrapper">
-                <input
-                  type="search"
-                  placeholder="Search for medicines and lab tests ..."
-                  className="header__main-search-input"
-                  aria-label="Search"
-                />
+              <div className={`header__search-panel ${showMainSearchPanel ? 'header__search-panel--open' : ''}`}>
+                <div className="header__search-panel-section">
+                  <p className="header__search-panel-title">Search results</p>
+                  {filteredSearchResults.length > 0 ? (
+                    <ul className="header__search-results">
+                      {filteredSearchResults.map((item) => (
+                        <li key={item.id}>
+                          <button type="button" onClick={() => handleResultClick(item)}>
+                            <span>{item.title}</span>
+                            <small>
+                              {TYPE_LABELS[item.type]} • {item.city}
+                            </small>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="header__search-empty">
+                      No mock results found. Try Doctor, Medicine, Lab test or Pharmacy.
+                    </p>
+                  )}
+                </div>
               </div>
-
-              <button type="button" className="header__search-button" aria-label="Search">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="buttons"
-                  width="52"
-                  height="45"
-                  viewBox="0 0 52 45"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M0 0H46C49.3137 0 52 2.68629 52 6V39C52 42.3137 49.3137 45 46 45H0V0Z"
-                    fill="#3F7FE0"
-                  />
-                  <path
-                    d="M35.5123 29.6585L31.6439 25.79C32.8217 24.0268 33.3017 21.8885 32.9903 19.7911C32.6789 17.6936 31.5985 15.787 29.9592 14.442C28.3199 13.097 26.2389 12.4099 24.121 12.5143C22.0031 12.6186 19.9998 13.5071 18.5007 15.0067C17.0016 16.5064 16.1138 18.51 16.0102 20.6279C15.9066 22.7458 16.5944 24.8266 17.94 26.4654C19.2855 28.1042 21.1926 29.184 23.2902 29.4946C25.3877 29.8053 27.5258 29.3246 29.2886 28.1461L33.1571 32.0137C33.4721 32.321 33.8947 32.493 34.3347 32.493C34.7747 32.493 35.1973 32.321 35.5123 32.0137C35.8246 31.7014 36 31.2778 36 30.8361C36 30.3944 35.8246 29.9708 35.5123 29.6585ZM24.549 15.0125C25.7432 15.0125 26.9106 15.3666 27.9036 16.03C28.8965 16.6935 29.6704 17.6365 30.1274 18.7398C30.5844 19.8431 30.704 21.0571 30.471 22.2284C30.238 23.3996 29.6629 24.4755 28.8185 25.3199C27.9741 26.1643 26.8982 26.7394 25.727 26.9724C24.5557 27.2054 23.3417 27.0858 22.2384 26.6288C21.1351 26.1718 20.1921 25.3979 19.5286 24.4049C18.8652 23.412 18.5111 22.2446 18.5111 21.0504C18.5128 19.4496 19.1495 17.9148 20.2815 16.7829C21.4134 15.6509 22.9482 15.0142 24.549 15.0125Z"
-                    fill="white"
-                  />
-                </svg>
-              </button>
             </div>
           </div>
 
