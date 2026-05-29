@@ -33,7 +33,7 @@ export default function NewsArticles() {
 
       <span className="news-articles__a_wrapper">
         <a className="news-articles__a" href="/">
-          View all health articles
+          View all 
         </a>
       </span>
     </section>

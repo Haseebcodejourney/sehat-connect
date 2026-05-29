@@ -576,28 +576,14 @@
     &__main-search-wrapper {
       position: relative;
 
-      &::before {
-        content: '';
+      svg {
         position: absolute;
         left: 14px;
         top: 50%;
+        transform: translateY(-50%);
         width: 20px;
         height: 20px;
-        transform: translateY(-50%);
-        border: 2px solid #1e4275;
-        border-radius: 50%;
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        left: 30px;
-        top: calc(50% + 6px);
-        width: 9px;
-        height: 2px;
-        transform: rotate(45deg);
-        background: #1e4275;
-        border-radius: 2px;
+        color: #64748b;
       }
     }
 

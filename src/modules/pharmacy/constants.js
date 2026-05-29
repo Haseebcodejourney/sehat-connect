@@ -55,18 +55,18 @@ export const INVESTMENT_RANGES = [
 
 /** City cards in “Our presence” — image filename matches CDN export (e.g. Sarrgodha typo preserved) */
 export const PRESENCE_CITIES = [
-  { name: 'Lahore', slug: 'lahore', image: `${FRANCHISE_ASSETS}/Lahore.webp` },
-  { name: 'Sargodha', slug: 'sargodha', image: `${FRANCHISE_ASSETS}/Sarrgodha.webp` },
-  { name: 'Islamabad', slug: 'islamabad', image: `${FRANCHISE_ASSETS}/Islamabad.webp` },
-  { name: 'Multan', slug: 'multan', image: `${FRANCHISE_ASSETS}/Multan.webp` },
-  { name: 'Bahawalpur', slug: 'bahawalpur', image: `${FRANCHISE_ASSETS}/Bahawalpur.webp` },
-  { name: 'Lodhran', slug: 'lodhran', image: `${FRANCHISE_ASSETS}/Lodhran.webp` },
-  { name: 'Sialkot', slug: 'sialkot', image: `${FRANCHISE_ASSETS}/Sialkot.webp` },
-  { name: 'Nankana Sahib', slug: 'nankana-sahib', image: `${FRANCHISE_ASSETS}/NankanaSahib.webp` },
-  { name: 'Faisalabad', slug: 'faisalabad', image: `${FRANCHISE_ASSETS}/Faisalabad.webp` },
-  { name: 'Gujrat', slug: 'gujrat', image: `${FRANCHISE_ASSETS}/Gujrat.webp` },
-  { name: 'Peshawar', slug: 'peshawar', image: `${FRANCHISE_ASSETS}/Peshawar.webp` },
-  { name: 'Gujranwala', slug: 'gujranwala', image: `${FRANCHISE_ASSETS}/Gujranwala.webp` },
+  { name: '', slug: 'lahore', image: `${FRANCHISE_ASSETS}/Lahore.webp` },
+  { name: '', slug: 'sargodha', image: `${FRANCHISE_ASSETS}/Sarrgodha.webp` },
+  { name: '', slug: 'islamabad', image: `${FRANCHISE_ASSETS}/Islamabad.webp` },
+  { name: '', slug: 'multan', image: `${FRANCHISE_ASSETS}/Multan.webp` },
+  { name: '', slug: 'bahawalpur', image: `${FRANCHISE_ASSETS}/Bahawalpur.webp` },
+  { name: '', slug: 'lodhran', image: `${FRANCHISE_ASSETS}/Lodhran.webp` },
+  { name: '', slug: 'sialkot', image: `${FRANCHISE_ASSETS}/Sialkot.webp` },
+  { name: '', slug: 'nankana-sahib', image: `${FRANCHISE_ASSETS}/NankanaSahib.webp` },
+  { name: '', slug: 'faisalabad', image: `${FRANCHISE_ASSETS}/Faisalabad.webp` },
+  { name: '', slug: 'gujrat', image: `${FRANCHISE_ASSETS}/Gujrat.webp` },
+  { name: '', slug: 'peshawar', image: `${FRANCHISE_ASSETS}/Peshawar.webp` },
+  { name: '', slug: 'gujranwala', image: `${FRANCHISE_ASSETS}/Gujranwala.webp` },
 ];
 
 export const GALLERY_ITEMS = [

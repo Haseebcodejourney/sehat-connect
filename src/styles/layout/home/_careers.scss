@@ -9,6 +9,8 @@
     line-height: 32px;
     color: #3d6093;
     padding-bottom: 8px;
+    text-align: center;
+    display: block;
   }
 
   &__title {
@@ -17,6 +19,8 @@
     line-height: 42px;
     text-transform: capitalize;
     padding-bottom: 32px;
+    text-align: center;
+    display: block;
   }
 
   &__p {}
@@ -47,10 +51,13 @@
     letter-spacing: initial;
     text-transform: initial;
     padding-bottom: 24px;
+    display: block;
+    text-align: center;
   }
 
   &__link_wrapper {
-
+  display: block;
+    text-align: center;
   }
 
   &__link {
@@ -83,7 +90,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { 
   .careers {
     margin-top: 72px;
 
@@ -95,6 +102,11 @@
 
     &__figure {
       margin-bottom: 16px;
+      svg{
+        path{
+          fill: none ;
+        }
+      }
     }
   }
 }
