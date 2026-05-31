@@ -509,11 +509,12 @@ $doctor-promo-green: #28a745;
     align-items: center;
     gap: $spacing-sm;
     flex-shrink: 0;
-
+    white-space: n;
     label {
       font-size: 12px;
       line-height: 18px;
-      margin: 0 0 8px;
+      white-space: nowrap;
+      
     }
 
     .select {

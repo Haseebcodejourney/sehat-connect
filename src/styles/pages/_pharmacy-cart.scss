@@ -10,7 +10,7 @@ $pharmacy-red: #dc2626;
 }
 
 .pharmacy-cart {
-  max-width: 1672px;
+  max-width: 1192px;
   margin: 0 auto;
   padding: 8px 20px 48px;
   box-sizing: border-box;
@@ -420,7 +420,7 @@ $pharmacy-red: #dc2626;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100px;
+    height: 100%;
     margin-bottom: 10px;
      background: #f4f6f9;
      padding: 24px;
@@ -443,7 +443,11 @@ $pharmacy-red: #dc2626;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    
+    display: block;
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     
   }
 
@@ -682,7 +686,7 @@ $pharmacy-red: #dc2626;
   }
 
   .pharmacy-frequent__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -723,7 +727,7 @@ $pharmacy-red: #dc2626;
 
   .pharmacy-frequent {
     &__grid {
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 }
