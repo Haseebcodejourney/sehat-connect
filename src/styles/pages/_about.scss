@@ -126,7 +126,7 @@ $about-wrap: 1192px;
     display: block;
     margin-bottom: 6px;
     font-size: clamp(26px, 3.3vw, 32px);
-    font-weight: 700;
+    font-weight: 500;
     color: $about-navy;
     line-height: 1.2;
   }
@@ -510,14 +510,15 @@ $about-wrap: 1192px;
     font-size: 28px;
     font-weight: 700;
     line-height: 1.35;
-    color: $about-navy;
+    color:#2f3135;
     text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
   }
 
   &__subtitle {
     margin: 0 0 8px;
     font-size: 18px;
-    color: $about-blue;
+    color: #2f3135;
   }
 
   &__join {
